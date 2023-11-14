@@ -1,3 +1,4 @@
+% !TeX document-id = {20a758e9-3325-489d-88bb-4096b1ed6a15}
 % !TeX spellcheck = en-US
 % !TeX encoding = utf8
 % !TeX program = pdflatex
@@ -33,17 +34,17 @@
 
 
 \usepackage[
-  title={This is a Very Long Title it is Filling Two Lines}, % Do not forget to capitalize your title correctly, you may use the following page to help you: https://capitalizemytitle.com/
-  author={Sigmund Freud},
-  orcid=0000-0000-0000-0000, % get your own ORCID via https://orcid.org/
-  email={sigmund.freud@ifi.lmu.de},
-  type=bachelor,
-  institute={Institut für Informatik}, % or other institute names - or just a plain string using {Demo\\Demo...}
-  course={Medieninformatik},
-  examiner={Prof.\ Dr.\ Uwe Fessor},
+  title={Trustworthiness of Synthetic Media in the Context of a Newscast}, % Do not forget to capitalize your title correctly, you may use the following page to help you: https://capitalizemytitle.com/
+  author={Danilo Pejakovic},
+  %orcid=0000-0000-0000-0000, % get your own ORCID via https://orcid.org/
+  email={danilo.pejakovic@campus.lmu.de},
+  type={Masterthesis},
+  institute={Institute for Informatics}, % or other institute names - or just a plain string using {Demo\\Demo...}
+  course={Mediainformatics},
+  examiner={Prof.\ Dr.\ Sylvia Rothe},
   supervisor={Dipl.-Inf.\ Roman Tiker,\\Dipl.-Inf.\ Laura Stern,\\Otto Normalverbraucher,\ M.Sc.},
-  startdate={July 5, 2018},
-  enddate={January 5, 2019},
+  startdate={October 4, 2023},
+  enddate={April 14, 2024},
   % Falls keine Lizenz gewünscht wird bitte auf "none" setzen
   % Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
   % vervielfältigen und Kopien zu machen. Dabei muss aber immer der Autor
@@ -55,9 +56,22 @@
 
 \input{acronyms}
 
+\geometry{
+  left=2.5cm,
+  right=3.5cm,
+  top=2cm,
+  bottom=2cm
+}
+
 \makeindex
 
 \begin{document}
+
+\frontmatter
+\pagenumbering{roman} % Seitennummerierung mit römischen Ziffern für den Vorspann
+\setcounter{tocdepth}{3} % bis zur dritten Gliederungsebene Anzeigen
+
+
 
 %tex4ht-Konvertierung verschönern
 \iftex4ht
@@ -79,7 +93,7 @@
 %\VerbatimFootnotes %verbatim text in Fußnoten erlauben. Geht normalerweise nicht.
 
 \input{commands}
-\pagenumbering{arabic}
+%\pagenumbering{arabic}
 \Coverpage
 \Copyright
 %Eigener Seitenstil fuer die Kurzfassung und das Inhaltsverzeichnis
@@ -92,7 +106,7 @@
 
 %Kurzfassung / abstract
 %auch im Stil vom Inhaltsverzeichnis
-\section*{Kurzfassung}
+\section*{Kurzfassung Danilo edited}
 
 \todo{Short summary of the thesis. Here, the following questions should be answered:}
 \todo{What is the specific problem addressed?}
@@ -149,6 +163,7 @@
 \listoffigures
 \listoftables
 
+
 % Control List of Listings
 \let\iflistings\iffalse
 %Wird nur bei Verwendung von der lstlisting-Umgebung mit dem "caption"-Parameter benoetigt
@@ -176,7 +191,7 @@
 \fi
 
 % Control Glossary
-\let\ifglossary\iffalse
+\let\ifglossary\iftrue
 \ifglossary
   \printnoidxglossaries
 \fi
@@ -203,6 +218,8 @@
 
 
 %% vv  scroll down for content  vv %%
+
+\mainmatter
 
 
 
@@ -269,7 +286,35 @@ LaTeX hints are provided in \autoref{chap:latexhints}.
 
 \chapter{Related Work}
 
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+
+Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.   
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.   
+
+At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+
+\section{Section within Chapter 1}
+\subsection{Subsection within section withing Chapter 2}
+
 Describe relevant scientific literature related to your work.
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+
+\chapter{This Chapter should be left}
+
+Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.   
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.   
+
+At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
 
 \chapter{Study Design}
 
