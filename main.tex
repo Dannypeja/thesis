@@ -219,56 +219,71 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\chapter{Introduction}
+\chapter{Introduction 3 Seiten}
 \label{sec:introduction}
 
 
 %\todo{P1.1. What is the large scope of the problem?}
 \begin{quotation}
-"Sophiscitcated AI systems are increasingly everywhere. [...] However, 2023 will likely prove to be a particularly critical moment in the history of AI" (\citet{arguedasAutomatingDemocracyGenerative2023}).
+"Sophiscitcated AI systems are increasingly everywhere. [...] However, 2023 will likely prove to be a particularly critical moment in the history of AI" \citet{arguedasAutomatingDemocracyGenerative2023}.
 \end{quotation}
-This paper and corresponding study are being conducted in the very year of 2023. As the previously quoted authors state, we might be experiencing a tippping point in AI development, as more and more tools become available to a broader user base. These developments are tightly linked to the rise of OpenAi's ChatGPT and other, widely adopted technologies like \gls{sd} based \gls{t2i} generators. These developments are currently summarized as \gls{genai}: "Generative AI is an umbrella term used for AI systems that can generate new forms of data, often by applying machine learning to large quantities of training data" (\citet{arguedasAutomatingDemocracyGenerative2023}). One could extend this definition with the following: Besides just generating new forms of data, \gls{genai} can be used to augment, reduce, manipulate and mix real data with the generated data in such a form, that it is impossible to distinguish between real and syntheticly generated (fake), or anything in between on that spectrum.
-
-\todo{P1.2. What is the specific problem?}
-
-In the context of media production and distribution the developments of \gls{genai} open up an important discussion about trust and credibility. For the sake of completeness, these discussions are not entirely new: So called DeepFakes (blend word of Deep learning and Fake News) have been around quite some time. First research papers like the Face2Face approach by \citet{thiesFace2FaceRealtimeFace2020} date back to the year 2016. 
-
-
-Surely AI generated Content now is very much in the focus of public attention.
-
-
-
-Case, Sievers fake. 
-Telegram. 
-Artificial voices on Youtube.
-Radio Station
-
-
-
-
+This paper and corresponding study are being conducted in the very year of 2023. As the previously quoted authors state, we might be experiencing a tippping point in AI development, as more and more tools become available to a broader user base. These developments are tightly linked to the rise of OpenAi's ChatGPT and other, widely adopted technologies like \gls{sd} based \gls{t2i} generators. These developments are currently summarized as \gls{genai}: "Generative AI is an umbrella term used for AI systems that can generate new forms of data, often by applying machine learning to large quantities of training data" \citet{arguedasAutomatingDemocracyGenerative2023}. One could extend this definition with the following: Besides just generating new forms of data, \gls{genai} can be used to augment, reduce, manipulate and mix real data with the generated data in such a form, that it is impossible to distinguish between real and syntheticly generated (fake), or anything in between on that spectrum.
+%\todo{P1.2. What is the specific problem?}
+In the context of media production and and media distribution the developments of \gls{genai} open up an important discussion about trust and credibility. Legitimate media, has always been using synthetic content for demonstration or illustration purposes. One can just think of animated explainatory videos, or other infographics. The difference is, that in those illustrations it was quite clear, that these images were "not real". Therefore the question for legitimate media outlets remains, of how synthetic content will be recieved among the audience. Additionally, just the term "A.I." sparks criticism. These effects on audience, their mitigation, and at the same time, education of the broader public about technologic advancements are very interesting topics for media producers and outlets. \\
 % Second Paragraph
 % CORE MESSAGE OF THIS PARAGRAPH:
-\todo{P2.1. The second paragraph should be about what have others been doing}
-\todo{P2.2. Why is the problem important? Why was this work carried out?}
+%\todo{P2.1. The second paragraph should be about what have others been doing}
+For the sake of completeness, these discussions are not entirely new: So called DeepFakes (blend word of Deep learning and Fake News) have been around quite some time. First research papers like the Face2Face approach by \citet{thiesFace2FaceRealtimeFace2020} date back to the year 2016 or earlier with Facebook's 2014 DeepFace paper \cite{taigmanDeepFaceClosingGap2014}. At latest in 2017, DeepFake pornography, often in the form of revenge porn, hit the broader public \cite{coleAIAssistedFakePorn2017}. Quickly afterwards discussions arose about the implications of these technologies in regards to the spread of fake news. Despite the proliferation of payed and \gls{oss} for easy to use faceswaps, like \gls{dfl} (2019) or the InsightFace Inswapper (2023), there are only few official cases, where this technology has been used for a signular desinformation with large concequences. However, it goes without saying, that the effect in social networks, under the radar of public control, might be much bigger. But it's important to add that these cases might not even need manipulated video to spraed misinformation. Text does also suffice, as could be seen during the Covid19 pandemic and often mentioned social media channels \cite{naeemExplorationHowFake2021}.  
+%\todo{P2.2. Why is the problem important? Why was this work carried out?}
+The possibilities in 2023 have three key difference in comparison to the previously described, early faceswap deepfakes: 
+\begin{enumerate}
+  \item Excellent A.I. powered voices cloning tools with easy access
+  \item Text to image generation
+  \item GPT-enabled Chat Applications
+\end{enumerate}
+The latter is less relevant to audio-visual content, but fuels the public oppinion about A.I. tools. The first two have drastically improved the quality and possiblities of how and what kind of synthetic media can be created. In the recent months there have been several usecases of these very specific examples in increasing frequency: In 2022 a DeepFake of President Zelensky surfaced (Figure \ref{fig:zelensky-deepfake}). 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./graphics/images/Zelensky.jpg}
+  \caption{left: DeepFake of President Zelensky; right: real image of Zelensky \cite{universityofvirginiaZelenskyySurrenderHoax2022}}
+  \label{fig:zelensky-deepfake}
+\end{figure}
+The examples of fake voices and faceswaps on social media in 2023 are innumerable and can be traced back to the availability of online survices such as Resemble.ai or Elevenlabs. This also lead to several neferious usecases. To name some examples in German context: In September 2023 a primetime news host was recreated with a fake voice in order to advertise dubious financial products (figure: \ref{fig:sievers-fake}). By using Elevenlabs' checking tool, one can quickly tell, that the voice was very likely created with the software (figure: \ref{fig:sievers-11labs}). 
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{./graphics/images/sievers.png}
+    \caption{fake of Christian Sievers \cite{zdfDeepfakeMitZDFModerator}}
+    \label{fig:sievers-fake}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{./graphics/images/sievers-11labs.png}
+    \caption{Elevenlabs audio analysis \cite{elevenlabsAISpeechClassifier}}
+    \label{fig:sievers-11labs}
+  \end{subfigure}
+  \caption{Christian Sievers case}
+\end{figure}
 
+End of November 2023 a two Videos of German chancelor Olaf Scholz were released, where his voice and lips were faked. One was part of a commercial campaign for german yellow press newspaper \cite{dwdl.deSpringerTrommeltMit}. The second is part of an art project \cite{zdfKunstinstallationDeepfakeScholzVerkuendet}. Example images for these cases are not included, as they would be just other examples for the aforementioned. It is just very clear, that the frequency of appearance is increasing, both in the case of legitimate and illegitimate content.
+An environment where both categories of content coexist is very challenging in regards of trust. For legitimate newsmakers the questions arises how it can combat desinformation and at the same time use the advancements of \gls{genai} to improve production workflows. This is a dilemma that is yet to be solved. \\
+The effects of these very recent technical capabilites have not yet been studied, which is why this work attempts in doing so. In a time where the very existance of \gls{genai} raises trust issues on every kind of content, specifically of those synthetically generated any findings about synthetic media reception might be helpful in better adressing all the named issues.\\
 % Third Paragraph
 % CORE MESSAGE OF THIS PARAGRAPH:
-\todo{P3.1. What have you done?}
-\todo{P3.2. What is new about your work?}
-
+%\todo{P3.1. What have you done?}
+This paper tried to explore the effect on potential recepients of (partially) synthetically created or A.I. enhanced media in the specific context of a german public broadcast television news show. Before conducting a study on how recipients perceive this sort of content this work also worked on specific workflows for media producers of how to produce the content.
+%\todo{P3.2. What is new about your work?}
+The tested videos were carefully designed by taking into account an extensive toolchain of available open source technology, making it (theoretically) possible for every media producer to recreate similar results implement (semi)automatic workflows for their media production and conduct further experiments. However the specific code implementation won't be directly shared as the risk of misuse of this project should be reduced. \\
 % Fourth paragraph
 % CORE MESSAGE OF THIS PARAGRAPH:
 \todo{P4.1. What did you find out? What are the concrete results?}
 \todo{P4.2. What are the implications? What does this mean for the bigger picture?}
 
-LaTeX hints are provided in \autoref{chap:latexhints}.
-
-\chapter{Related Work}
+\chapter{Related Work: 6 Seiten}
 Trust in news is explored. 
 But there is not too much about trust and credibility in news with ai footage.
 Law findings. 
-Verletzung Persönlichkeitsrecht. 
-Trainingsmaterial nutzung? 
+Verletzung Persönlichkeitsrecht.
 
 Not too much implementation Details about the used technology
 
@@ -276,39 +291,37 @@ Not too much implementation Details about the used technology
 \todo{synthetic media reception}
 \todo{uncanny valley}
 
-\chapter{Implemented Technologies}
+\chapter{Implemented Technologies: 10 Seiten}
 Docker based deployment, CI/CD. Remote work on HFF Workstation
 
-\section{Voice Cloning Toolkit}
+\section{Voice Cloning Toolkit 1}
 
-\subsection{Preparation and Pre-Processing}
-\subsection{Text To Speech}
-\subsection{Retrieval Based Voice Conversion}
-
-\section{Lip remapping}
+\subsection{Preparation and Pre-Processing: 1 Seite}
+\subsection{Text To Speech: 2 Seiten}
+\subsection{Retrieval Based Voice Conversion: 1 Seite}
+\section{Lip remapping: 1 Seite}
 Wav2Lip
-
-\section{stable Diffusion + Video}
-
-\section{Game-Engine: Unreal Engine}
+\section{stable Diffusion + Video: 2 Seiten}
+\section{Game-Engine: Unreal Engine: 2 Seiten}
 Einzelpraktikum stuff
 
-\chapter{Study Design}
+\chapter{Study: 10 Seiten}
+\section{Study Design: 3 Seiten}
 Spectrum of syntheticnes.
 Randomization.
 AB Groups. 
 Sequence bias.
 Basic Questions: Media usage, media trust, ai usage and trust
 
-\section{Procedure and Participants}
+\section{Procedure and Participants: 1 Seite}
 Online survey, spread via various channels.
 
+\section{Results: 6 Seiten}
 
-\chapter{Results}
+\chapter{Discussion: 2 Seiten}
 
-\chapter{Discussion}
-
-\chapter{Conclusion}
+\chapter{Conclusion: 2 Seiten}
+\label{sec:conclusion}
 
 Future implementation und Haushandlungsprozess. Was wichtig ist:) 
 
@@ -316,7 +329,7 @@ To close the circle with the beginning. This work might be too early. The disrup
 
 
 
-\label{sec:conclusion}
+
 
 \todo{Outlook}
 
@@ -325,7 +338,7 @@ To close the circle with the beginning. This work might be too early. The disrup
 All links were last followed on \today{}.
 
 \appendix
-\input{latexhints/latexhints-english}
+%\input{latexhints/latexhints-english}
 
 \pagestyle{empty}
 \renewcommand*{\chapterpagestyle}{empty}
