@@ -45,7 +45,7 @@
   examiner={Prof.\ Dr.\ Sylvia Rothe, Christoph Weber},
   supervisor={Prof.\ Dr.\ Sylvia Rothe},
   startdate={October 4, 2023},
-  enddate={April 14, 2024},
+  enddate={April 4, 2024},
   % Falls keine Lizenz gewünscht wird bitte auf "none" setzen
   % Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
   % vervielfältigen und Kopien zu machen. Dabei muss aber immer der Autor
@@ -70,7 +70,7 @@
 
 \frontmatter
 \pagenumbering{roman} % Seitennummerierung mit römischen Ziffern für den Vorspann
-\setcounter{tocdepth}{3} % bis zur dritten Gliederungsebene Anzeigen
+\setcounter{tocdepth}{2} % bis zur dritten Gliederungsebene Anzeigen
 
 
 
@@ -219,36 +219,56 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\chapter{Introduction 3 Seiten}
-\label{sec:introduction}
+\chapter{Introduction}
+\label{chap:introduction}
 
 
 %\todo{P1.1. What is the large scope of the problem?}
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{./graphics/images/scheider-real.png}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{./graphics/images/scheider-sd.png}
+  \end{subfigure}
+  \caption{A TV news anchor: real and synthetic adaptation}
+  \label{scheider-real-sd}
+\end{figure}
 \begin{quotation}
 "Sophiscitcated AI systems are increasingly everywhere. [...] However, 2023 will likely prove to be a particularly critical moment in the history of AI" \citet{arguedasAutomatingDemocracyGenerative2023}.
 \end{quotation}
-This paper and corresponding study are being conducted in the very year of 2023. As the previously quoted authors state, we might be experiencing a tippping point in AI development, as more and more tools become available to a broader user base. These developments are tightly linked to the rise of OpenAi's ChatGPT and other, widely adopted technologies like \gls{sd} based \gls{t2i} generators. These developments are currently summarized as \gls{genai}: "Generative AI is an umbrella term used for AI systems that can generate new forms of data, often by applying machine learning to large quantities of training data" \citet{arguedasAutomatingDemocracyGenerative2023}. One could extend this definition with the following: Besides just generating new forms of data, \gls{genai} can be used to augment, reduce, manipulate and mix real data with the generated data in such a form, that it is impossible to distinguish between real and syntheticly generated (fake), or anything in between on that spectrum.
+This paper and corresponding study are being conducted in the very year 2023. As the previously quoted authors state, we might be experiencing a tippping point in AI development, as more and more tools become available to a broader user base. These developments are tightly linked to the rise of OpenAi's ChatGPT and other, widely adopted technologies like \gls{sd} based \gls{t2i} generators. An output example of how future media could  be produced is depicted in figure \ref{scheider-real-sd}. A more detailed description about the relevant technologies will be provided in section \ref{chap:background} \nameref{chap:background}. \\
+Current AI tools are often referred to as \gls{genai}: "Generative AI is an umbrella term used for AI systems that can generate new forms of data, often by applying machine learning to large quantities of training data" \citet{arguedasAutomatingDemocracyGenerative2023}. One could extend this definition with the following: Besides just generating new forms of data, \gls{genai} can be used to augment, reduce, manipulate and mix real data with the generated data in such a form, that it is impossible to distinguish between real, syntheticly generated (fake) data, or anything in between that spectrum. \\
 %\todo{P1.2. What is the specific problem?}
-In the context of media production and and media distribution the developments of \gls{genai} open up an important discussion about trust and credibility. Legitimate media, has always been using synthetic content for demonstration or illustration purposes. One can just think of animated explainatory videos, or other infographics. The difference is, that in those illustrations it was quite clear, that these images were "not real". Therefore the question for legitimate media outlets remains, of how synthetic content will be recieved among the audience. Additionally, just the term "A.I." sparks criticism. These effects on audience, their mitigation, and at the same time, education of the broader public about technologic advancements are very interesting topics for media producers and outlets. \\
+In the context of media production and and media distribution the developments of \gls{genai} open up an important discussion about trust and credibility. Legitimate media, has always been using synthetic content for various purposes. One can just think of animated explainatory videos or other infographics. The difference is, that most illustrations made it quite clear, that these images were illustrations. This has now changed as generated images and videos can look perfectly authentic and real. At the same time these technologies are open to be used by anyone, sparking fear of fake news. Therefore the question for legitimate media outlets remains, of how synthetic content will be recieved among the audience. Additionally, just the term "AI" sparks criticism. These effects on audience, their mitigation, and at the same time, education of the broader public about technologic advancements are very interesting topics for media producers and outlets. Since the developments are quite recent only few research examples exist.
+
 % Second Paragraph
 % CORE MESSAGE OF THIS PARAGRAPH:
 %\todo{P2.1. The second paragraph should be about what have others been doing}
-For the sake of completeness, these discussions are not entirely new: So called DeepFakes (blend word of Deep learning and Fake News) have been around quite some time. First research papers like the Face2Face approach by \citet{thiesFace2FaceRealtimeFace2020} date back to the year 2016 or earlier with Facebook's 2014 DeepFace paper \cite{taigmanDeepFaceClosingGap2014}. At latest in 2017, DeepFake pornography, often in the form of revenge porn, hit the broader public \cite{coleAIAssistedFakePorn2017}. Quickly afterwards discussions arose about the implications of these technologies in regards to the spread of fake news. Despite the proliferation of payed and \gls{oss} for easy to use faceswaps, like \gls{dfl} (2019) or the InsightFace Inswapper (2023), there are only few official cases, where this technology has been used for a signular desinformation with large concequences. However, it goes without saying, that the effect in social networks, under the radar of public control, might be much bigger. But it's important to add that these cases might not even need manipulated video to spraed misinformation. Text does also suffice, as could be seen during the Covid19 pandemic and often mentioned social media channels \cite{naeemExplorationHowFake2021}.  
-%\todo{P2.2. Why is the problem important? Why was this work carried out?}
-The possibilities in 2023 have three key difference in comparison to the previously described, early faceswap deepfakes: 
-\begin{enumerate}
-  \item Excellent A.I. powered voices cloning tools with easy access
-  \item Text to image generation
-  \item GPT-enabled Chat Applications
-\end{enumerate}
-The latter is less relevant to audio-visual content, but fuels the public oppinion about A.I. tools. The first two have drastically improved the quality and possiblities of how and what kind of synthetic media can be created. In the recent months there have been several usecases of these very specific examples in increasing frequency: In 2022 a DeepFake of President Zelensky surfaced (Figure \ref{fig:zelensky-deepfake}). 
+For the sake of completeness, these discussions are not entirely new: So called DeepFakes (blend word of Deep learning and Fake News) have been around quite some time. First research papers like Facebook's 2014 DeepFace \cite{taigmanDeepFaceClosingGap2014} or the Face2Face approach by \citet{thiesFace2FaceRealtimeFace2020} date back to the year 2016. It took some time until the research gained traction among a the broader audience, but at latest in 2017, in the form of DeepFake pornography or revenge porn, DeepFakes hit the broader public \cite{coleAIAssistedFakePorn2017}. Quickly afterwards discussions arose about the implications of these technologies in regards to the spread of fake news.
+It took some time until the fears came true. \\
+In the meantime DeepFakes remained very problematic present within pornography but also in entertainment and educational content: Jordan Peele Faked Obama (2018 \cite{vincentWatchJordanPeele2018}), Channel 4 emitted a fake Queen Elizabeth (2020 \cite{DeepfakeQueenDeliver2020}) and VFX Artist Chris Ume went viral with Tom Cruise Fakes (2021 \cite{vincentTomCruiseDeepfake2021}). \\
+Despite the proliferation of payed and \gls{oss} solutions for faceswaps, like \gls{dfl} (2019) or the InsightFace Inswapper (2023), there are only a few known cases, where this technology has been used for one singular disinformation video with larger consequences. However, it goes without saying, that the effect in social networks, under the radar of public control, might be much bigger. But it's important to add that these cases might not even need manipulated video to spread fake news. Text can also suffice to spread misinformation, as could be seen during the Covid19 pandemic and often mentioned social media channels \cite{naeemExplorationHowFake2021}. Another awful example of how powerful just text can be, is the Q-Anon movement: \cite{zeeuwTracingNormieficationCrossplatform2020} investigated "[...] how ideas and objects travel from fringe online subcultures to large audiences on mainstream platforms and news outlets". 
+ \\
+The first mentioning of a trust dissolving DeepFake happened in 2022: Fake news of President Zelensky surfaced (Figure \ref{fig:zelensky-deepfake}), where the fake demanded soldiers to lay down their weapons. Although the russian creators of the video later disputed their creation as "satire" this was certainly not clear within the original video. For what had been feared for quite some time had become reality. The technology had been used in a political context, probably the first time in history also in an armed conflict. Some might say it had been weaponized. Although the Video seemed to have no concrete consequences for the soldiers, its role in psychological warfare can't be unseen.
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\textwidth]{./graphics/images/Zelensky.jpg}
+  \includegraphics[width=0.5\textwidth]{./graphics/images/Zelensky.jpg}
   \caption{left: DeepFake of President Zelensky; right: real image of Zelensky \cite{universityofvirginiaZelenskyySurrenderHoax2022}}
   \label{fig:zelensky-deepfake}
 \end{figure}
-The examples of fake voices and faceswaps on social media in 2023 are innumerable and can be traced back to the availability of online survices such as Resemble.ai or Elevenlabs. This also lead to several neferious usecases. To name some examples in German context: In September 2023 a primetime news host was recreated with a fake voice in order to advertise dubious financial products (figure: \ref{fig:sievers-fake}). By using Elevenlabs' checking tool, one can quickly tell, that the voice was very likely created with the software (figure: \ref{fig:sievers-11labs}). 
+
+%\todo{P2.2. Why is the problem important? Why was this work carried out?}
+Progressing in time, in the second half of 2022 several things changed in the space of AI tools. The aforementioned \textit{simple} faceswaps are now in good company in a growing toolbox of AI services: 
+\begin{enumerate}
+  \item Excellent AI voices cloning tools became available
+  \item Text to image generation was released in summer 2022
+  \item GPT-enabled Chat Applications was released end of 2022
+\end{enumerate}
+The latter is less relevant in the audio-visual content, but fuels the public opinion about A.I. tools as it is probably most widely adopted. The first two have drastically improved the quality and possibilities of how and what kind of synthetic media can be created. In the recent months there have been several reports about their use with increasing frequency: 
+The examples of fake voices and faceswaps on social media in 2023 are innumerable and can be traced back to the availability of online services such as Resemble.ai or Elevenlabs. This also lead to several nefarious use cases: To name some examples in German context, in September 2023 a primetime news host was recreated with a fake voice in order to advertise dubious financial products (figure: \ref{fig:sievers-fake}). By using Elevenlabs' checking tool, one can quickly tell, that the voice was likely created with their software.(figure: \ref{fig:sievers-11labs}). 
 \begin{figure}[h]
   \centering
   \begin{subfigure}[b]{0.45\textwidth}
@@ -257,7 +277,7 @@ The examples of fake voices and faceswaps on social media in 2023 are innumerabl
     \label{fig:sievers-fake}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[b]{0.45\textwidth}
+  \begin{subfigure}[b]{0.5\textwidth}
     \includegraphics[width=\textwidth]{./graphics/images/sievers-11labs.png}
     \caption{Elevenlabs audio analysis \cite{elevenlabsAISpeechClassifier}}
     \label{fig:sievers-11labs}
@@ -265,21 +285,159 @@ The examples of fake voices and faceswaps on social media in 2023 are innumerabl
   \caption{Christian Sievers case}
 \end{figure}
 
-End of November 2023 a two Videos of German chancelor Olaf Scholz were released, where his voice and lips were faked. One was part of a commercial campaign for german yellow press newspaper \cite{dwdl.deSpringerTrommeltMit}. The second is part of an art project \cite{zdfKunstinstallationDeepfakeScholzVerkuendet}. Example images for these cases are not included, as they would be just other examples for the aforementioned. It is just very clear, that the frequency of appearance is increasing, both in the case of legitimate and illegitimate content.
-An environment where both categories of content coexist is very challenging in regards of trust. For legitimate newsmakers the questions arises how it can combat desinformation and at the same time use the advancements of \gls{genai} to improve production workflows. This is a dilemma that is yet to be solved. \\
-The effects of these very recent technical capabilites have not yet been studied, which is why this work attempts in doing so. In a time where the very existance of \gls{genai} raises trust issues on every kind of content, specifically of those synthetically generated any findings about synthetic media reception might be helpful in better adressing all the named issues.\\
+In the end of November 2023 \textit{two} Videos of German chancellor Olaf Scholz were released, where his voice and lips were faked. One was part of a commercial campaign for a german yellow press newspaper \cite{dwdl.deSpringerTrommeltMit}. The second is part of an art/protest project \cite{zdfKunstinstallationDeepfakeScholzVerkuendet}. Example images for these cases are not included, as they don't make any sense without the audio. It is logical, to expect a further increasing frequency of such content, both in the case of legitimate and illegitimate content.
+An environment where both categories of content coexist is very challenging in regards of trust. For legitimate news makers the questions arises how it can combat disinformation and at the same time use the advancements of \gls{genai} to improve production workflows. This is a dilemma that is yet to be solved. \\
+The effects of these very recent technical capabilities have not yet been studied, which is why this work attempts in doing so. In a time where the very existence of \gls{genai} raises trust issues on every kind of content, specifically of those synthetically generated, any findings about synthetic media reception might be helpful in better addressing all the named issues.
+
 % Third Paragraph
 % CORE MESSAGE OF THIS PARAGRAPH:
 %\todo{P3.1. What have you done?}
-This paper tried to explore the effect on potential recepients of (partially) synthetically created or A.I. enhanced media in the specific context of a german public broadcast television news show. Before conducting a study on how recipients perceive this sort of content this work also worked on specific workflows for media producers of how to produce the content.
+This paper tried to explore the effect on potential recipients of (partially) synthetically created or AI enhanced media in the specific context of a german \gls{psm} news show. To be more specific, the focus of the research questions were: 
+
+\todo{Forschungsfragen final fixen}
+\begin{enumerate}
+  \item Trust and credibility in media with varying the degree of artificiality.
+  \item Effects of a "generated with AI" watermark on the material.
+  \item Correlation with participants' media and AI literacy
+  \item Correlation with the used screen size.
+  \item Finding the most significant of the aforementioned variables.
+\end{enumerate}
+
+The questions were answere with the help of an online survey. It has been conducted within 31 days from the 6\textsuperscript{th} of November 2023 until the 6\textsuperscript{th} of December 2023. During this timeframe 159 participants answered the questionaire. The details and results will be described within section \ref{study}. \\
+Before conducting such a study, the content itself needed to be created to ensure a high degree of controlability of certain variables. To accomplish this, several workflows had to be established which included several experiments with various \gls{oss} tools and chaining them together. In addition to the AI software, tradition video editing tools like \gls{prpro} and \gls{ae} came into play. The specific creation of the material is described in section \ref{implementation}. 
 %\todo{P3.2. What is new about your work?}
+The Methodology seeked to conduct a study about trustworthiness on various AI generated or assisted videos.
 The tested videos were carefully designed by taking into account an extensive toolchain of available open source technology, making it (theoretically) possible for every media producer to recreate similar results implement (semi)automatic workflows for their media production and conduct further experiments. However the specific code implementation won't be directly shared as the risk of misuse of this project should be reduced. \\
+As the tools are very recent developments, to our knowsledge, no comparable studies have been conducted yet.
+
 % Fourth paragraph
 % CORE MESSAGE OF THIS PARAGRAPH:
 \todo{P4.1. What did you find out? What are the concrete results?}
 \todo{P4.2. What are the implications? What does this mean for the bigger picture?}
 
-\chapter{Related Work: 6 Seiten}
+\chapter{Background}
+\label{chap:background}
+
+This work focusses on the social aspects of synthetic media consumption, therefore related work is less technical as will be visible in section \ref{chap:rel-work}. However for the study and accompanying videos a lot of AI technologies have been implemented. To aid the overall understanding of the whole paper some technological background will be layed in this section.
+
+\begin{quotation}
+"Although it is difficult to pinpoint, the roots of AI can probably be traced back to the 1940s, specifically 1942, when the American Science Fiction writer Isaac Asimov published his short story \textit{Runaround}" \cite*{haenleinBriefHistoryArtificial2019}. 
+\end{quotation}
+
+On the other side of the imaginary, the pracitcal science was evolving during wartime. After Alan Turing famously engineered a computer to crack the Enigma cryptography he published his seminar article "Computer Machinery and Intelligence" where he described how to create intelligent machines and in particular how to test their intelligence \cite{haenleinBriefHistoryArtificial2019}. 
+In the following years the term "artificial intelligence" rose to more prominence, most notably at Dartmouth College, where Marvin Minsky and John McCarthy hostet the \textit{Dartmouth Summer Research Project on Artificial Intelligence (DSRPAI)} in 1956 \cite{flasinskiHistoryArtificialIntelligence2016}. \\
+The different times of where AI had its highs and lows are often refered to as the Fours Seasons of AI. Spring, representing the dawn of AI was followed by the Summer: After the events at Dartmouth college, a lot of funding by US Institutions suchs as DARPA or the RAND coorporation went into AI reasearch. Without going to much into the details of various developments, one can state that this first hype abruptly ended around 1973 where the high governmental spendings where cut. The first AI winter is often credited to Marvin Minsky and Seymour Papert, who published their famous book “Perceptrons” \cite{minskyPerceptronsIntroductionComputational2017} in 1969, in which they showed the strong limitations of perceptrons, e.g., the inability to compute some logical functions like XOR. As a result, many AI researchers concluded that the study of neural networks is not promising \cite{flasinskiHistoryArtificialIntelligence2016}. \\
+\Citeauthor{haenleinBriefHistoryArtificial2019} state that, although the Japanese government began to heavily fund AI research in the 1980s, to which the U.S. DARPA responded by a funding increase as well, no further advances were made in the following years. This can only be partially held true, because some progress had to be made before the second AI summer came around: Notably multi-layer Perceptrons and therefore Deep Neural Networks in 1965, Backpropagation in 1970, Convolutional Neural Networks in 1979, Autoencoders in 1986, Generative Adversarial Networks 1990, to name just a few \cite{schmidhuberAnnotatedHistoryModern2022}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./graphics/images/Timeline_of_generative_models_by_type.png}
+  \caption{Timeline of generative models by type. \citet{garcia-penalvoWhatWeMean2023}}
+  \label{fig:timeline-models}
+\end{figure}
+
+The AI summer arrives with \citet{krizhevskyImageNetClassificationDeep2012} and their significant advancements in image recognition using a convolutional neural network, "AlexNet". Their Network performed considerably better than the previous state-of-the-art. In 2015, AlphaGo followed with being the first AI to beat Grandmasters in the game Go. \\
+Besides the image recognition domain, text and natural language processing received huge performance improvements with \citetitle{vaswaniAttentionAllYou2023} and their "Transformer" architecture in 2017. \gls{tts} also benefitted from transformer research with with major advancements in \citetitle{wangTacotronEndtoEndSpeech2017} in 2017 \cite{wangTacotronEndtoEndSpeech2017}. And to name one of the most recent advancements, diffusion based approaches are to be mentioned, which gave the powerful \gls{t2i} generator Stable diffusion its name. \cite{rombachHighResolutionImageSynthesis2022}. A chronological overview of the model developments can be depicted in figure \ref{fig:timeline-models}. \\
+As the scientific advancements are numerous, so are their practical implementations. Those relevant to this work will be shortly described below.
+
+\section{Generative AI}
+\label{sec:genai}
+The term \gls{genai} has been briefly mentioned in the introduction, but for better understanding the term shall be examined deeper to avoid misunderstanding in ambiguity. There is no globally agreed definition for "Generative AI" \cite{garcia-penalvoWhatWeMean2023}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{./graphics/images/gtrends_genAI_1712-2312.png}
+  \caption{Google Trends of "generative AI" from December 2017 to December 2023 \cite{googletrendsGoogleTrendsQuery}}
+  \label{fig:gtrend-genai}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{./graphics/images/gtrends_deepfake_1712-2312.png}
+  \caption{Google Trends of "Deep Fakes" from December 2017 to December 2023 \cite{googletrendsGoogleTrendsQuerya}}
+  \label{fig:gtrend-deepfakes}
+\end{figure}
+
+For the scientific community a generative model, as described with a \gls{gan}, refers to a specific subform of neural networc architecture. These are differentiated from discriminative models by their internal processes and the probabilities they estimate \cite{garcia-penalvoWhatWeMean2023} in \cite{gmComprehensiveSurveyAnalysis2020}. \\
+It is unlikely, that the broader public refers to the same, deeply technological context. It is more likely that the meaning is less about technical implementations, but more of how and end user utilizes the software: If things can be generated using AI it is generative AI. This notion can be supported by google trends of "generative AI" as depicted in figure \ref{fig:gtrend-genai}. The search requests begin to rise in October of 2023 and then climb high from December 2023 onwards. This fits perfectly to the release of ChatGPT and the spread of image generation software and their media coverage. \\
+In the following the term "\gls{genai}" will be used in the means of the broader public and not the narrow technical definition. If technical details are to be discussed, they will be elaborated further. 
+
+\section{ChatGPT}
+ChatGPT has been used at several points to conduct this research. Especially during the software development phase(section \ref{implementation}) and the study design (section \ref{study}) ChatGPT has been consulted to speed up the processes massively. \\ 
+For study's content generation it did not play any role and thus won't be discussed as deeply as the other technologies. However we must consider the mere existence of ChatGPT in the context of the time this work is being conducted. As discussed in section \ref{sec:genai} the public attention towards AI tools has been tremendosly accelerated by the broad availibility of ChatGPT. When compared to the, in comparison slow and steady, increase of the google trends about DeepFakes in figure \ref{fig:gtrend-deepfakes} we can clearly see a more disruptive tendency on the timeline of ChatGPT.
+The fact of how public education could influence the study shall be addressed in the study design by questioning the AI literacy among all participants. 
+
+\section{Face Swapping}
+Similar to the previous section about ChatGPT, FaceSwaps have not been used directly within this project to create media but have played very important rule in shaping public opinion about synthetic media. As mentioned in the Introduction these FaceSwaps initially gave synthetic media the name \textit{Deep Fake} that is being used today. This fact often shifts synthetic media to have a negative connotation. \\
+Besides an alerting problem with deepfake pornography and revenge porn, the first publicly recognized DeepFakes were those of Obama(Jordan Peele)\cite{vincentWatchJordanPeele2018} in 2018. Comparing it with figure \ref{fig:gtrend-deepfakes} this also fits into the timeline with the google trend search. These early DeepFakes are also responsible for the few research papers being conducted on that topic. They will be featured in chapter \ref{chap:rel-work} about the related work. Therefore this section will focus only on the technical side of FaceSwaps. \\
+Prior to this paper, extensive experiments have been conducted with different FaceSwap toolkits. In the end, no FaceSwaps have been performed for the study examples. The reason for this decision lies in the study design: Briefly captured, a controlled environment was needed in order to rule out as many disruptive factors as possible. The TV-News setup was chosen as it provided a steady setting. In this case FaceSwaps were not needed. They could have been optionally used to improve the final quality of the rendered faces, but due to time constraints, this approach was not carried out. The idea will be picked up again in section \ref{sec:lips} when the quality of lip remapping is addressed.
+Still, the findings about FaceSwaps are interesting as Background context of this work and thus will be included shortly in the following paragraphs.
+
+\subsection{DeepFaceLab}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./graphics/images/dfl-demo.png}
+  \caption{DeepFaceLab Test result from September 2021}
+  \label{fig:dfl-sample}
+\end{figure}
+By far the leading Software for face swapping is DeepFaceLab or DFL for short. It encompasses a broad workflow in order to create high end face models. According to the commit history \gls{dfl} came into existance in June 2018 \cite{iperovCommitsIperovDeepFaceLab}. Without being able to say it with certainty, DFL's success might also lie in its proximinty to pornography. The reason for this suspection is that the main guide for how to work with \gls{dfl} is hosted as a subpage of \textit{mrdeepfakes.com}, which claims to the largest DeepFake porn site. To our knowledge these topics were rarely addressed by the authors of the software. As of November 2023 the software has been phased out of development into archive by the lead developer without providing any reasons. Probably this has to with the upcoming of newer, faster methods of face swapping discussed in section \ref{sec:roop}. For the high end workflow \gls{dfl} can still be used and there are other alternatives. \textit{FaceSwap}, actually being the first tool introduced in 2017, is under development. The standard workflow for creating a DFL model is as follows. \\ 
+The terms \textit{target} and \textit{source} and to be understood in that way, that the target is the face that will be driving the final face. The source is the face that is being faked onto to target.
+\textbf{Data gathering} involves finding the right material to train the models with. High resolution images of both, the target and the source are required but can be easily found online in videos. The final face resolution usually ranges from 128x128 up to 512x512 pixels. So the videos used for datagathering should be of such quality that the required face size can be extracted from the gathered videos. It is very important that the images cover a wide variety of facial angles, expressions and lighting situations. Usually around 8.000 face images are enough for a good fake.
+During \textbf{extraction} faces of the wanted size get detected in video frames and extracted. Also facial alignment data gets embedded into the images as metadata as it is needed for the training process.
+Afterwards \textbf{sorting and data refinement} is needed to ensure that face alignments have been correcly identified. This step also involves sorting out unwanted images. Exclusion criteria is blurriness or wrongly detected faces for example. Next, \textbf{mask segmentation} comes into play. Here the face gets masked out by a tool. This involves drawing manual face masks to fit the targets and sources face geometry needed for easier merging later on. In ths step obstructions in front of the face can be masked so that the model learns to mask these out as well during merging. After pre-processing is mostly finished and the \textbf{training} can begin. Training can take, depending on hardware, resolution and dataset size some days up to weeks or months to conclude. The training itself is departed into several stages where different hyperparameters have to be adjusted. After training, the final target can be \textbf{merged} with the synthetically generated face. One example of the generated quality can be seen in figure \ref{fig:dfl-sample}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./graphics/images/df-model-arch.png}
+  \caption{"DF" Model architecture diagram \cite{perovDeepFaceLabIntegratedFlexible2021}}
+  \label{fig:df-model-diagram}
+\end{figure}
+
+\gls{dfl} faceswaps are based on an autoencoder architecture like depcited in figure \ref{fig:df-model-diagram} though in the meantime several subvariants have developed. Autoencoders are notoriously known for their inability to create sharp images. Because of that face upscaling GAN is added within the training process. \\
+As can be seen \gls{dfl} is quite complex and time consuming. On the other side it provides a great degree of freedom compared to newer methods.
+
+\subsection{Inswapper}
+\label{sec:roop}
+Developed on the foundations of the InsightFace Face Analysis Project \cite{insightfaceInsightFaceWebsite} \textit{Inswapper} provides a very easy way to swap faces without the need of any training before inference. The workflow is as simple as loading a target video into the GUI of \textit{roop} \cite{sangwanRoop2023} as well as a source image and wait for the software to create the final video. The used model in the background is closed source and thus cannot be retrained. Besides the enourmous acceleration of the whole process, the lack of customization is the biggest drawback in comparison to DFL. The quality of the generated faces drops significantly in situations where the face is ocluded or angled in profile towards the camera. \\
+Although not stated specifically by the \gls{dfl} developers, such rapid advancements in faceswap technology might be the reason why \gls{dfl} was discontinued. 
+
+\section{Stable Diffusion}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./graphics/images/latent-diffusion.png}
+  \caption{Latent Diffusion Model \cite{rombachHighResolutionImageSynthesis2022}}
+  \label{fig:ldm-arch}
+\end{figure}
+\citet{rombachHighResolutionImageSynthesis2022} released the work in Summer of 2022 and started    
+Civit
+Strong community
+Various Interfaces
+Midjourney
+
+\section{Lip remapping}
+\label{sec:lips}
+Improve quality with face swaps?
+\section{Text to Speech}
+\section{Voice Conversion}
+\section{Game Engines}
+
+Uncanny Valley.
+Improve quality with face swaps?
+
+\chapter{Related Work}
+\label{chap:rel-work}
+As the field of synthetic media is a very recent development there is not too much available research on topic. Often it cannot be pinpointed to one specific technology. DeepFake Faceswaps are the oldest, so best investigated. trust isses... 
+
+
+Literature review.
+Identify Gaps
+Justification of the work
+
+This should focus not on technology, but on Trust and media credibility.
+
+\section{various DeepFake technologies}
+\section{Law}
+\section{provinence}
+\section{Trust}
+
 Trust in news is explored. 
 But there is not too much about trust and credibility in news with ai footage.
 Law findings. 
@@ -289,38 +447,63 @@ Not too much implementation Details about the used technology
 
 \todo{reception of media}
 \todo{synthetic media reception}
-\todo{uncanny valley}
+\todo{lawsuits}
 
-\chapter{Implemented Technologies: 10 Seiten}
+\chapter{Methodology}
+\section{implemented Technologies}
+\label{implementation}
 Docker based deployment, CI/CD. Remote work on HFF Workstation
 
-\section{Voice Cloning Toolkit 1}
-
-\subsection{Preparation and Pre-Processing: 1 Seite}
-\subsection{Text To Speech: 2 Seiten}
-\subsection{Retrieval Based Voice Conversion: 1 Seite}
-\section{Lip remapping: 1 Seite}
+\subsection{Voice Cloning Toolkit}
+\subsubsection{Preparation and Pre-Processing}
+Whisper, Premier, Nemo
+\subsubsection{Text To Speech}
+\subsubsection{Retrieval Based Voice Conversion}
+\subsection{Lip remapping}
 Wav2Lip
-\section{stable Diffusion + Video: 2 Seiten}
-\section{Game-Engine: Unreal Engine: 2 Seiten}
+\subsection{stable Diffusion + Video}
+\subsection{Game-Engine: Unreal Engine}
 Einzelpraktikum stuff
 
-\chapter{Study: 10 Seiten}
-\section{Study Design: 3 Seiten}
-Spectrum of syntheticnes.
+\section{Study}
+\label{study}
+\subsection{Study Design}
+Spectrum of artificiality.
 Randomization.
 AB Groups. 
 Sequence bias.
 Basic Questions: Media usage, media trust, ai usage and trust
 
-\section{Procedure and Participants: 1 Seite}
+\subsection{Procedure and Participants}
 Online survey, spread via various channels.
 
-\section{Results: 6 Seiten}
+\subsection{Results}
 
-\chapter{Discussion: 2 Seiten}
+\subsubsection{Normal Distribution}
+Most of the things are normal?
+Shapiro Wilk Test
+Histogram
+Case Trust
+Case Videos
 
-\chapter{Conclusion: 2 Seiten}
+\subsubsection{Significance}
+Quality, artificiality
+
+\subsubsection{AI marking significance}
+
+\subsubsection{Quality and Trust}
+
+\subsubsection{Education}
+
+
+
+
+
+
+
+\chapter{Discussion}
+
+\chapter{Conclusion}
 \label{sec:conclusion}
 
 Future implementation und Haushandlungsprozess. Was wichtig ist:) 

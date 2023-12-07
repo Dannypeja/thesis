@@ -31,7 +31,6 @@
     "*.ltx"
   ],
   "latex-workshop.latex.tools": [
-    
     {
       "name": "latexmk",
       "command": "latexmk",
@@ -136,5 +135,16 @@
       "args": ["--synctex", "--keep-logs", "%DOC%.tex"],
       "env": {}
     }
+  ],
+  "cSpell.words": [
+    "biber",
+    "Elevenlabs",
+    "faceswaps",
+    "Inswapper",
+    "pdflatex",
+    "Scholz",
+    "Sievers",
+    "syntheticness",
+    "Zelensky"
   ]
 }
