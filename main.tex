@@ -234,12 +234,12 @@
     \includegraphics[width=\textwidth]{./graphics/images/scheider-sd.png}
   \end{subfigure}
   \caption{A TV news anchor: real and synthetic adaptation}
-  \label{scheider-real-sd}
+  \label{fig:scheider-real-sd}
 \end{figure}
 \begin{quotation}
 "Sophiscitcated AI systems are increasingly everywhere. [...] However, 2023 will likely prove to be a particularly critical moment in the history of AI" \citet{arguedasAutomatingDemocracyGenerative2023}.
 \end{quotation}
-This paper and corresponding study are being conducted in the very year 2023. As the previously quoted authors state, we might be experiencing a tippping point in AI development, as more and more tools become available to a broader user base. These developments are tightly linked to the rise of OpenAi's ChatGPT and other, widely adopted technologies like \gls{sd} based \gls{t2i} generators. An output example of how future media could  be produced is depicted in figure \ref{scheider-real-sd}. A more detailed description about the relevant technologies will be provided in section \ref{chap:background} \nameref{chap:background}. \\
+This paper and corresponding study are being conducted in the very year 2023. As the previously quoted authors state, we might be experiencing a tippping point in AI development, as more and more tools become available to a broader user base. These developments are tightly linked to the rise of OpenAi's ChatGPT and other, widely adopted technologies like \gls{sd} based \gls{t2i} generators. An output example of how future media could  be produced is depicted in figure \ref{fig:scheider-real-sd}. A more detailed description about the relevant technologies will be provided in section \ref{chap:background} \nameref{chap:background}. \\
 Current AI tools are often referred to as \gls{genai}: "Generative AI is an umbrella term used for AI systems that can generate new forms of data, often by applying machine learning to large quantities of training data" \citet{arguedasAutomatingDemocracyGenerative2023}. One could extend this definition with the following: Besides just generating new forms of data, \gls{genai} can be used to augment, reduce, manipulate and mix real data with the generated data in such a form, that it is impossible to distinguish between real, syntheticly generated (fake) data, or anything in between that spectrum. \\
 %\todo{P1.2. What is the specific problem?}
 In the context of media production and and media distribution the developments of \gls{genai} open up an important discussion about trust and credibility. Legitimate media, has always been using synthetic content for various purposes. One can just think of animated explainatory videos or other infographics. The difference is, that most illustrations made it quite clear, that these images were illustrations. This has now changed as generated images and videos can look perfectly authentic and real. At the same time these technologies are open to be used by anyone, sparking fear of fake news. Therefore the question for legitimate media outlets remains, of how synthetic content will be recieved among the audience. Additionally, just the term "AI" sparks criticism. These effects on audience, their mitigation, and at the same time, education of the broader public about technologic advancements are very interesting topics for media producers and outlets. Since the developments are quite recent only few research examples exist.
@@ -367,6 +367,7 @@ For study's content generation it did not play any role and thus won't be discus
 The fact of how public education could influence the study shall be addressed in the study design by questioning the AI literacy among all participants. 
 
 \section{Face Swapping}
+\label{sec:face-swapping}
 Similar to the previous section about ChatGPT, FaceSwaps have not been used directly within this project to create media but have played very important rule in shaping public opinion about synthetic media. As mentioned in the Introduction these FaceSwaps initially gave synthetic media the name \textit{Deep Fake} that is being used today. This fact often shifts synthetic media to have a negative connotation. \\
 Besides an alerting problem with deepfake pornography and revenge porn, the first publicly recognized DeepFakes were those of Obama(Jordan Peele)\cite{vincentWatchJordanPeele2018} in 2018. Comparing it with figure \ref{fig:gtrend-deepfakes} this also fits into the timeline with the google trend search. These early DeepFakes are also responsible for the few research papers being conducted on that topic. They will be featured in chapter \ref{chap:rel-work} about the related work. Therefore this section will focus only on the technical side of FaceSwaps. \\
 Prior to this paper, extensive experiments have been conducted with different FaceSwap toolkits. In the end, no FaceSwaps have been performed for the study examples. The reason for this decision lies in the study design: Briefly captured, a controlled environment was needed in order to rule out as many disruptive factors as possible. The TV-News setup was chosen as it provided a steady setting. In this case FaceSwaps were not needed. They could have been optionally used to improve the final quality of the rendered faces, but due to time constraints, this approach was not carried out. The idea will be picked up again in section \ref{sec:lips} when the quality of lip remapping is addressed.
@@ -406,17 +407,41 @@ Although not stated specifically by the \gls{dfl} developers, such rapid advance
   \caption{Latent Diffusion Model \cite{rombachHighResolutionImageSynthesis2022}}
   \label{fig:ldm-arch}
 \end{figure}
-\citet{rombachHighResolutionImageSynthesis2022} released the work in Summer of 2022 and started    
-Civit
-Strong community
-Various Interfaces
-Midjourney
+\citet{rombachHighResolutionImageSynthesis2022} released their Latent Diffusion Model (figure \ref{fig:ldm-arch}) in Summer of 2022 and started huge movement for computer graphics. It has been quickly adopted in multiple products and fuel several companies such as \textit{Midjourney, Pika-Labs, Runway, DI-D} and many more. Even more interesting than the appeareance of commercial solutions is the fact how quickly a huge Open Source community grew from the \gls{sd} project. Currently there are around a douzen different GUI projects available for \gls{sd}, some even featuring extensions within the GUI. To name the biggest, \textit{Automatic1111} lists \textbf{269} community extensions which massively extend the functionality in different directions, for example towards video generation. The project was initiated in August of 2022 has 22.500 forks and a 113.000 star rating which is an impressive rate of development \cite{AUTOMATIC1111StablediffusionwebuiStable}. \\
+Midjourney, probably the best known commercial solution works over Discord interface and currently has around \textbf{17.3} Million registered users on their channel \cite{midjourneyJoinMidjourneyDiscord}. \\
+Besides the development of image generator software there is also a thriving community for model development and finetuning so called \gls{lora} Models. These are then shared on platforms such as \textit{\gls{hf}} or prominently \textit{civitai.com}. While \gls{hf} is focussed on the developer side of models, civitai.com can also be seen as some sort of social network where user generated content in form of generated images is showcased. Civit hosts "thousands of high-quality Stable Diffusion models" as they currently state on their website \cite{CivitaiHomeOpenSource}. Especially \gls{lora}s are interesting as they are very small (several megabytes) compared to full fledged models (several gigabytes). LoRas help in finetuning the bigger models towards a specific goal. Because LoRas are so small they can be shared very easily within the community. It goes without saying that this sort of plug and play models are also well suited and used for pornographic purposes as well. Different to the earlier mention mrdeepfakes.com civitai.com features nudity filters and seeks to create a safer space for every kind of content. A public debate has already started if AI generated pornography will replace pornography and if that is an unwanted outcome. Surely the ethical concerns could fill a paper on their own and thus won't be discussed much further. However some will be mentioned as related work in chapter \ref{chap:rel-work}.\\
+Latent Diffusion Models act not only as the core technology but also as a platform and the adoption speed and extensiability of both, the technology and also the community indicate a disruption is taking place here.
+In context of this paper a stable diffusion workflow has been used to generate test videos in the style of a computer animation (figure \ref{fig:scheider-real-sd}). The used workflow will be featured later in section \ref{sec:sd-video}. 
 
-\section{Lip remapping}
+\section{Lip Remapping}
 \label{sec:lips}
-Improve quality with face swaps?
+After discarding the previously discussed whole FaceSwaps using \gls{dfl} as a meaningful tool for the study, lip remapping was chosen as one of the main visual technologies for this work. The base for many videos were real recordings from a news show. After creating a synthetic voice (refer to sections \ref{sec:tts} and \ref{sec:v2v}) the proper mouth movement needed to be recreated to make the videos somewhat convinceble. To accomplish a satisfying result, multiple tools needed to be chained together. First and foremost there is \textbf{\gls{w2l}}. Based on the research of \citet{prajwalLipSyncExpert2020} they provide a code implementation on GitHub \cite{mukhopadhyayWav2LipAccuratelyLipsyncing2023}. The code was adapted to fit the workflows for the creation of the study videos and explained in further detail in the implementation section \ref{implementation}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./graphics/images/w2l-arch.png}
+  \caption{Wav2Lip architecture}
+  \label{fig:wav2lip-arch}
+\end{figure}
+
+The architecture (figure \ref{fig:wav2lip-arch}) is based on a GAN generator-discriminator approach, adding an additional "Lip-Sync Expert" discriminator which improved the results significantly in comparison to previous methods.
+Unfortunately, the available public \gls{w2l} model has been trained on a face resolution of only 96x96 pixels which is insufficient for a convincing effect. To address this issue a face upsampling GAN was added to the workflow to increase the facial resolution. The upsampling was performed using the public \textbf{GFPGAN} implementation based on the works of \citet{wangNeuralSourcefilterbasedWaveform2019}. A result can be seen in figure \ref{fig:wav2lip-demo}: To the right one can see the original actor, the middle shows a \gls{w2l} result where the mouth region is blurry and the left depicts the GFPGAN upsampling. The GFPGAN workflow splits the blurry video into individual frames and upsamples each face individually. This introduces flickering artifacts in the face due to small inconsistancies after upsampling that look like flickering once played back with 25 \gls{fps}. This issue can be mitigated with further post production. \\
+Overall the process of creating the lip remapping is rather slow. One 20 second video takes over 5 minutes to export. The additional post production and compositing all audio and video sources back together takes around 20 minutes after the workflow is repeated multiple times. \\
+Using GFPGAN was not the only option to improve the face quality. As mentioned in section \ref{sec:face-swapping} we could have used \textbf{\gls{dfl}} on top of the \gls{w2l} output and sharpen the result with a full face swap. The method had been tested on other occasions and works quite well. It also does not have issues with face flickering. But on the counterside creating a \gls{dfl} Model is very time consuming, especially if it needs to be good. The processes within this work needed to be somewhat practical for everyday use in a media company. If every lip-remapped actor needs its own \gls{dfl} model trained this is not practical. One image swap solutions like the previously described Inswapper does not improve the quality of the \gls{w2l} outputs. \\
+Ideally one would work with higher resolution \gls{w2l} or newer approaches like those from \citet{guptaGeneratingUltraHighResolution2023}. Unfortunately those didn't offer an \gls{oss} implementation at the time and therefore couldn't be tested.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./graphics/images/wav2lip-demo.png}
+  \caption{lip remapping Workflow, described from right to left}
+  \label{fig:wav2lip-demo}
+\end{figure}
+
 \section{Text to Speech}
+\label{sec:tts}
 \section{Voice Conversion}
+\label{sec:v2v}
+Besides the image generation models, civitai.com also started featuring voice models which will be further described in later sections. \\
 \section{Game Engines}
 
 Uncanny Valley.
@@ -461,7 +486,12 @@ Whisper, Premier, Nemo
 \subsubsection{Retrieval Based Voice Conversion}
 \subsection{Lip remapping}
 Wav2Lip
+
 \subsection{stable Diffusion + Video}
+\label{sec:sd-video}
+Extact workflow for the video creation 
+Controlenet was state of the art and is now already outdated. 
+
 \subsection{Game-Engine: Unreal Engine}
 Einzelpraktikum stuff
 
