@@ -303,8 +303,10 @@ This paper tried to explore the effect on potential recipients of (partially) sy
   \item Finding the most significant of the aforementioned variables.
 \end{enumerate}
 
-The questions were answere with the help of an online survey. It has been conducted within 31 days from the 6\textsuperscript{th} of November 2023 until the 6\textsuperscript{th} of December 2023. During this timeframe 159 participants answered the questionaire. The details and results will be described within section \ref{study}. \\
-Before conducting such a study, the content itself needed to be created to ensure a high degree of controlability of certain variables. To accomplish this, several workflows had to be established which included several experiments with various \gls{oss} tools and chaining them together. In addition to the AI software, tradition video editing tools like \gls{prpro} and \gls{ae} came into play. The specific creation of the material is described in section \ref{implementation}. 
+\todo{fix duration of study and numbers}
+The questions were answered with the help of an online survey. It has been conducted within 31 days from the 6\textsuperscript{th} of November 2023 until the 6\textsuperscript{th} of December 2023. During this timeframe 159 participants answered the questionnaire. The details and results will be described within section \ref{study}. \\
+Before conducting such a study, the content itself needed to be created to ensure a high degree of controlability of certain variables. To accomplish this, several workflows had to be established which included several experiments with various \gls{oss} tools and chaining them together. In addition to the AI software, tradition video editing tools like \gls{prpro} and \gls{ae} came into play. The specific creation of the material is described in section \ref{implementation}. The author conducted the work in association of the german public broadcaster \gls{br} and the \gls{hff} and had an employment relationship with \gls{br} as a working student.
+
 %\todo{P3.2. What is new about your work?}
 The Methodology seeked to conduct a study about trustworthiness on various AI generated or assisted videos.
 The tested videos were carefully designed by taking into account an extensive toolchain of available open source technology, making it (theoretically) possible for every media producer to recreate similar results implement (semi)automatic workflows for their media production and conduct further experiments. However the specific code implementation won't be directly shared as the risk of misuse of this project should be reduced. \\
@@ -331,7 +333,7 @@ The different times of where AI had its highs and lows are often refered to as t
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\textwidth]{./graphics/images/Timeline_of_generative_models_by_type.png}
+  \includegraphics[width=0.9\textwidth]{./graphics/images/Timeline_of_generative_models_by_type.png}
   \caption{Timeline of generative models by type. \citet{garcia-penalvoWhatWeMean2023}}
   \label{fig:timeline-models}
 \end{figure}
@@ -346,13 +348,13 @@ The term \gls{genai} has been briefly mentioned in the introduction, but for bet
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=1\textwidth]{./graphics/images/gtrends_genAI_1712-2312.png}
+  \includegraphics[width=0.9\textwidth]{./graphics/images/gtrends_genAI_1712-2312.png}
   \caption{Google Trends of "generative AI" from December 2017 to December 2023 \cite{googletrendsGoogleTrendsQuery}}
   \label{fig:gtrend-genai}
 \end{figure}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=1\textwidth]{./graphics/images/gtrends_deepfake_1712-2312.png}
+  \includegraphics[width=0.9\textwidth]{./graphics/images/gtrends_deepfake_1712-2312.png}
   \caption{Google Trends of "Deep Fakes" from December 2017 to December 2023 \cite{googletrendsGoogleTrendsQuerya}}
   \label{fig:gtrend-deepfakes}
 \end{figure}
@@ -376,7 +378,7 @@ Still, the findings about FaceSwaps are interesting as Background context of thi
 \subsection{DeepFaceLab}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\textwidth]{./graphics/images/dfl-demo.png}
+  \includegraphics[width=0.9\textwidth]{./graphics/images/dfl-demo.png}
   \caption{DeepFaceLab Test result from September 2021}
   \label{fig:dfl-sample}
 \end{figure}
@@ -387,7 +389,7 @@ During \textbf{extraction} faces of the wanted size get detected in video frames
 Afterwards \textbf{sorting and data refinement} is needed to ensure that face alignments have been correcly identified. This step also involves sorting out unwanted images. Exclusion criteria is blurriness or wrongly detected faces for example. Next, \textbf{mask segmentation} comes into play. Here the face gets masked out by a tool. This involves drawing manual face masks to fit the targets and sources face geometry needed for easier merging later on. In ths step obstructions in front of the face can be masked so that the model learns to mask these out as well during merging. After pre-processing is mostly finished and the \textbf{training} can begin. Training can take, depending on hardware, resolution and dataset size some days up to weeks or months to conclude. The training itself is departed into several stages where different hyperparameters have to be adjusted. After training, the final target can be \textbf{merged} with the synthetically generated face. One example of the generated quality can be seen in figure \ref{fig:dfl-sample}.
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\textwidth]{./graphics/images/df-model-arch.png}
+  \includegraphics[width=0.9\textwidth]{./graphics/images/df-model-arch.png}
   \caption{"DF" Model architecture diagram \cite{perovDeepFaceLabIntegratedFlexible2021}}
   \label{fig:df-model-diagram}
 \end{figure}
@@ -403,7 +405,7 @@ Although not stated specifically by the \gls{dfl} developers, such rapid advance
 \section{Stable Diffusion}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.7\textwidth]{./graphics/images/latent-diffusion.png}
+  \includegraphics[width=0.9\textwidth]{./graphics/images/latent-diffusion.png}
   \caption{Latent Diffusion Model \cite{rombachHighResolutionImageSynthesis2022}}
   \label{fig:ldm-arch}
 \end{figure}
@@ -419,7 +421,7 @@ After discarding the previously discussed whole FaceSwaps using \gls{dfl} as a m
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\textwidth]{./graphics/images/w2l-arch.png}
+  \includegraphics[width=0.9\textwidth]{./graphics/images/w2l-arch.png}
   \caption{Wav2Lip architecture}
   \label{fig:wav2lip-arch}
 \end{figure}
@@ -428,24 +430,71 @@ The architecture (figure \ref{fig:wav2lip-arch}) is based on a GAN generator-dis
 Unfortunately, the available public \gls{w2l} model has been trained on a face resolution of only 96x96 pixels which is insufficient for a convincing effect. To address this issue a face upsampling GAN was added to the workflow to increase the facial resolution. The upsampling was performed using the public \textbf{GFPGAN} implementation based on the works of \citet{wangNeuralSourcefilterbasedWaveform2019}. A result can be seen in figure \ref{fig:wav2lip-demo}: To the right one can see the original actor, the middle shows a \gls{w2l} result where the mouth region is blurry and the left depicts the GFPGAN upsampling. The GFPGAN workflow splits the blurry video into individual frames and upsamples each face individually. This introduces flickering artifacts in the face due to small inconsistancies after upsampling that look like flickering once played back with 25 \gls{fps}. This issue can be mitigated with further post production. \\
 Overall the process of creating the lip remapping is rather slow. One 20 second video takes over 5 minutes to export. The additional post production and compositing all audio and video sources back together takes around 20 minutes after the workflow is repeated multiple times. \\
 Using GFPGAN was not the only option to improve the face quality. As mentioned in section \ref{sec:face-swapping} we could have used \textbf{\gls{dfl}} on top of the \gls{w2l} output and sharpen the result with a full face swap. The method had been tested on other occasions and works quite well. It also does not have issues with face flickering. But on the counterside creating a \gls{dfl} Model is very time consuming, especially if it needs to be good. The processes within this work needed to be somewhat practical for everyday use in a media company. If every lip-remapped actor needs its own \gls{dfl} model trained this is not practical. One image swap solutions like the previously described Inswapper does not improve the quality of the \gls{w2l} outputs. \\
-Ideally one would work with higher resolution \gls{w2l} or newer approaches like those from \citet{guptaGeneratingUltraHighResolution2023}. Unfortunately those didn't offer an \gls{oss} implementation at the time and therefore couldn't be tested.
+Ideally one would work with higher resolution \gls{w2l} or newer approaches like those from \citet{guptaGeneratingUltraHighResolution2023}. The authors state that their approach great results at 768x768 pixels compared to \gls{w2l}s 96x96 resolution. Unfortunately there was no available code implementation of the paper at the time and therefore couldn't be tested.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\textwidth]{./graphics/images/wav2lip-demo.png}
+  \includegraphics[width=0.9\textwidth]{./graphics/images/wav2lip-demo.png}
   \caption{lip remapping Workflow, described from right to left}
   \label{fig:wav2lip-demo}
 \end{figure}
 
 \section{Text to Speech}
 \label{sec:tts}
-\section{Voice Conversion}
-\label{sec:v2v}
-Besides the image generation models, civitai.com also started featuring voice models which will be further described in later sections. \\
-\section{Game Engines}
+To cover the audio component of the videos \gls{tts} has been used. Although there are plenty of web-based solutions (\textit{elevenlabs.io, resemble.ai}) one goal of the project was to use \gls{oss} solutions only. Regarding \gls*{tts} the decision was made to use \textbf{CoquiTTS}. CoquiTTS is a library for Text-to-Speech generation with pretrained models in +1100 languages \cite{erenCoquiTTS2021}. CoquiTTS, which developed out of a mozilla project is also community driven but also provides a \gls{saas} called Coqui-Studio. In comparison to the earlier mentioned stable diffusion community coqui's community is not as big and the community support and documentation is worse. But at least there is some documentation about training a new voice and it could be done. The results were satisfying but certainly leave plenty of room for improvement, compared the state of the art commercial solutions. \\
+One of the bigger challenges in implementing \gls{tts} was the gathering and pre-processing of training data: 
+In exchange with the community a dataset size of around 4 hours of speech was required to get decent results. The difficulty did not lie in getting the raw data, this was easily obtainably from the archives of the \gls{br}. In order to train the \gls{tts} model the data needed to be structured in a special format: Audio segments needed to be under 10 seconds in length and each audiofile needs accompanying transcription in a text file. To solve these issues on a scale of 4 hours of content a toolkit has been developed which will be explained in detail in section \ref{sec:dvt}. \\ 
+Usually \gls{tts} is accomplished by using multiple stages of training multiple models. Most architectures feature a spectrogram model that converts the input text to a mel spectrogram and a vocoder that translates the spectrogram to an audio file. However the development in the TTS domain is rapid and many other methods have been created. 
+CoquiTTS lists several implemented approaches, such as 13 spectrogram models, 5 End-to-End Models, 6 attention methods, 2 speaker encoders and 8 vocoders. These won't be covered in depth as they are not in focus of this paper. If of any interest, please refer to the CoquiTTS documentation and corresponding papers.\\
+For ease of use we decided to use the VITS End-to-End model for this project developed by \citet{kimConditionalVariationalAutoencoder2021}. In contrast to the traditional multi-model approaches VITS offers full TTS capabilites by training just a single model. This approach is faster and more reliable in most cases. A downside of using VITS is fewer granular control over the models. This project favoured speed over quality and opted for the easier workflow of VITS. Naturlly the state of the art changed quickly so the current approach migh as well soon be outdated.\\
+Regarding training duration we first trained a first run with 90 minutes of training material for two weeks of a RTX 4090. The second run with 4 hours of material was conducted on A6000 took approximately one week until the loss values converged.
 
-Uncanny Valley.
-Improve quality with face swaps?
+\section{Voice to Voice Conversion}
+\label{sec:v2v}
+Besides \gls{tts} another recently published approach should be tested: \gls{v2v} conversion. The main difference is that one does not input Text but actual speech into the converter and receives an audio file with the voice of the targeted voice. This approach can address the a problem with \gls{tts} where the synthesized voice sounds to monotonous. Because the tonality of the target speaker is retained after converting it to the other voice an actor can influence how the result should sound. On the counterside certain mannerisms in the actors voice will translate to the result. That can be an odd sounding pronounciation of the letter "S" or "R", hissing, or something else. \\
+For accomplishing \gls{v2v} conversion the \gls{rvc} project was used \cite{RVCProjectRetrievalbasedVoiceConversionWebUI2023}. 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./graphics/images/RVC-UI.png}
+  \caption{lip remapping Workflow, described from right to left}
+  \label{fig:rvc-gradio}
+\end{figure}
+The project features a gradio.io user interface (figure \ref{fig:rvc-gradio}) for easy cloud deployment and is quite self expalinatory. Regarding the dataset requirements, approximately 10 minutes of a person's voice is required. The data pre-processing does not require any textfile transcription as with \gls{tts} but does need cutting up the voice samples in sections under 10 seconds to avoid an \gls{oom}. This can be easily achieve with the pre-processing toolkit developed for the \gls{tts} section of this work. The training itself takes approximately one hour on an A6000 GPU. \\
+After training is completed inferencing the model is very fast. With \gls{rvc} it processes inputted audiofiles in near realime. It is to be noted, that there is an implementation of a real time voice changer for these models \cite{WokadaVoicechangerVoice}. One can use input from a file or microphone and the voice changes with very little delay (100ms on a suitable graphics card). The implications of such realtime voice fake capabilities are very interesting in the domain of DeepFakes and scams. There have been some reports that fake voices have been used to conduct scams. However these were often accomplished using \gls{tts} and prepring the sound snippets for playback. Combining such a technology with the real time FaceSwaps calls for caution and multifactorial security in videocall-based social interaction. \\
+Interstingly these voice models are shared as well among creators on platform such as civitai but the technology has not yet had such an impact to broader society as stable diffusion had. \\
+\gls{v2v} models could also be used to improve \gls{tts} quality in a similar fashion as suggested with Wav2Lip and FaceSwaps: One could train a faster but lower quality \gls{tts} model and then upsample the voice quality in realtime with \gls{v2v}. No experiments were conducted in this direction due to time constraints as that would have required a shift in the \gls{tts} approach.
+
+\section{Game Engines and virtual Production}
+\label{sec:bg-virtual-production}
+A few years before the big leap in \gls{genai} virtual production methods started to gain traction within the film and broadcasting industry. Instead of filming in front of a greenscreen, \textit{The Mandalorian} (2019) famously used a large LED Panel around the whole studio walls and ceiling to shoot their movie (refer to figure \ref{fig:mando-vps}). That way many effects could be achieved "in camera" opposed to "in post production" as it is done usually.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{./graphics/images/mandalorian-vp.jpg}
+  \caption{\textit{The Mandalorian} Studio and LED-Volume "Stagecraft" \cite{landsiedelGamechanger2021}}
+  \label{fig:mando-vps}
+\end{figure}
+
+The important shift in technology was not only the use of LED panels, but what drives the images on the screens. It is Software, usually found in the Gaming Industry: \gls{ue}, a so called \textbf{Game Engine}. The Engines capability to render photorealistic images in realtime made it the ideal driver for this novel movie production. Today \gls{ue} is can not only be used to generate environments, but humans as well. Their software \textit{Metahuman} creator allows an easy character creation. It is also possible to scan a face and transfer the geometry onto a metahuman. An example of such approach can be seen in figure \ref{fig:metahuman-comp} this process does not work perfectly well. 
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{./graphics/images/photogrammetry.png}
+    \caption{Photogrammetry scan}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{./graphics/images/Metahuman.png}
+    \caption{Metahuman based on photogrammetry scan}
+  \end{subfigure}
+  \caption{Mesh to Metahuman workflow}
+  \label{fig:metahuman-comp}
+\end{figure}
+
+Already during the timeframe of creation of the videos the process for creating metahumans improved considerably. It is only a question of time until these metahumans get more advanced. Currently gaussian splatting seems to be a key technology to watch in these regards. \\
+It has to be noted that \gls{ue} is a complicated tool that needs a lot of time to be mastered. In addition to \gls{ue} many other, more specialized tools need to be used to get the best possible output. These include modelling tools for environments and characters as well as texturing tools and many more. \gls{ue} in the end is good at combining all the assets, but to get high quality results a team needs expertize in many different areas of traditional computer animation. Espcially the metahuman characters fall into the uncanny valley, which makes the results unsuitable for a good study. It was explored to improve the faces quality using a \gls{dfl} model. Unfortunately the uncanny part of the face is not the appeareance of the face, but its movements. This most likely has to do with how the face is animated. The facial performance capture is being accomplished using and iPhones FaceID camera which has limitations in how many facial landmarks it can track and therefore reduces face movement fidality. Because of that the face movements do not look very natural and because the movements translate to the \gls{dfl} face as well it is of no use. \\
+Even though the quality of the metahuman result was not compelling, they were included  within the study as will be elaborated in section \ref{study}. 
 
 \chapter{Related Work}
 \label{chap:rel-work}
@@ -480,6 +529,7 @@ Not too much implementation Details about the used technology
 Docker based deployment, CI/CD. Remote work on HFF Workstation
 
 \subsection{Voice Cloning Toolkit}
+\label{sec:dvt}
 \subsubsection{Preparation and Pre-Processing}
 Whisper, Premier, Nemo
 \subsubsection{Text To Speech}
@@ -547,7 +597,6 @@ To close the circle with the beginning. This work might be too early. The disrup
 \todo{Outlook}
 
 \printbibliography
-
 All links were last followed on \today{}.
 
 \appendix
