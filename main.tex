@@ -399,7 +399,7 @@ As can be seen \gls{dfl} is quite complex and time consuming. On the other side 
 
 \subsection{Inswapper}
 \label{sec:roop}
-Developed on the foundations of the InsightFace Face Analysis Project \cite{insightfaceInsightFaceWebsite} \textit{Inswapper} provides a very easy way to swap faces without the need of any training before inference. The workflow is as simple as loading a target video into the GUI of \textit{roop} \cite{sangwanRoop2023} as well as a source image and wait for the software to create the final video. The used model in the background is closed source and thus cannot be retrained. Besides the enourmous acceleration of the whole process, the lack of customization is the biggest drawback in comparison to DFL. The quality of the generated faces drops significantly in situations where the face is ocluded or angled in profile towards the camera. \\
+Developed on the foundations of the InsightFace Face Analysis Project \cite{insightfaceInsightFaceWebsite} \textit{Inswapper} provides a very easy way to swap faces without the need of any training before inference. The workflow is as simple as loading a target video into the GUI of \textit{roop} \cite{sangwanRoop2023} as well as a source image and wait for the software to create the final video. The used model in the background is closed source and thus cannot be retrained. Besides the enourmous acceleration of the whole process, the lack of customization is the biggest drawback in comparison to \gls{dfl}. Overall the quality of generated Inswapper faces is quite good. The quality of the generated faces drops significantly in situations where the face is ocluded or angled in profile towards the camera. Some examples are included in the appendix under chapter \ref{chap:insightface-demos}. \\
 Although not stated specifically by the \gls{dfl} developers, such rapid advancements in faceswap technology might be the reason why \gls{dfl} was discontinued. 
 
 \section{Stable Diffusion}
@@ -456,7 +456,7 @@ For accomplishing \gls{v2v} conversion the \gls{rvc} project was used \cite{RVCP
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{./graphics/images/RVC-UI.png}
-  \caption{lip remapping Workflow, described from right to left}
+  \caption{RVC Gradio User Interface}
   \label{fig:rvc-gradio}
 \end{figure}
 The project features a gradio.io user interface (figure \ref{fig:rvc-gradio}) for easy cloud deployment and is quite self expalinatory. Regarding the dataset requirements, approximately 10 minutes of a person's voice is required. The data pre-processing does not require any textfile transcription as with \gls{tts} but does need cutting up the voice samples in sections under 10 seconds to avoid an \gls{oom}. This can be easily achieve with the pre-processing toolkit developed for the \gls{tts} section of this work. The training itself takes approximately one hour on an A6000 GPU. \\
@@ -507,7 +507,7 @@ Justification of the work
 
 This should focus not on technology, but on Trust and media credibility.
 
-\section{various DeepFake technologies}
+\section{Various DeepFake technologies}
 \section{Law}
 \section{provinence}
 \section{Trust}
@@ -600,7 +600,35 @@ To close the circle with the beginning. This work might be too early. The disrup
 All links were last followed on \today{}.
 
 \appendix
-%\input{latexhints/latexhints-english}
+\chapter{Inswapper examples}
+\label{chap:insightface-demos}
+The following tests were created using the \textit{roop} inswapper implementation. One image of the author's face was used for all faceswaps. The included example images include Stills from these movies and music videos: \textit{Barbie} (2023), \textit{Oppenheimer} (2023), \textit{Iron Man} (2008), \textit{Juju feat. Henning May: Vermissen} (2019), \textit{Gotye: Somebody that I used to know} (2011).
+These stills were chosen in order to test multiple lighting situations, angles etc. The results are very impressive in most situations. However Close-up shots often don't work due to Inswappers resolution of only 128x128 pixels. Also the masking of objects in front of the face is often inferior to those of \gls{dfl}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{./graphics/images/inswapper/multiple1.png}
+  \includegraphics[width=1\textwidth]{./graphics/images/inswapper/multiple2.png}
+  \caption{Multiple faces at once, male and female}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{./graphics/images/inswapper/oppenheimer2.png}
+  \includegraphics[width=1\textwidth]{./graphics/images/inswapper/kimbra.png}
+  \caption{Color transfer to the target works great}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{./graphics/images/inswapper/iron-man-too-close.png}
+  \caption{CloseUp: Resolution does not suffice anymore}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{./graphics/images/inswapper/oppenheimer1.png}
+  \caption{Side view of faces often does not work}
+\end{figure}
+
+% \input{latexhints/latexhints-english}
 
 \pagestyle{empty}
 \renewcommand*{\chapterpagestyle}{empty}
