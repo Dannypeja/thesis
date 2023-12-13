@@ -282,7 +282,7 @@ The examples of fake voices and faceswaps on social media in 2023 are innumerabl
     \caption{Elevenlabs audio analysis \cite{elevenlabsAISpeechClassifier}}
     \label{fig:sievers-11labs}
   \end{subfigure}
-  \caption{Christian Sievers case}
+  \caption{Christian Sievers DeepFake and Elevenlabs audio analysis}
 \end{figure}
 
 In the end of November 2023 \textit{two} Videos of German chancellor Olaf Scholz were released, where his voice and lips were faked. One was part of a commercial campaign for a german yellow press newspaper \cite{dwdl.deSpringerTrommeltMit}. The second is part of an art/protest project \cite{zdfKunstinstallationDeepfakeScholzVerkuendet}. Example images for these cases are not included, as they don't make any sense without the audio. It is logical, to expect a further increasing frequency of such content, both in the case of legitimate and illegitimate content.
@@ -371,7 +371,8 @@ The fact of how public education could influence the study shall be addressed in
 \section{Face Swapping}
 \label{sec:face-swapping}
 Similar to the previous section about ChatGPT, FaceSwaps have not been used directly within this project to create media but have played very important rule in shaping public opinion about synthetic media. As mentioned in the Introduction these FaceSwaps initially gave synthetic media the name \textit{Deep Fake} that is being used today. This fact often shifts synthetic media to have a negative connotation. \\
-Besides an alerting problem with deepfake pornography and revenge porn, the first publicly recognized DeepFakes were those of Obama(Jordan Peele)\cite{vincentWatchJordanPeele2018} in 2018. Comparing it with figure \ref{fig:gtrend-deepfakes} this also fits into the timeline with the google trend search. These early DeepFakes are also responsible for the few research papers being conducted on that topic. They will be featured in chapter \ref{chap:rel-work} about the related work. Therefore this section will focus only on the technical side of FaceSwaps. \\
+Besides an alerting problem with deepfake pornography and revenge porn, the first publicly recognized DeepFakes were those of Obama(Jordan Peele)\cite{vincentWatchJordanPeele2018} in 2018. \citet{hancockSocialImpactDeepfakes2021} state, that the Obama video is likely the most canonical, if not the original "deepfake" video.
+Comparing it with figure \ref{fig:gtrend-deepfakes} this also fits into the timeline with the google trend search. These early DeepFakes are also responsible for the few research papers being conducted on that topic. They will be featured in chapter \ref{chap:rel-work} about the related work. Therefore this section will focus only on the technical side of FaceSwaps. \\
 Prior to this paper, extensive experiments have been conducted with different FaceSwap toolkits. In the end, no FaceSwaps have been performed for the study examples. The reason for this decision lies in the study design: Briefly captured, a controlled environment was needed in order to rule out as many disruptive factors as possible. The TV-News setup was chosen as it provided a steady setting. In this case FaceSwaps were not needed. They could have been optionally used to improve the final quality of the rendered faces, but due to time constraints, this approach was not carried out. The idea will be picked up again in section \ref{sec:lips} when the quality of lip remapping is addressed.
 Still, the findings about FaceSwaps are interesting as Background context of this work and thus will be included shortly in the following paragraphs.
 
@@ -498,27 +499,51 @@ Even though the quality of the metahuman result was not compelling, they were in
 
 \chapter{Related Work}
 \label{chap:rel-work}
-As the field of synthetic media is a very recent development there is not too much available research on topic. Often it cannot be pinpointed to one specific technology. DeepFake Faceswaps are the oldest, so best investigated. trust isses... 
+While Chapter \ref{chap:background} served the purpose of giving some background on the technical side, now related work shall be presented. This chapter presents a selection of psychological and sociological research done in context of (synthetic) media trust and credibility and the effects of fake news in general. As stated in the Introduction, synthetic media is a rather new trend, mainly driven by the advance of \gls{genai}. It can be dated back to earliest of 2017 when DeepFake FaceSwaps surfaced to the broader public. It is remarkable, that \textit{Fake News} are also a very young topic on their own that developed around the same time as DeepFake FaceSwaps around 2016. For completeness it should be noted that the \citet{merriam-websterdictionaryRealStoryFake} dates the first use of Fake news back to the year 1890. Surely skepticism has always existed towards politics and media, but it surely wasn't as a big of a topic until Donald Trump entered his presidential campaign in 2016. That said, this paper will focus on works after 2016/2017.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{./graphics/images/gtrends_fakenews_1011-2311.png}
+  \caption{Google Trends of the term "Fake News" 2004-2023}
+  \label{fig:gtrend-fake-news}
+\end{figure}
+
+This paper studies only a german-speaking population. There papers, that are focussed on a certain terretory (mostly US in relation of Trump) can only be included with the caviat that they might not directly apply to this cultural space as well. To illustrate the difference we can refer to figure \ref{fig:media-trust-comparison}. While trust among american public decreased around 2016, no impact can be seen in Germany at this time. It took until the years of the Covid19 Pandemic to experience a decline in Germany as well. It remains to be seen how this trend will continue in the following years.
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./graphics/images/trust-america mainstream.png}
+    \caption{Trust in American Mainstream Media 1996-2017 \cite{allcottSocialMediaFake2017}}
+    \label{fig:trust-us}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./graphics/images/FGW-Trust-in-ARDZDF.png}
+    \caption{Trust in German Public Broadcast Media ARD \& ZDF 2015-2023 \cite{zdf-politbarometerVertrauenGlaubwuerdigkeitBerichterstattung2023}}
+    \label{fig:trust-ger}
+  \end{subfigure}
+  \caption{Comparison of Media Trust US and Germany}
+  \label{fig:media-trust-comparison}
+\end{figure}
+Surely its impossible pinpoint one signular event, person or technology as the starting point for trust issues towards media within a society. We chose to orinate this research from a technological view. And while we define DeepFakes as the umbrella term for all synthetically generated Fake News, we will chronologically encounter FaceSwaps first as they are the oldest of the relevant technologies. Please bare in mind that literature published before the \gls{genai} boom of 2022 refers to DeepFakes as FaceSwaps in most cases, simply because other technologies where non-existant or irrelevant to the public at the time.
+
+\begin{quotation}
+  "[...] We urge researchers to begin to study the social issues surrounding deepfake technology. The studies in this volume do a fantastic job of mapping out the research questions, applying theory to the phenomenon, and creating new tools to apply to future research. But this study is preliminary, and we urge scholars to build upon this study as deepfake use continues to grow." \cite{hancockSocialImpactDeepfakes2021}
+\end{quotation}
+
+With this call to action, "Cyberpsychology, Behavior, and Social Networking" published several articles that can be summarized as "the social impact of DeepFakes". This was in 2021, three years after DeepFake FaceSwaps have become dominant. To begin with, \citet{hancockSocialImpactDeepfakes2021} raised a few questions about DeepFakes: Does exposure to deepfakes undermine trust in the media? How might deepfakes be used during social interactions? Are there strategies for debunking or countering deepfakes? They concluded that empirical research on the social impact of DeepFakes is scarce and therefore referenced to neighbouring fields. \\
+They cite several studies on "false memory aquisition" by \citet{garryActuallyPictureWorth2005}. These experiments often involve some doctored footage of participants, often created with tools of 3D Animation, and prove, that it is possible to induce false memories with that approach. \\
+\citet{hancockSocialImpactDeepfakes2021} also mention deception research and conclude that people perform only slightly above chance when evaluating a message as either true or deceptive \cite{bondAccuracyDeceptionJudgments2006}. Also: "Studies have shown that deception detection is approximately the same whether the message is conveyed through text (e.g., a court transcript, an Internet chat log), an audio recording (e.g., a voicemail, a radio program), or a video (e.g., an interrogation video)" \cite{hancockSeeNoEvil2010} cited in \cite{hancockSocialImpactDeepfakes2021}.
+
+\todo{weitere Paper aus Cyberpsychology lesen}
 
 
-Literature review.
-Identify Gaps
-Justification of the work
+Generative AI is advancing at such a rate that it's impossible keep all developments in sight. Research has just caught up with the outcome from FaceSwap DeepFakes which today look antiquated in the light of ChatGPT and \gls{sd}. 
+It is obvious that the researching community has to continue to follow the call from \citet{hancockSocialImpactDeepfakes2021} and study what they called . A call that the authors of this paper were happy to comply.
 
-This should focus not on technology, but on Trust and media credibility.
 
-\section{Various DeepFake technologies}
-\section{Law}
-\section{provinence}
-\section{Trust}
-
-Trust in news is explored. 
-But there is not too much about trust and credibility in news with ai footage.
-Law findings. 
-Verletzung Persönlichkeitsrecht.
-
-Not too much implementation Details about the used technology
-
+\todo{identify gaps}
 \todo{reception of media}
 \todo{synthetic media reception}
 \todo{lawsuits}
@@ -609,7 +634,7 @@ These stills were chosen in order to test multiple lighting situations, angles e
   \centering
   \includegraphics[width=1\textwidth]{./graphics/images/inswapper/multiple1.png}
   \includegraphics[width=1\textwidth]{./graphics/images/inswapper/multiple2.png}
-  \caption{Multiple faces at once, male and female}
+  \caption{Tested multiple faces at once, male and female}
 \end{figure}
 \begin{figure}[h]
   \centering
@@ -620,7 +645,7 @@ These stills were chosen in order to test multiple lighting situations, angles e
 \begin{figure}[h]
   \centering
   \includegraphics[width=1\textwidth]{./graphics/images/inswapper/iron-man-too-close.png}
-  \caption{CloseUp: Resolution does not suffice anymore}
+  \caption{CloseUp: Resolution does not suffice anymore for FullHD Material}
 \end{figure}
 \begin{figure}[h]
   \centering
