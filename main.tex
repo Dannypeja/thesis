@@ -247,11 +247,12 @@ In the context of media production and and media distribution the developments o
 % Second Paragraph
 % CORE MESSAGE OF THIS PARAGRAPH:
 %\todo{P2.1. The second paragraph should be about what have others been doing}
-For the sake of completeness, these discussions are not entirely new: So called DeepFakes (blend word of Deep learning and Fake News) have been around quite some time. First research papers like Facebook's 2014 DeepFace \cite{taigmanDeepFaceClosingGap2014} or the Face2Face approach by \citet{thiesFace2FaceRealtimeFace2020} date back to the year 2016. It took some time until the research gained traction among a the broader audience, but at latest in 2017, in the form of DeepFake pornography or revenge porn, DeepFakes hit the broader public \cite{coleAIAssistedFakePorn2017}. Quickly afterwards discussions arose about the implications of these technologies in regards to the spread of fake news.
+For the sake of completeness, these discussions are not entirely new: So called DeepFakes (blend word of Deep learning and Fake News) have been around quite some time. First research papers like Facebook's 2014 DeepFace \cite{taigmanDeepFaceClosingGap2014} or the Face2Face approach by \citet{thiesFace2FaceRealtimeFace2020} date back to the year 2016. It took some time until the research gained traction among a the broader audience, but at latest in 2017, in the form of DeepFake pornography or revenge porn, DeepFakes hit the broader public \cite{coleAIAssistedFakePorn2017}. 
+Or as \citet{westerlundEmergenceDeepfakeTechnology2019a} puts it: "After the introduction of celebrity porn deepfakes to Reddit by one user in late 2017, it only took a few months for a newly founded deepfake hobbyist community to reach 90,000 members".
+Quickly afterwards discussions arose about the implications of these technologies in regards to the spread of fake news.
 It took some time until the fears came true. \\
 In the meantime DeepFakes remained very problematic present within pornography but also in entertainment and educational content: Jordan Peele Faked Obama (2018 \cite{vincentWatchJordanPeele2018}), Channel 4 emitted a fake Queen Elizabeth (2020 \cite{DeepfakeQueenDeliver2020}) and VFX Artist Chris Ume went viral with Tom Cruise Fakes (2021 \cite{vincentTomCruiseDeepfake2021}). \\
-Despite the proliferation of payed and \gls{oss} solutions for faceswaps, like \gls{dfl} (2019) or the InsightFace Inswapper (2023), there are only a few known cases, where this technology has been used for one singular disinformation video with larger consequences. However, it goes without saying, that the effect in social networks, under the radar of public control, might be much bigger. But it's important to add that these cases might not even need manipulated video to spread fake news. Text can also suffice to spread misinformation, as could be seen during the Covid19 pandemic and often mentioned social media channels \cite{naeemExplorationHowFake2021}. Another awful example of how powerful just text can be, is the Q-Anon movement: \cite{zeeuwTracingNormieficationCrossplatform2020} investigated "[...] how ideas and objects travel from fringe online subcultures to large audiences on mainstream platforms and news outlets". 
- \\
+Despite the proliferation of payed and \gls{oss} solutions for faceswaps, like \gls{dfl} (2019) or the InsightFace Inswapper (2023), there are only a few known cases, where this technology has been used for one singular disinformation video with larger consequences. However, it goes without saying, that the effect in social networks, under the radar of public control, might be much bigger. Some studies about these hypothesis will be featured in section \ref{chap:rel-work}. \\
 The first mentioning of a trust dissolving DeepFake happened in 2022: Fake news of President Zelensky surfaced (Figure \ref{fig:zelensky-deepfake}), where the fake demanded soldiers to lay down their weapons. Although the russian creators of the video later disputed their creation as "satire" this was certainly not clear within the original video. For what had been feared for quite some time had become reality. The technology had been used in a political context, probably the first time in history also in an armed conflict. Some might say it had been weaponized. Although the Video seemed to have no concrete consequences for the soldiers, its role in psychological warfare can't be unseen.
 \begin{figure}[h]
   \centering
@@ -499,7 +500,11 @@ Even though the quality of the metahuman result was not compelling, they were in
 
 \chapter{Related Work}
 \label{chap:rel-work}
-While Chapter \ref{chap:background} served the purpose of giving some background on the technical side, now related work shall be presented. This chapter presents a selection of psychological and sociological research done in context of (synthetic) media trust and credibility and the effects of fake news in general. As stated in the Introduction, synthetic media is a rather new trend, mainly driven by the advance of \gls{genai}. It can be dated back to earliest of 2017 when DeepFake FaceSwaps surfaced to the broader public. It is remarkable, that \textit{Fake News} are also a very young topic on their own that developed around the same time as DeepFake FaceSwaps around 2016. For completeness it should be noted that the \citet{merriam-websterdictionaryRealStoryFake} dates the first use of Fake news back to the year 1890. Surely skepticism has always existed towards politics and media, but it surely wasn't as a big of a topic until Donald Trump entered his presidential campaign in 2016. That said, this paper will focus on works after 2016/2017.
+% Introduction
+While Chapter \ref{chap:background} served the purpose of giving some background on the technical side, now related work shall be presented. This chapter presents a selection of psychological and sociological research done in context of (synthetic) media trust and credibility and the effects of fake news in general. 
+
+\subsubsection*{Historical and geographical Context}
+As stated in the Introduction, synthetic media is a rather new trend, mainly driven by the advance of \gls{genai}. It can be dated back to earliest of 2017 when DeepFake FaceSwaps surfaced to the broader public. It is remarkable, that \textit{Fake News} are also a very young topic on their own that developed around the same time as DeepFake FaceSwaps around 2016. For completeness it should be noted that the \citet{merriam-websterdictionaryRealStoryFake} dates the first use of Fake news back to the year 1890. Surely skepticism has always existed towards politics and media, but it surely wasn't as a big of a topic until Donald Trump entered his presidential campaign in 2016. That said, this paper will focus on works after 2016/2017. 
 
 \begin{figure}[h]
   \centering
@@ -508,7 +513,7 @@ While Chapter \ref{chap:background} served the purpose of giving some background
   \label{fig:gtrend-fake-news}
 \end{figure}
 
-This paper studies only a german-speaking population. There papers, that are focussed on a certain terretory (mostly US in relation of Trump) can only be included with the caviat that they might not directly apply to this cultural space as well. To illustrate the difference we can refer to figure \ref{fig:media-trust-comparison}. While trust among american public decreased around 2016, no impact can be seen in Germany at this time. It took until the years of the Covid19 Pandemic to experience a decline in Germany as well. It remains to be seen how this trend will continue in the following years.
+In our study we investigate a german-speaking population. There papers, that are focussed on a certain terretory (mostly US in relation of Trump) can only be included with the caviat that they might not directly apply to this cultural space as well. To illustrate the difference we can refer to figure \ref{fig:media-trust-comparison}. While trust among american public decreased around 2016, no impact can be seen in Germany at this time. It took until the years of the Covid19 Pandemic to experience a decline in Germany as well. It remains to be seen how this trend will continue in the following years.
 \begin{figure}[h]
   \centering
   \begin{subfigure}{\textwidth}
@@ -520,13 +525,14 @@ This paper studies only a german-speaking population. There papers, that are foc
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=0.9\linewidth]{./graphics/images/FGW-Trust-in-ARDZDF.png}
-    \caption{Trust in German Public Broadcast Media ARD \& ZDF 2015-2023 \cite{zdf-politbarometerVertrauenGlaubwuerdigkeitBerichterstattung2023}}
+    \caption{Question: How high is your trust in \gls{psm} ARD \& ZDF? (2015-2023) \cite{zdf-politbarometerVertrauenGlaubwuerdigkeitBerichterstattung2023}}
+    \subcaption{}
     \label{fig:trust-ger}
   \end{subfigure}
   \caption{Comparison of Media Trust US and Germany}
   \label{fig:media-trust-comparison}
 \end{figure}
-Surely its impossible pinpoint one signular event, person or technology as the starting point for trust issues towards media within a society. We chose to orinate this research from a technological view. And while we define DeepFakes as the umbrella term for all synthetically generated Fake News, we will chronologically encounter FaceSwaps first as they are the oldest of the relevant technologies. Please bare in mind that literature published before the \gls{genai} boom of 2022 refers to DeepFakes as FaceSwaps in most cases, simply because other technologies where non-existant or irrelevant to the public at the time.
+Surely its impossible pinpoint one signular event, person or technology as the starting point for trust issues towards media within a society. We chose to orinate this research from a technological view. And while we define DeepFakes as the umbrella term for all synthetically generated Fake News, we will chronologically encounter FaceSwaps first as they are the oldest of the relevant technologies. Please bare in mind that literature published before the \gls{genai} boom of 2022 refers to DeepFakes as FaceSwaps in most cases, simply because other technologies where non-existant or irrelevant to the public until very recently. \\
 
 \begin{quotation}
   "[...] We urge researchers to begin to study the social issues surrounding deepfake technology. The studies in this volume do a fantastic job of mapping out the research questions, applying theory to the phenomenon, and creating new tools to apply to future research. But this study is preliminary, and we urge scholars to build upon this study as deepfake use continues to grow." \cite{hancockSocialImpactDeepfakes2021}
@@ -534,9 +540,52 @@ Surely its impossible pinpoint one signular event, person or technology as the s
 
 With this call to action, "Cyberpsychology, Behavior, and Social Networking" published several articles that can be summarized as "the social impact of DeepFakes". This was in 2021, three years after DeepFake FaceSwaps have become dominant. To begin with, \citet{hancockSocialImpactDeepfakes2021} raised a few questions about DeepFakes: Does exposure to deepfakes undermine trust in the media? How might deepfakes be used during social interactions? Are there strategies for debunking or countering deepfakes? They concluded that empirical research on the social impact of DeepFakes is scarce and therefore referenced to neighbouring fields. \\
 They cite several studies on "false memory aquisition" by \citet{garryActuallyPictureWorth2005}. These experiments often involve some doctored footage of participants, often created with tools of 3D Animation, and prove, that it is possible to induce false memories with that approach. \\
-\citet{hancockSocialImpactDeepfakes2021} also mention deception research and conclude that people perform only slightly above chance when evaluating a message as either true or deceptive \cite{bondAccuracyDeceptionJudgments2006}. Also: "Studies have shown that deception detection is approximately the same whether the message is conveyed through text (e.g., a court transcript, an Internet chat log), an audio recording (e.g., a voicemail, a radio program), or a video (e.g., an interrogation video)" \cite{hancockSeeNoEvil2010} cited in \cite{hancockSocialImpactDeepfakes2021}.
+\citet{hancockSocialImpactDeepfakes2021} also mention deception research and conclude that people perform only slightly above chance when evaluating a message as either true or deceptive \cite{bondAccuracyDeceptionJudgments2006}. Also: "Studies have shown that deception detection is approximately the same whether the message is conveyed through text (e.g., a court transcript, an Internet chat log), an audio recording (e.g., a voicemail, a radio program), or a video (e.g., an interrogation video)" \cite{hancockSeeNoEvil2010} cited in \cite{hancockSocialImpactDeepfakes2021}. \\
 
-\todo{weitere Paper aus Cyberpsychology lesen}
+\subsubsection*{Effects measured on secondary media}
+% Reviews without studies on metadata such as newspaper or sentiment analysis: Hard to find studies bla bla 
+While few studies have been conducted, some other authors that some authors approached the topic via reviewing current technologies. In 2020 \citet{tolosanaDeepfakesSurveyFace2020} list face synthesis, facial attribute manipulation, idenity swap and expression swap.\\
+\citet{westerlundEmergenceDeepfakeTechnology2019a} chose news articles to reflect on benefits, threats and examples of current DeepFakes and how to combat them. The authors list several benefits in the regions of media production,educational media and digitalcommunications, games and entertainment, socialmedia and healthcare, material science, and various business fields, such as fashion and ecommerce. \Citeauthor{westerlundEmergenceDeepfakeTechnology2019a} also conclude: "According to our study, deepfakes are a major threat to society, the political system and businesses[...]". About a possible solution four fields are named: "1) legislation and regulation, 2) corporate policies and voluntary action,3) education and training, and 4) anti-deepfake technology". Section \ref{sec:rel-work-counteringdf}\\
+
+\todo{analysis of Youtube Videos} Lee et al
+\todo{analysis of Reddit mining} Brooks
+
+% Reviews with studies on actual people
+\subsubsection*{Effects within study participants}
+Whether people indeed “fall for” deepfakes is unclear and understudied, but not unimaginable \cite{dobberMicrotargetedDeepfakesHave2021}. In an evaluation of the Obama/Peele Fake \citet{vaccariDeepfakesDisinformationExploring2020} conclude: "We have shown that political deepfakes may not necessarily deceive individuals, but they may sow uncertainty which may, in turn, reduce trust in news on social media." They also add these detrimental tendencies can lead to a downward spiral of trust loss in media and news in general.
+But it's important to add that these cases might not even need manipulated video to spread fake news. Text can also suffice to spread misinformation, as could be seen during the Covid19 pandemic and often mentioned social media channels \cite{naeemExplorationHowFake2021}. Another awful example of how powerful just text can be, is the Q-Anon movement: \cite{zeeuwTracingNormieficationCrossplatform2020} investigated "[...] how ideas and objects travel from fringe online subcultures to large audiences on mainstream platforms and news outlets". \\
+\citet{dobberMicrotargetedDeepfakesHave2021} particularly investigated what effect deepfakes can have when amplified through microtargeting in a fictional scenario. Their results indicate that it is indeed possible to stage a political scandal with a deepfake. Intestingly their findings differed to earlier authors, who found no effects of disinformation on political behavior and attitudes. They state: "[...] indeed deepfakes are a more powerful mode of disinformation in comparison with the false news stories studied by Guess et al. (2018) and the Russian Twitter trolls studied by Bail et al. (2020)" \cite{dobberMicrotargetedDeepfakesHave2021}. \\
+
+
+\subsubsection*{Countermeasures}
+
+It must be mentioned, that anti-deepfake technology always will have its boundries. The efficacy will always depend on the technologies ability to detect deepfakes. With better detection come better methods for generation. It's an arms race that improves both parties and gives \gls{gan} its name. Because of that, other solutions in the domain of \textbf{media provinence} could provide more safety, than forensic detection. In this context, "Project Origin" has be mentioned. An alliance of media producers and broadcasters want to develop a "technical provenance approach, in conjunction with media education and synthetic media detection techniques [and] help to establish a foundation for trust in media" \cite{ProjectOrigin}. The alliance includes organisations such as \textit{BBC, Radio Canada, New York Times and Microsoft}. This lead to the creation of the \gls{c2pa}, the formulation of a technical standard to achieve to goals forumlated earlier. This project is today backed by major hardware (\textit{Canon, Nikon, Sony, Leica, Panasonic, ARM}) and software companies (\textit{Adobe, Microsoft, AWS, AVID}), media resellers distributors and providers\textit{BBC, Radio Canada, dpa, france-tv, shutterstock, universal music}. \gls{c2pa} is currently being implemented by the industry.\\
+
+
+\todo{combating Deepfakes with media literacy programs} Hwang et al.
+
+
+
+
+
+The literature review reveals, that concrete studies about the societal effects of synthetic media are often missing. This is understandable due to the novelty of the technologies, their complexity and the availability of tools for creation. In order to conduct research one first has be be able to create such material that is comparable to material "in the wild". This is even more true in the advent of \gls{genai} as more more content is getting produced and consumed.
+
+
+
+To name a positive example: 
+\todo{Wu et al from cyberpsychology}
+
+
+\todo{Trust towards AI program influencers} Weisman 
+Uncanny valley und stuff.
+
+\todo{policymaking ideas}
+
+
+
+
+
+
 
 
 Generative AI is advancing at such a rate that it's impossible keep all developments in sight. Research has just caught up with the outcome from FaceSwap DeepFakes which today look antiquated in the light of ChatGPT and \gls{sd}. 
@@ -571,6 +620,9 @@ Controlenet was state of the art and is now already outdated.
 Einzelpraktikum stuff
 
 \section{Study}
+
+for each case: state hypothesis and dependent/independent variables, control conditions, \textbf{randomization check??}
+
 \label{study}
 \subsection{Study Design}
 Spectrum of artificiality.
