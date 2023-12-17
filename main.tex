@@ -535,6 +535,7 @@ As stated in the Introduction, synthetic media is a rather new trend, mainly dri
   \caption{Google Trends of the term "Fake News" 2004-2023}
   \label{fig:gtrend-fake-news}
 \end{figure}
+In our study we investigate a german-speaking population. Therefore we want to add, that papers which are focussed on a certain terretory (mostly US in relation of Trump) can only be included with the caviat that they might not directly apply to the german cultural space as well. To illustrate one difference we can refer to figure \ref{fig:trust-ger} in comparison to \ref{fig:trust-us}. While trust among american public decreased around 2016, no impact can be seen in Germany at this time. It took until the years of the Covid19 Pandemic to experience a decline in Germany as well. It remains to be seen how this trend will continue in the following years.
 \begin{figure}[h]
   \centering
   \centering
@@ -544,11 +545,10 @@ As stated in the Introduction, synthetic media is a rather new trend, mainly dri
 \end{figure}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.9\linewidth]{./graphics/images/FGW-Trust-in-ARDZDF.png}
+  \includegraphics[width=0.8\linewidth]{./graphics/images/FGW-Trust-in-ARDZDF.png}
   \caption{Question: How high is your trust in \gls{psm} ARD \& ZDF? (2015-2023) \cite{zdf-politbarometerVertrauenGlaubwuerdigkeitBerichterstattung2023}}
   \label{fig:trust-ger}
 \end{figure}
-In our study we investigate a german-speaking population. Therefore we want to add, that papers which are focussed on a certain terretory (mostly US in relation of Trump) can only be included with the caviat that they might not directly apply to the german cultural space as well. To illustrate one difference we can refer to figure \ref{fig:trust-ger} in comparison to \ref{fig:trust-us}. While trust among american public decreased around 2016, no impact can be seen in Germany at this time. It took until the years of the Covid19 Pandemic to experience a decline in Germany as well. It remains to be seen how this trend will continue in the following years.
 
 Surely its impossible pinpoint one signular event, person or technology as the starting point for trust issues towards media within a society. We chose to orinate this research from a technological view. And while we define DeepFakes as the umbrella term for all synthetically generated Fake News, we will chronologically encounter FaceSwaps first as they are the oldest (2017) of the relevant technologies. The next DeepFake tool to come around was probably wav2lip in 2020. Please bare in mind that literature published before the \gls{genai} boom of 2022 refers to DeepFakes as FaceSwaps in most cases, simply because other technologies where non-existant or irrelevant to the public until very recently. The term DeeFake was often used analogously with FaceSwaps until other technologies advanced such as synthetic voices, lip-remapping and todays image generators.
 
@@ -602,23 +602,55 @@ We've cited this paper, because we also introduced an uncanny vally test case a 
 So far we have mostly mentioned papers which studied the visual part of DeepFakes. As explained earlier, this is most likely linked to the unavailiblity of easy to use, high quality audio voice clones. In the recent time this has changed. Several easy to use \gls{tts} services can be found on the internet. \Citeauthor{heiselbergAutomatedNewsReading2022} provide recent research about synthetic voices, or how they call it "neural voices". They provide a concise summary about their findings: "Results show that the participants divide into two types: the perspicacious listeners who realize or suspect that the news reading is artificially synthesized and, to some degree, are annoyed by it, and the oblivious listeners who believe the news is read by a human and are predominantly positive towards it. Participants from both groups pay particular attention to voice emotionality when evaluating the appropriateness of the neural news reader. Also, they tend to attribute human characteristics to the neural news reader. The participants single out the news messages as well as the media organization behind the news broadcast, rather than the neural voice itself as critical components constituting credibility. Transparency is of great importance when applying a neural voice in a news broadcast, since it is a prerequisite for credibility" \cite{heiselbergAutomatedNewsReading2022}. \\
 For our work this is especially relevant as it set up in the environment of a news broadcast as well. In contrast to our study, it focussed on radio and the voice component alone. This reduced the surface are where the uncanny valley can act. Different to our works the authors conducted qualitative interviews instead of a quanitative analysis. To somewhat include a qualitative dimension as well, we gave our participants the option to justify their answers in free text forms. 
 
-\todo{Toff}
+As probably the most recent paper, we include \citetitle{toffTheyCouldJust2023} by \citeauthor{toffTheyCouldJust2023}. At the time of writing (December 2023) the cited paper has just been released as a pre-print and has not yet been peer-reviewed. \\
+The authors conducted a stury using actual AI-generated journalistic content. Their focus lied on the effect of labelling AI-generated content. The studied sample consisted of audiences in the US and differnciate between polarized partisan lines. \\
+They found that on average audiences perceive news labeled as AI-generated as less trustworthy, not more (see figure \ref{fig:toff-trust}). 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./graphics/toff/Trust in news.png}
+  \caption{Gaps in perceived trustworthiness associated with disclosure about the use of generative AI varied as a function of prior levels of trust in news, holding all other variables at their mean values \cite{toffTheyCouldJust2023}.}
+  \label{fig:toff-trust}
+\end{figure}
+Furthermore, they found that these effects were largely concentrated among those whose pre-existing levels of trust in news were higher to begin with and among those who exhibit higher levels of knowledge about journalism (refered to as PNK) as depicted in figure \ref{fig:toff-PNK}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./graphics/toff/PNK.png}
+  \caption{Gaps in perceived trustworthiness associated with disclosure about the use of generative AI varied as a function of procedural news knowledge (PNK), holding all other variables at their mean values. \cite{toffTheyCouldJust2023}.}
+  \label{fig:toff-PNK}
+\end{figure}
+They also found that negative effects associated with perceived trustworthiness are largely counteracted when articles disclose the list of sources used to generate the content. \\
+In contrast to our work, \citeauthor{toffTheyCouldJust2023} used AI generated text as the object of investigation. This a point where our works differ, because our work had humans "in the loop" at several touchpoints. We used AI to aid the production side of how the content was conveyed, not the content itself. 
+\todo{write confirmation or difference}
 
 
 \section{Countermeasures}
 \label{sec:rel-work-counteringdf}
-Technical countermeasures
-It must be mentioned, that anti-deepfake technology, like forensics and AI-based detection will always have its boundries. The efficacy will always depend on the technologies ability to detect deepfakes. With better detection come better methods for generation. It's an arms race that improves both parties and gives \gls{gan} its name. Because of that, other solutions in the domain of \textbf{media provinence} could provide more safety, than forensic detection. In this context, "Project Origin" has be mentioned. An alliance of media producers and broadcasters want to develop a "technical provenance approach, in conjunction with media education and synthetic media detection techniques [and] help to establish a foundation for trust in media" \cite{ProjectOrigin}. The alliance includes organisations such as \textit{BBC, Radio Canada, New York Times and Microsoft}. This lead to the creation of the \gls{c2pa}, the formulation of a technical standard to achieve to goals forumlated earlier. This project is today backed by major hardware (\textit{Canon, Nikon, Sony, Leica, Panasonic, ARM}) and software companies (\textit{Adobe, Microsoft, AWS, AVID}), media resellers distributors and providers \textit{BBC, Radio Canada, dpa, france-tv, shutterstock, universal music}. \gls{c2pa} is currently being implemented by the industry.
+As soon we encountered negative usecases of synthetic media the call for efficient countermeasures arises. Since we are dealing with deep learning techniques the a frequent suggestion is to counter fire with fire and use deep learning to train a synthetic media detector. At this point it must be mentioned, that anti-deepfake technology, like forensics and AI-based detection will always have its boundries. The efficacy will always depend on the technologies ability to detect deepfakes. With better detection come better methods for generation. It's an arms race that improves both parties and gives \gls{gan} its name. \\
+Because of that, other solutions in the domain of \textbf{media provinence} could provide more safety, than forensic detection. In this context, "Project Origin" has be mentioned. An alliance of media producers and broadcasters want to develop a "technical provenance approach, in conjunction with media education and synthetic media detection techniques [and] help to establish a foundation for trust in media" \cite{ProjectOrigin}. The alliance includes organisations such as \textit{BBC, Radio Canada, New York Times and Microsoft}. This lead to the creation of the \gls{c2pa}, the formulation of a technical standard to achieve to goals forumlated earlier. This project is today backed by major hardware (\textit{Canon, Nikon, Sony, Leica, Panasonic, ARM}) and software companies (\textit{Adobe, Microsoft, AWS, AVID}), media resellers distributors and providers \textit{BBC, Radio Canada, dpa, france-tv, shutterstock, universal music}. \gls{c2pa} is currently being implemented by the industry. \\
+All in all, technical solutions can only contribute a minor part in solving the problem of fake news with synthetic media. The following authors have conducted research in these areas and provide alternatives to just technical solutions. 
+
+\citeauthor{hwangEffectsDisinformationUsing2021} investigated the protective effect of media literacy education in the context of deepfakes. We have to point out that the authors use the term Deepfake frequently in their paper, but it seems that their understanding of Deepfakes is analogous to fake news. After all they do not mention deepfakes in the context of artificial intelligence once, which contributes to our understanding of their interpretation. Their study also does not use any sort of AI generated content but rather exposed the participants to fake news in textual form. Prior to the test, participants received education: General education about disinformation and deepfake-specific education. A control group which received no education was also included. \\
+We still included this study as the authors were able to show that an increase of media literacy of any form has a protective effect against fake news. For our study we retrieved media literacy infromation from our participants with a separate questionaire about their media usage and familiarity with synthetic media and artificial intelligence.
+\todo{confirm or differ with this study}
+
+Actually related to DeepFake Faceswaps is as study by \citeauthor{iacobucciDeepfakesUnmaskedEffects2021} where they tried to measure the effects of information \textit{priming} and \textit{bullshit receptivity} on deepfake recognition and resulting sharing intention. Information priming in this context is defined as "an improvement in performance in a perceptual or cognitive task, relative to an appropriate baseline, produced by context or prior experience" \cite{iacobucciDeepfakesUnmaskedEffects2021}. The priming serves the purpose of increasing the awareness about certain topics and therefore can be understood in a similar matter as the media literacy suggestions of \citeauthor{hwangEffectsDisinformationUsing2021}. The second concept to understand is "bullshit receptivity". This index is being measured according to \cite{pennycookReceptionDetectionPseudoprofound2015}: Participants were asked to rate the profoundness of pseudoprofound sentences on a 5-point scale from 1 = "not at all profound" to 5 = ‘‘very profound’
+
+\todo{continue here}
+
+Results indicate that the development of strategies to counter the deceitfulness of DFs from an educational and cultural perspective might work well, but only for people with a lower susceptibility to believe willfully misleading claims. Finally, through a serial mediation analysis, we show that DF recognition does, in turn, negatively impact users’ sharing intention, thus limiting the potential harm of DFs at the very root of one of their strengths: virality. We discuss the implications of our finding that society’s defense against DFs could benefit from a simple reasoned digital literacy intervention.
 
 
-\todo{combating Deepfakes with media literacy programs} Hwang et al.
+
+
+
+
 \todo{framing leads to resilience?} iacobucci
 \todo{policymaking ideas} Aalia
 \todo{some lawmaking??}
 
 
 
-
+\subsubsection*{Literature conclusion}
 We conclude that research involving \gls{genai} created media is still scarce. This is understandable due to the novelty of the technologies, their complexity and the availability of tools for creation. In order to conduct research one first has be be able to create such material that is comparable to material "in the wild". This is even more true in the advent of \gls{genai} as more more content is getting produced and consumed.
 
 
@@ -677,6 +709,11 @@ Between subject design?
 Online survey, spread via various channels.
 
 \subsection{Results}
+
+Compare with Toff et al: 
+- AI Label is less trustworthy
+- Effect is stronger with higher levels of knowledge about journalism
+
 
 \subsubsection{Normal Distribution}
 Most of the things are normal?
