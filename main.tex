@@ -364,6 +364,19 @@ For the scientific community a generative model, as described with a \gls{gan}, 
 It is unlikely, that the broader public refers to the same, deeply technological context. It is more likely that the meaning is less about technical implementations, but more of how and end user utilizes the software: If things can be generated using AI it is generative AI. This notion can be supported by google trends of "generative AI" as depicted in figure \ref{fig:gtrend-genai}. The search requests begin to rise in October of 2023 and then climb high from December 2023 onwards. This fits perfectly to the release of ChatGPT and the spread of image generation software and their media coverage. \\
 In the following the term "\gls{genai}" will be used in the means of the broader public and not the narrow technical definition. If technical details are to be discussed, they will be elaborated further. 
 
+\section{Uncanny Valley}
+Besides the technical terms we have to quickly cover the uncanny valley as well. The concept of the uncanny valley was first described by Masahiro Mori, robotic professor at the Tokyo Institure of Technology. He hypothesized that a person's response to a humanlike robot would abruptly shift from empathy to revulsion as it approached, but failed to attain, a lifelike appearance \cite{moriUncannyValleyField2012}. Some example on this spectrum are given in figure \ref{fig:uncanny-valley}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{./graphics/images/uncanny-valley.png}
+  \caption{Uncanny valley according to Masahiro Mori \cite{moriUncannyValleyField2012}}
+  \label{fig:uncanny-valley}
+\end{figure}
+We've needed some knowledge of the uncanny valley, because we had to take its effect into account for each test case within our study. As we investigate the trust towards AI aided news we have to consider that loss in trust could also be related with uncanny valley effects. \\
+Section \ref{sec:rel-studypart} will cover the works of \citeauthor{weismanFaceUncannyEffects2021} who investigated the trust loss due to the uncanny valley in a study. \\
+We will address how we handled the effect of the uncanny valley in our study design in section \ref{subsec:study design}
+.
+
 \section{ChatGPT}
 ChatGPT has been used at several points to conduct this research. Especially during the software development phase(section \ref{implementation}) and the study design (section \ref{study}) ChatGPT has been consulted to speed up the processes massively. \\ 
 For study's content generation it did not play any role and thus won't be discussed as deeply as the other technologies. However we must consider the mere existence of ChatGPT in the context of the time this work is being conducted. As discussed in section \ref{sec:genai} the public attention towards AI tools has been tremendosly accelerated by the broad availibility of ChatGPT. When compared to the, in comparison slow and steady, increase of the google trends about DeepFakes in figure \ref{fig:gtrend-deepfakes} we can clearly see a more disruptive tendency on the timeline of ChatGPT.
@@ -384,7 +397,7 @@ Still, the findings about FaceSwaps are interesting as Background context of thi
   \caption{DeepFaceLab Test result from September 2021}
   \label{fig:dfl-sample}
 \end{figure}
-By far the leading Software for face swapping is DeepFaceLab or DFL for short. It encompasses a broad workflow in order to create high end face models. According to the commit history \gls{dfl} came into existance in June 2018 \cite{iperovCommitsIperovDeepFaceLab}. Without being able to say it with certainty, DFL's success might also lie in its proximinty to pornography. The reason for this suspection is that the main guide for how to work with \gls{dfl} is hosted as a subpage of \textit{mrdeepfakes.com}, which claims to the largest DeepFake porn site. To our knowledge these topics were rarely addressed by the authors of the software. As of November 2023 the software has been phased out of development into archive by the lead developer without providing any reasons. Probably this has to with the upcoming of newer, faster methods of face swapping discussed in section \ref{sec:roop}. For the high end workflow \gls{dfl} can still be used and there are other alternatives. \textit{FaceSwap}, actually being the first tool introduced in 2017, is under development. The standard workflow for creating a DFL model is as follows. \\ 
+By far the leading Software for face swapping is DeepFaceLab or DFL for short. It is also one of the first and oldest in the growing row of synthetic media creation tools. It encompasses a broad workflow in order to create high end face models. According to the commit history \gls{dfl} came into existance in June 2018 \cite{iperovCommitsIperovDeepFaceLab}. Without being able to say it with certainty, DFL's success might also lie in its proximinty to pornography. The reason for this suspection is that the main guide for how to work with \gls{dfl} is hosted as a subpage of \textit{mrdeepfakes.com}, which claims to the largest DeepFake porn site. To our knowledge these topics were rarely addressed by the authors of the software. As of November 2023 the software has been phased out of development into archive by the lead developer without providing any reasons. Probably this has to with the upcoming of newer, faster methods of face swapping discussed in section \ref{sec:roop}. For the high end workflow \gls{dfl} can still be used and there are other alternatives. \textit{FaceSwap}, actually being the first tool introduced in 2017, is under development. The standard workflow for creating a DFL model is as follows. \\ 
 The terms \textit{target} and \textit{source} and to be understood in that way, that the target is the face that will be driving the final face. The source is the face that is being faked onto to target.
 \textbf{Data gathering} involves finding the right material to train the models with. High resolution images of both, the target and the source are required but can be easily found online in videos. The final face resolution usually ranges from 128x128 up to 512x512 pixels. So the videos used for datagathering should be of such quality that the required face size can be extracted from the gathered videos. It is very important that the images cover a wide variety of facial angles, expressions and lighting situations. Usually around 8.000 face images are enough for a good fake.
 During \textbf{extraction} faces of the wanted size get detected in video frames and extracted. Also facial alignment data gets embedded into the images as metadata as it is needed for the training process.
@@ -411,7 +424,8 @@ Although not stated specifically by the \gls{dfl} developers, such rapid advance
   \caption{Latent Diffusion Model \cite{rombachHighResolutionImageSynthesis2022}}
   \label{fig:ldm-arch}
 \end{figure}
-\citet{rombachHighResolutionImageSynthesis2022} released their Latent Diffusion Model (figure \ref{fig:ldm-arch}) in Summer of 2022 and started huge movement for computer graphics. It has been quickly adopted in multiple products and fuel several companies such as \textit{Midjourney, Pika-Labs, Runway, DI-D} and many more. Even more interesting than the appeareance of commercial solutions is the fact how quickly a huge Open Source community grew from the \gls{sd} project. Currently there are around a douzen different GUI projects available for \gls{sd}, some even featuring extensions within the GUI. To name the biggest, \textit{Automatic1111} lists \textbf{269} community extensions which massively extend the functionality in different directions, for example towards video generation. The project was initiated in August of 2022 has 22.500 forks and a 113.000 star rating which is an impressive rate of development \cite{AUTOMATIC1111StablediffusionwebuiStable}. \\
+\citet{rombachHighResolutionImageSynthesis2022} released their Latent Diffusion Model (figure \ref{fig:ldm-arch}) in Summer of 2022 and started huge movement for computer graphics. We won't go into in depth details about the immer workings of the LDM workflow but a brief overview is given in appendix \ref{app:diff-workflow}.\\
+The open sourced workflow has been quickly adopted in multiple products and fuel several companies such as \textit{Midjourney, Pika-Labs, Runway, DI-D} and many more. Even more interesting than the appeareance of commercial solutions is the fact how quickly a huge Open Source community grew from the \gls{sd} project. Currently there are around a douzen different GUI projects available for \gls{sd}, some even featuring extensions within the GUI. To name the biggest, \textit{Automatic1111} lists \textbf{269} community extensions which massively extend the functionality in different directions, for example towards video generation. The project was initiated in August of 2022 has 22.500 forks and a 113.000 star rating which is an impressive rate of development \cite{AUTOMATIC1111StablediffusionwebuiStable}. \\
 Midjourney, probably the best known commercial solution works over Discord interface and currently has around \textbf{17.3} Million registered users on their channel \cite{midjourneyJoinMidjourneyDiscord}. \\
 Besides the development of image generator software there is also a thriving community for model development and finetuning so called \gls{lora} Models. These are then shared on platforms such as \textit{\gls{hf}} or prominently \textit{civitai.com}. While \gls{hf} is focussed on the developer side of models, civitai.com can also be seen as some sort of social network where user generated content in form of generated images is showcased. Civit hosts "thousands of high-quality Stable Diffusion models" as they currently state on their website \cite{CivitaiHomeOpenSource}. Especially \gls{lora}s are interesting as they are very small (several megabytes) compared to full fledged models (several gigabytes). LoRas help in finetuning the bigger models towards a specific goal. Because LoRas are so small they can be shared very easily within the community. It goes without saying that this sort of plug and play models are also well suited and used for pornographic purposes as well. Different to the earlier mention mrdeepfakes.com civitai.com features nudity filters and seeks to create a safer space for every kind of content. A public debate has already started if AI generated pornography will replace pornography and if that is an unwanted outcome. Surely the ethical concerns could fill a paper on their own and thus won't be discussed much further. However some will be mentioned as related work in chapter \ref{chap:rel-work}.\\
 Latent Diffusion Models act not only as the core technology but also as a platform and the adoption speed and extensiability of both, the technology and also the community indicate a disruption is taking place here.
@@ -419,7 +433,7 @@ In context of this paper a stable diffusion workflow has been used to generate t
 
 \section{Lip Remapping}
 \label{sec:lips}
-After discarding the previously discussed whole FaceSwaps using \gls{dfl} as a meaningful tool for the study, lip remapping was chosen as one of the main visual technologies for this work. The base for many videos were real recordings from a news show. After creating a synthetic voice (refer to sections \ref{sec:tts} and \ref{sec:v2v}) the proper mouth movement needed to be recreated to make the videos somewhat convinceble. To accomplish a satisfying result, multiple tools needed to be chained together. First and foremost there is \textbf{\gls{w2l}}. Based on the research of \citet{prajwalLipSyncExpert2020} they provide a code implementation on GitHub \cite{mukhopadhyayWav2LipAccuratelyLipsyncing2023}. The code was adapted to fit the workflows for the creation of the study videos and explained in further detail in the implementation section \ref{implementation}.
+After discarding the previously discussed whole FaceSwaps using \gls{dfl} as a meaningful tool for the study, lip remapping was chosen as one of the main visual technologies for this work. The base for many videos were real recordings from a news show. After creating a synthetic voice (refer to sections \ref{sec:tts} and \ref{sec:v2v}) the proper mouth movement needed to be recreated to make the videos somewhat convinceble. To accomplish a satisfying result, multiple tools needed to be chained together. First and foremost there is \textbf{\gls{w2l}}. Based on the research of \citet{prajwalLipSyncExpert2020} they provide a code implementation on GitHub \cite{mukhopadhyayWav2LipAccuratelyLipsyncing2023}. The code was adapted to fit the workflows for the creation of the study videos and explained in further detail in the implementation section \ref{implementation}. The \gls{w2l} project is also one of the older synthetic media tools, released in 2020.
 
 \begin{figure}[h]
   \centering
@@ -536,35 +550,69 @@ As stated in the Introduction, synthetic media is a rather new trend, mainly dri
 \end{figure}
 In our study we investigate a german-speaking population. Therefore we want to add, that papers which are focussed on a certain terretory (mostly US in relation of Trump) can only be included with the caviat that they might not directly apply to the german cultural space as well. To illustrate one difference we can refer to figure \ref{fig:trust-ger} in comparison to \ref{fig:trust-us}. While trust among american public decreased around 2016, no impact can be seen in Germany at this time. It took until the years of the Covid19 Pandemic to experience a decline in Germany as well. It remains to be seen how this trend will continue in the following years.
 
-Surely its impossible pinpoint one signular event, person or technology as the starting point for trust issues towards media within a society. We chose to orinate this research from a technological view. And while we define DeepFakes as the umbrella term for all synthetically generated Fake News, we will chronologically encounter FaceSwaps first as they are the oldest of the relevant technologies. Please bare in mind that literature published before the \gls{genai} boom of 2022 refers to DeepFakes as FaceSwaps in most cases, simply because other technologies where non-existant or irrelevant to the public until very recently. The term DeeFake was used analogously with FaceSwaps until other technologies advanced such as synthetic voices, lip-remapping and todays image generators.
+Surely its impossible pinpoint one signular event, person or technology as the starting point for trust issues towards media within a society. We chose to orinate this research from a technological view. And while we define DeepFakes as the umbrella term for all synthetically generated Fake News, we will chronologically encounter FaceSwaps first as they are the oldest (2017) of the relevant technologies. The next DeepFake tool to come around was probably wav2lip in 2020. Please bare in mind that literature published before the \gls{genai} boom of 2022 refers to DeepFakes as FaceSwaps in most cases, simply because other technologies where non-existant or irrelevant to the public until very recently. The term DeeFake was often used analogously with FaceSwaps until other technologies advanced such as synthetic voices, lip-remapping and todays image generators.
 
-\section{Measurements through secondary Indicators} 
+\section{Perceptions and Implications through Secondary Indicators} 
 \label{sec:rel-secondary}
+
+Investigating deepfake technology through secondary indicators, such as video comments or blog posts, is essential to comprehensively grasp public sentiment and articulate feelings surrounding this technological advancement. Analyzing these sources provides valuable insights into how individuals perceive and express their concerns, contributing to a nuanced understanding of the societal implications of deepfake technology. By looking into the diverse array of opinions presented in video comments and blog posts, we gain a more holistic view of the multifaceted landscape surrounding deepfakes.
+
 \citet{westerlundEmergenceDeepfakeTechnology2019a} provide a literature review on "emerging scholary literature" in addition to publicly available news articles. They used this data to reflect on benefits, threats and examples of current DeepFakes and how to combat them. The authors list several benefits in the regions of media production,educational media and digitalcommunications, games and entertainment, socialmedia and healthcare, material science, and various business fields, such as fashion and ecommerce. As examples they name several entertaining DeepFakes of famous actors or a museum installation that brought Salvador Dali back to life. \Citeauthor{westerlundEmergenceDeepfakeTechnology2019a} also conclude: "According to our study, deepfakes are a major threat to society, the political system and businesses[...]". They reached this conclusion based on the existance of countless pornographic DeepFakes, and multiple polical Fakes. The Obama/Peele Fake is quoted again, but also a viral video of the american politician Nancy Pelosi and another Fake of Donald Trump. The authors evaluated these videos to have had limited poitcal influencing, but they also provide two examples where they had consequences. In one case from 2018, a DeepFake of Gabon's long-unseen president Ali Bongo, who was believed in poor health or dead, was cited as the trigger for an unsuccessgul coup by the Gabonese military. In the other case a viral clip from Malaysia showed a man's confession to having sex with a local cabinet minister and caused political controversy. \\
 About a possible solution \Citeauthor{westerlundEmergenceDeepfakeTechnology2019a} name four fields: "1) legislation and regulation, 2) corporate policies and voluntary action, 3) education and training, and 4) anti-deepfake technology". Section \ref{sec:rel-work-counteringdf} will give further insight in some countermeasures.
 
-The works of \citeauthor{leeBelieveNotBelieve2021} took a different approach and move closer to the corupus delicti. They picked the top 10 DeepFake Videos on Youtube and provided a content analysis of their audience comments.  
+The works of \citeauthor{leeBelieveNotBelieve2021} took a different approach and move closer to the corupus delicti. They picked the top 10 DeepFake Videos on Youtube and provided a framing analysis of the audience's comments. The word \textit{framing} is important here and requires an explanation. Framing refers to how the certain information is contextiolised. Or in the words of the authors: "[...]The \textit{valence framing} effect explores how information, framed positively or negatively, may systematically affect audience responses". From the 10 most views DeepFake YouTube videos, they gathered 88.362 comments from which they chose 2.689 (3\%) randomly sampled comments for further analysis. They then analyzed how the videos were framed and afterwards looked at the framing of the comments.\\
+five videos were positively framed, three were classified as neutral and two had negative framing. Regarding the comments, the authors found that there were quite distinct groups who recognized positive or negative potentials of deepfakes but rarely see both, a positive and negative side in the technology. These distinct groups were also in line with the framing of the corresponding videos. The authors conclude that the an audience is largely influenced by the framing of the video and remark that this situation might not be ideal for the education of all viewers as their opposite opinion is always missing. This is quite an easy argument to follow. Of course more shades of grey are always better for a balanced discours. However we have to add doubts about the depth of information one can extract from these comments. To make an assumption, a video comment will rarely be a detailed, dialectic thought but more of a spontanous reaction to the seen video. That said it seems hard to make a consise assessments of the viewers thoughts. \\
+Nonetheless the findings remains interesting to remind us that a balanced coverage of such a delicate topic is important.
 
-\todo{analysis of Reddit mining} Brooks
+Similar to the works of \citeauthor{leeBelieveNotBelieve2021}, \citeauthor{brooksPopularDiscourseDeepfakes2021} qualitatively investigated the framing of deepfakes, but instead used posts from the platform Reddit. In contrast to the previously mentioned analysis of YouTube videos Brooks' work is not as details in regards of specific numbers. It is still quite interesting, because \citeauthor{brooksPopularDiscourseDeepfakes2021} chose posts from December of 2017 until February of 2018 which is exactly the timeframe and platform where and when deepfake pornorgraphy emerged. During analysis, two primary themes emerged: (1) risk to individuals by way of personal abuse and reputation decimation, and (2) risk to society in terms of war threat and societal impact. As an interesting sidenote the authors mention parallels to the rise of the internet where similar threats were asumed. To conclude, the author points to the need of various solutions for all the different problems that arise from the emergence of deepfakes. According to \cite{brooksPopularDiscourseDeepfakes2021}, personal responsibility and individual literacies are often formulated as a solution, but do not take into account differences in culture, language, or digital literacies. The author calls for sofisticated media forensics in order to detect fake material. A wish, which might not be sustainable on the long run as will be discussed in section \ref{sec:rel-work-counteringdf}. To give one example, Brooks names wrongly blinking eyes as a fake indicator. But after an imperfection has been caught by an automatic forensic system it can be used as input to further improve the fake. In the end Brooks also states the need for increased responsibility at platforms to reduce the spread of deepfakes.
 
 % Reviews with studies on actual people
-\section{Measurements with study participants}
+\section{Controlled studies with participants}
 \label{sec:rel-studypart}
-Whether people indeed “fall for” deepfakes is unclear and understudied, but not unimaginable \cite{dobberMicrotargetedDeepfakesHave2021}. In an evaluation of the Obama/Peele Fake \citet{vaccariDeepfakesDisinformationExploring2020} conclude: "We have shown that political deepfakes may not necessarily deceive individuals, but they may sow uncertainty which may, in turn, reduce trust in news on social media." They also add these detrimental tendencies can lead to a downward spiral of trust loss in media and news in general. But it's important to add that these cases might not even need manipulated video to spread fake news. Text can also suffice to spread misinformation, as could be seen during the Covid19 pandemic and often mentioned social media channels \cite{naeemExplorationHowFake2021}. Another awful example of how powerful just text can be, is the Q-Anon movement: \cite{zeeuwTracingNormieficationCrossplatform2020} investigated "[...] how ideas and objects travel from fringe online subcultures to large audiences on mainstream platforms and news outlets". \\
-\citet{dobberMicrotargetedDeepfakesHave2021} particularly investigated what effect deepfakes can have when amplified through microtargeting in a fictional scenario. Their results indicate that it is indeed possible to stage a political scandal with a deepfake. Intestingly their findings differed to earlier authors, who found no effects of disinformation on political behavior and attitudes. They state: "[...] indeed deepfakes are a more powerful mode of disinformation in comparison with the false news stories studied by Guess et al. (2018) and the Russian Twitter trolls studied by Bail et al. (2020)" \cite{dobberMicrotargetedDeepfakesHave2021}.
 
-\todo{Heiselberg Lene}
+While we've explored the broader picture using secondary indicators and public discourse, it's crucial to zoom in and examine how individuals directly respond to deepfake technology. This section shifts focus to measurements with study participants, aiming to uncover detailed insights into how deepfakes impact individuals' trust, perceptions, and behaviors and make them tangible with studies.
+
+Whether people indeed “fall for” deepfakes is unclear and understudied, but not unimaginable \cite{dobberMicrotargetedDeepfakesHave2021}. \citet{dobberMicrotargetedDeepfakesHave2021} particularly investigated what effect deepfakes can have when amplified through microtargeting in a fictional scenario. In a study they interrogated 278 participants to answer the research question of how the attitudes of supporters of one depicted politician's party is affected by a deepfake meant to discredit the political candidate. As a blocking variable the chose christian religious identity. By answering questions about religion the participants were placed into Christian and non-Christian Groups and then randomly served by the original video, or the deepfaked video of a Dutch-Christian-Democrats politician. In the faked version, the polititian jokes about Christ's crucifixion. The authors suspected that this scenario "would move attitudes because the politician is a prominent Christian politician and the base of his party is to a large extent Christian". \\
+The authors found evidence, that the attitude towards the politician dropped significantly in the experimental groups.
+Statistical evidence was also found for the hypthesis, that the microtargeted Christian group was more effected by the statements than the non-Christian group. All the results indicate, that it is indeed possible to stage a political scandal with a deepfake. Intestingly their findings differed to earlier authors, who found no effects of disinformation on political behavior and attitudes. They state: "[...] indeed deepfakes are a more powerful mode of disinformation in comparison with the false news stories studied by Guess et al. (2018) and the Russian Twitter trolls studied by Bail et al. (2020)" \cite{dobberMicrotargetedDeepfakesHave2021}.
+
+The DeepFake FaceSwap example of Obama, voiced by Jordan Peele have been mentioned several times. \citeauthor{vaccariDeepfakesDisinformationExploring2020} conducted a person study with exactly this material. The authors tested how a sample of 2.005 participants respond to three variants of the Obama/Peele fake. They have split up the video in three separate videos. Two of them were considered to be deceptive because they don't include the reveal at the end where the deepfake is explained. Of the two deceptive videos, the first one was four seconds long and included Obama "saying" that Donald Trump is a complete dipshit. The second video was 26 seconds long and included more text. The third video contained the explanatatory part of the original video, where the fake is explained and played side by side with the actor voicing Obamas appeareance.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.75\textwidth]{./graphics/images/obamafake.png}
+  \caption{Assessment of the truthfulness of the video, by treatment. \cite{vaccariDeepfakesDisinformationExploring2020}}
+  \label{fig:obamafake-eval}
+\end{figure}
+The following results can be seen in figure \ref{fig:obamafake-eval}. The authors found that "overall, only 50.8\% of subjects were not deceived by the deepfake. This finding is surprising given the statement was highly improbable" \cite{vaccariDeepfakesDisinformationExploring2020}. 
+I is also visible, that the deception rate was quite consistent over all three videos. Much more interesting was the author's second finding: "Importantly, however, the results support H2 — watching a deepfake that contains a false statement that is not revealed as false is more likely to cause uncertainty" \cite{vaccariDeepfakesDisinformationExploring2020}. \\
+In an evaluation of the Obama/Peele Fake \citet{vaccariDeepfakesDisinformationExploring2020} conclude: "We have shown that political deepfakes may not necessarily deceive individuals, but they may sow uncertainty which may, in turn, reduce trust in news on social media." The authors also add, that these detrimental tendencies can lead to a downward spiral of trust loss in media and news in general. \\
+In this context it is important to add that these cases might not even need manipulated video to spread fake news and uncertainty. Text can also suffice to spread misinformation, as could be seen during the Covid19 pandemic and often mentioned social media channels \cite{naeemExplorationHowFake2021}. Another awful example of how powerful just text can be, is the Q-Anon movement: \cite{zeeuwTracingNormieficationCrossplatform2020} investigated "[...] how ideas and objects travel from fringe online subcultures to large audiences on mainstream platforms and news outlets". The Q-Anon subculture has lead to several deaths in the real world (Pizzagate) and was related to the January 6 United States Capitol attack.
+
+\Citeauthor{weismanFaceUncannyEffects2021} studied the effects 3D animated talking head avatars, specifically doppelganger recreations of the participants. These 3D characters then could be used to convey messages to their real life counterpart. The messages were one pro- and on anti-AI statement recorded from the corresponding participant in advance. Using the participants' own voice, the avatar was both voiced and animated. The animation was accomplished using the software Reallusion CrazyTalk8. Two example avatars are depicted in figure \ref{fig:uncanny-avatars}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.75\textwidth]{./graphics/images/uncanny-avatars.png}
+  \caption{Doppelganger avatars created with CrazyTalk8 \cite{weismanFaceUncannyEffects2021}}
+  \label{fig:uncanny-avatars}
+\end{figure}
+CrazyTalk8 uses an algorithmic approach to move the targets head and lips based on audio, however it is not disclosed how the process exactly works. It is imaginable that the discrepancy between the participant's natural and real voice and the rather imperfectly looking and animated 3D character induces a significant amonunt of uncanny valley discomfort. This is amplified as the doppelgangers protrait the participants themselves, an appeareance which is very familiar. The authors willingly produced a highly uncanny perception in order to measure the trust loss due to the uncanny appeareance. In the study, some participants were exposed to their own voice and avatar (doppelganger), as well as another avatar and voice, who was unfamiliar to the participant. That way they could dial the uncanny valley feeling up and down. It was higher when the participant was subjected to its own doppelganger and lower when it was a different person.\\
+The authors concluded that the uncanny valley effect mediated participant affect based AI trust. Uncanny valley perceptions were negatively related to affect-based trust. "Presenting individuals with a talking head featuring their own face decreased affect-based trust toward AIs relative to talking heads featuring a stranger's face or relative to simple audio playback" \cite{weismanFaceUncannyEffects2021}. \\
+We've cited this paper, because we also introduced an uncanny vally test case a negative control group into our study (see section \ref{subsec:study design}). Different to our approach we want to remark that the study by \Citeauthor{weismanFaceUncannyEffects2021} is not suited to measure trust-issues caused by artificial intelligence technology accurately as there is no real control group that uses real footage or better AI technology (without or with less uncanny valley). We can infer, that the reduced trust is caused predominantly by the uncanny valley effect and not by the fact that it was created by AI-aided algorithms. We tried to address this study design difficulty by including real, non-fake material to be tested against in order to receive a base-line measurement of trust for real footage, free of any \gls{genai}.
+
+
 \todo{Toff}
-
+\todo{Heiselberg Lene} 
 
 \section{Countermeasures}
 \label{sec:rel-work-counteringdf}
 Technical countermeasures
-It must be mentioned, that anti-deepfake technology always will have its boundries. The efficacy will always depend on the technologies ability to detect deepfakes. With better detection come better methods for generation. It's an arms race that improves both parties and gives \gls{gan} its name. Because of that, other solutions in the domain of \textbf{media provinence} could provide more safety, than forensic detection. In this context, "Project Origin" has be mentioned. An alliance of media producers and broadcasters want to develop a "technical provenance approach, in conjunction with media education and synthetic media detection techniques [and] help to establish a foundation for trust in media" \cite{ProjectOrigin}. The alliance includes organisations such as \textit{BBC, Radio Canada, New York Times and Microsoft}. This lead to the creation of the \gls{c2pa}, the formulation of a technical standard to achieve to goals forumlated earlier. This project is today backed by major hardware (\textit{Canon, Nikon, Sony, Leica, Panasonic, ARM}) and software companies (\textit{Adobe, Microsoft, AWS, AVID}), media resellers distributors and providers\textit{BBC, Radio Canada, dpa, france-tv, shutterstock, universal music}. \gls{c2pa} is currently being implemented by the industry.
+It must be mentioned, that anti-deepfake technology, like forensics and AI-based detection will always have its boundries. The efficacy will always depend on the technologies ability to detect deepfakes. With better detection come better methods for generation. It's an arms race that improves both parties and gives \gls{gan} its name. Because of that, other solutions in the domain of \textbf{media provinence} could provide more safety, than forensic detection. In this context, "Project Origin" has be mentioned. An alliance of media producers and broadcasters want to develop a "technical provenance approach, in conjunction with media education and synthetic media detection techniques [and] help to establish a foundation for trust in media" \cite{ProjectOrigin}. The alliance includes organisations such as \textit{BBC, Radio Canada, New York Times and Microsoft}. This lead to the creation of the \gls{c2pa}, the formulation of a technical standard to achieve to goals forumlated earlier. This project is today backed by major hardware (\textit{Canon, Nikon, Sony, Leica, Panasonic, ARM}) and software companies (\textit{Adobe, Microsoft, AWS, AVID}), media resellers distributors and providers \textit{BBC, Radio Canada, dpa, france-tv, shutterstock, universal music}. \gls{c2pa} is currently being implemented by the industry.
 
 
 \todo{combating Deepfakes with media literacy programs} Hwang et al.
-
+\todo{framing leads to resilience?} iacobucci
+\todo{policymaking ideas} Aalia
+\todo{some lawmaking??}
 
 
 
@@ -573,14 +621,8 @@ We conclude that research involving \gls{genai} created media is still scarce. T
 
 
 
-To name a positive example: 
-\todo{Wu et al from cyberpsychology}
 
 
-\todo{Trust towards AI program influencers} Weisman 
-Uncanny valley und stuff.
-
-\todo{policymaking ideas}
 
 
 
@@ -591,12 +633,6 @@ Uncanny valley und stuff.
 
 Generative AI is advancing at such a rate that it's impossible keep all developments in sight. Research has just caught up with the outcome from FaceSwap DeepFakes which today look antiquated in the light of ChatGPT and \gls{sd}. 
 It is obvious that the researching community has to continue to follow the call from \citet{hancockSocialImpactDeepfakes2021} and study what they called . A call that the authors of this paper were happy to comply.
-
-
-\todo{identify gaps}
-\todo{reception of media}
-\todo{synthetic media reception}
-\todo{lawsuits}
 
 \chapter{Methodology}
 \section{implemented Technologies}
@@ -626,11 +662,14 @@ for each case: state hypothesis and dependent/independent variables, control con
 
 \label{study}
 \subsection{Study Design}
+\label{subsec:study design}
 Spectrum of artificiality.
 Randomization.
 AB Groups. 
 Sequence bias.
 Basic Questions: Media usage, media trust, ai usage and trust
+
+Between subject design? 
 
 \subsection{Procedure and Participants}
 Online survey, spread via various channels.
@@ -705,6 +744,30 @@ These stills were chosen in order to test multiple lighting situations, angles e
   \includegraphics[width=1\textwidth]{./graphics/images/inswapper/oppenheimer1.png}
   \caption{Side view of faces often does not work}
 \end{figure}
+
+\chapter{Brief Stable Diffusion explanation}
+\label{app:diff-workflow}
+A very good explanation of how the Stable Diffusion process works can be found at \url{https://stable-diffusion-art.com/how-stable-diffusion-work/}. \\
+As depicted the in figure \ref{fig:forward-diff} a neural network is trained to consecutively add noise to an image until it is just random noise. During the process, word embedding information about the image is kept and also fed into the training process
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{./graphics/images/forward-diff.png}
+  \caption{Forward Diffusion Process during training \cite{andrewHowDoesStable2022}}
+  \label{fig:forward-diff}
+\end{figure}
+
+During inference, this process is then reversed. Starting from random noise, with added word captions, the neural network is tasked to remove the noise until the image is clear. That said, the output image is mainly dependent on the imput prompt and the random starting noise (also called seed).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{./graphics/images/reverse-diff.png}
+  \caption{Reverse diffusion process \cite{andrewHowDoesStable2022}}
+  \label{fig:backward-diff}
+\end{figure}
+
+For further information please visit \url{https://stable-diffusion-art.com/how-stable-diffusion-work/}.
+
+
 
 % \input{latexhints/latexhints-english}
 
