@@ -488,7 +488,7 @@ Besides \gls{tts} another recently published approach should be tested: \gls{v2v
 For accomplishing \gls{v2v} conversion the \gls{rvc} project was used \cite{RVCProjectRetrievalbasedVoiceConversionWebUI2023}. 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\textwidth]{./graphics/images/RVC-UI.png}
+  \includegraphics[width=1\textwidth]{./graphics/images/RVC-UI.png}
   \caption{RVC Gradio User Interface}
   \label{fig:rvc-gradio}
 \end{figure}
@@ -736,18 +736,25 @@ But getting to the formatted Dataset turned out to be quite time consuming with 
 In the following we want to give a detailed example how we worked on our TTS Dataset. The final workflow is outlined in figure \ref{fig:dvt-tts-wf}.
 \begin{figure}[h]
   \centering
-  \includegraphics[width=1\textwidth]{./graphics/images/tts/dvt tts full workflow.png}
-  \caption{data preprocessing workflow for tts}
+  \includegraphics[width=1\textwidth]{./graphics/images/tts/tts prpro.png}
+  \caption{Data preprocessing workflow for TTS training: using \gls{prpro} and Audacity for workaround}
   \label{fig:dvt-tts-wf}
 \end{figure}
 A good voice clone starts with a smart target selection. Therefore we had to determine a suitable environment for our test cases. As we have hinted earlier and will decribe further is section \ref{study}, we chose a controled news show as the environment. TTS voices in general perform best in consistent voices where no special (emotional) intonation is required. A newscast ist perfect in this regard because of the neutral narration on the content. 
 According to this requirement we aimed for four hours of speech extracted from \gls{br} news shows "BR24". We ended up with 60 shows which acounts to a total runtime of 30 hours. From each we extraced approximately 5 minutes of the anchorman's voice.\\
 In the end our dataset contained 2002 individual clips with transcription. Getting there from 60 hours of news broadcast was quite an undertaking that could never be feasible without automation, which is where our partially automated preprocessing workflow comes in. \\
 We used several tools to aid the dataset creation process, based of various open source projects \cite{micaAudioSplitterUsing2023}, \cite{harperEndtoEndToolkitVoice2023}: \textit{Pyannote speaker diarization} helps to distinguish multiple speakers within one audio track. \textit{OpenAI Whisper} provides audio to text transcription. \textit{NVIDIA NeMo} is used for the normalisation of the transcribed texts. To give an example numbers like "42" would get normalized to the corresponding word "forty-two". This is necessary for the training process to avoid ambiguity as all input texts are being normalized before handing them over to the \gls{tts} engine. \\
-First we tried a fully automated way for the dataset creation: In this case we input one or multiple audiofiles and start the process. Based on the tools we've just mentioned, the audio gets transcribed and marked with a speaker ID.
+First we tried a fully automated way for the dataset creation which is depicted in figure \ref{fig:dvt-tts-original}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{./graphics/images/tts/tts dvt only.png}
+  \caption{fully automated data preprocessing workflow for TTS in \gls{dvt} (not practicable)}
+  \label{fig:dvt-tts-original}
+\end{figure}
+In this case we input one or multiple audiofiles and start the process. Based on the tools we've just mentioned, the audio gets transcribed and marked with a speaker ID.
 It is then cut up into pieces of maximum length of 10 seconds, based on the transcription timecodes and placed in a dedicated directory based on the speaker ID. The folder with the most files, which is the folder of the anchorman's voice is moved to the TTS Dataset directory and again transcribed and receives the corresponding metadata.csv file with the necessary transcription for tts training (see figure \ref{fig:metadata.csv}). \\
 This process works quite well besides rarely adding false speakers to the anchorman's directory. But there is one downside of this method which, unfortunately, makes it unusable. The transcription timecodes, provided by Whisper, which are used to cut the audios into pieces are not accurate enough and often cut parts of a spoken word away. That results in the corresponding TTS voice sounding chopped up as well. This issue could be fixed by using a cutting mechanism which relies on silence in the audio as a cutting signal instead of the transcription timecodes. Although an implementation could have been derived from one of the referenced github projects, we opted against it, because we would then lose the speaker diarization funcionality, which we needed, because our news segments contained so many different speakers. \\
-Instead we opted for more time consuming manual workflow in conjunction with the previously mentioned tools: Instead of cutting the the audios in \gls{dvt}, we added a subtitle export functionality for each speaker as a csv file. We then imported the subtitle files of the anchorman into the Video editing software \textit{\gls{prpro}}. Unfortunately this is not natively supported by \gls{prpro} which is why we had to rely on an extension called \textit{Markerbox} \cite{montgomeryMARKERBOXFreeMarker}. This turned out to be the quickest alternative next to reverse engineering the \gls{prpro} XML format or purchasing software. In the end we ended up with marking in the timeline (see figure \ref{fig:premier-markers}). 
+Instead we opted for more time consuming manual workflow (figure \ref{fig:dvt-tts-wf}) in conjunction with the previously mentioned tools: Instead of cutting the the audios in \gls{dvt}, we added a subtitle export functionality (\verb|extractSpeakerMarker()|)for each speaker as a csv file. We then imported the subtitle files of the anchorman into the Video editing software \textit{\gls{prpro}}. Unfortunately this is not natively supported by \gls{prpro} which is why we had to rely on an extension called \textit{Markerbox} \cite{montgomeryMARKERBOXFreeMarker}. This turned out to be the quickest alternative next to reverse engineering the \gls{prpro} XML format or purchasing software. In the end we ended up with marking in the timeline (see figure \ref{fig:premier-markers}). 
 \begin{figure}[h]
   \centering
   \includegraphics[width=1\textwidth]{./graphics/images/tts/premier with markers.png}
@@ -756,7 +763,7 @@ Instead we opted for more time consuming manual workflow in conjunction with the
 \end{figure}
 Now we were able to manually cut aways all sections of other speakers very quickly as we had the visual aid of the markers in the timeline. Once we had isolated the main speaker we exported the audioclip. From each 30 minute news segment, we extract approximately five minutes of anchorman-only talk.\\
 Next we needed to chop up the five minute piece into audios of maximum 10 seconds length based on silence detection. Though this could have been automated as discussed earlier, we didn't want to spend more time on such implementations but just get the Dataset ready as quickly as possible. Instead we chose \textit{Audacity} to confidently detect silence and render out all clips at once. \\
-Now we had all clips cut out cleanly, so we uploaded them again into \gls{dvt} to finalize the dataset creating by performing one last transcription (with text normalization) to end up with a correct metadata.csv file (see figure \ref{fig:metadata.csv}). \\
+Now we had all clips cut out cleanly, so we uploaded them again into \gls{dvt} to finalize the dataset creating by performing one last transcription with text normalization (\verb|transcribe_audio()| to end up with a correct metadata.csv file (see figure \ref{fig:metadata.csv}). \\
 Now, given that all files have been generated and placed in the right directories, starting a TTS training is rather easy. Within \gls{dvt} we invoke \verb|tts_train| and we will be guided to start a new training run with a given name and some minor parameters,like batch size and training epochs. While the training will start, a tensorboard is also spun up in the background in order to monitor the training process. It can be accessed with a web browser, if ssh port forwarding is setup properly (see figure \ref{fig:tensorboard}).
 \begin{figure}[h]
   \centering
@@ -772,17 +779,12 @@ Now that the model is trained, inference is straight forward. For further detail
   tts --model_path "path/to/checkpoint.pth" --config_path "path/to/config.json" --out_path "path/to/outputFile.wav" --text "Text to be synthesized."
 \end{lstlisting}
 
-
-
-
-
-
-
-
-\subsubsection{Retrieval Based Voice Conversion}
+\subsubsection{Voice to Voice Conversion}
 %General
-Compared to \gls{tts}, \gls{rvc} is pretty straight forward. Regarding \gls*{dvt}, almost no adaptations to the original \gls*{rvc} \cite*{RVCProjectRetrievalbasedVoiceConversionWebUI2023} code have been made. \gls*{dvt} mostly serves as a CUDA runtime environment to provide all drivers, dependencies and required AI models to \gls{rvc}. We added is the aforementioned \verb|filebrowser| to make file transfers to a remote GPU Server easier. Of cource, we can employ our preprocessing tools to aid the dataset generation process.\\
-As depicted in figure \ref{fig:rvc-gradio}, \gls{rvc} features a Gradio user interface with several tabs in the top. Most importantly training and Model inference. For training, most hyperparameters are already set, only the Dataset location needs to be set. Inference is also done in the GUI. 
+To convert our speech recordings to the voice of the anchorman we have used \gls{rvc}. Compared to \gls{tts}, \gls{rvc} is pretty straight forward. Regarding \gls*{dvt}, almost no adaptations to the original \gls*{rvc} \cite*{RVCProjectRetrievalbasedVoiceConversionWebUI2023} code have been made. \gls*{dvt} mostly serves as a CUDA runtime environment to provide all drivers, dependencies and AI models required to run \gls{rvc}. We added is the aforementioned \verb|filebrowser| to make file transfers to a remote GPU Server easier. Of cource, we can employ our preprocessing tools to aid the dataset generation process.\\
+As depicted in figure \ref{fig:rvc-gradio}, \gls{rvc} features a Gradio user interface with several tabs in the top. Most importantly training and Model inference. For training, most hyperparameters are already set, only the Dataset location needs to be set. Inference is also done in the GUI. \\
+\gls{rvc} was initially based a project for singing voice conversion, a feature which is implemented in \gls{rvc} as well. During inference voices, as well as singing voices can be converted to previously trained models. Before converting a singing voice we would need a clean vocal track. For that reason, the developers added the \gls{uvr} to a seperate tab of the GUI. With the utility the main vocals can be seperated from background music in order to convert the voice only.
+
 %Data requirements
 \textbf{Data Requirements} \\
 For a good \gls{rvc} model only 10 minutes of speech are required. It is also less important than for \gls{tts} that sentences are comlete. If a word is cut of we haven't experienced any issues. Because of that we can fully use the speaker diarization and cutting process we initially built for \gls{tts}. 
@@ -793,16 +795,20 @@ As can be seen in figure \ref{fig:rvc-wf}, the preprocessing workflow is much le
 \begin{figure}[h]
   \centering
   \includegraphics[width=1\textwidth]{./graphics/images/rvc/rvc-workflow.png}
-  \caption{data preprocessing workflow for tts}
+  \caption{Data preprocessing workflow for RVC training}
   \label{fig:rvc-wf}
 \end{figure}
 As we know that we can extract approximately 5 minutes from every 30 minutes news show we need two of them for the 10 minutes training material. They get placed into the INPUT directory. Invoking DVT's \verb|split_audios| method triggers the speaker diarization and segment splitting workflow, based on a transcription and corresponding timecodes. \\
 We end up with a subdirectory for each speaker of each input audio. We could now use \verb|filebrowser| to look through the speakers and listen in to the audios and then move the right audios into the \verb|/DATASET/RVC| directory. Or we can use \verb|move_most| which will go through all speaker folders and move those with most data into \verb|/DATASET/RAW/SELECTION_HERE|. Now we can move all data from here into \verb|/DATASET/RVC|. \\
-Once 10 minutes of snippets all under 10 seconds are in the RVC directory we can move on to training with \verb|rvc|. This will start up the Gradio ui which we need to access via our browser. From there we can start the training. The GUI, together with the online documentation is quite easy to understand and thus won't be explained further. This also counts for inferencing/converting voices with \gls{rvc}.
-
+Once 10 minutes of snippets all under 10 seconds are in the RVC directory we can start the \gls{rvc} UI within \gls{dvt} using \verb|rvc|. From there we can start the training by entering the dataset directory and clicking two buttons. The GUI, together with the online documentation is quite easy to understand and thus won't be explained further. This also counts for inferencing/converting voices with \gls{rvc}.
 
 \subsection{Lip remapping}
 Wav2Lip
+
+
+
+% Beispiele warum die Qualität schlecht ist
+% VQGAN Als Lösung
 
 
 \subsection{stable Diffusion + Video}
