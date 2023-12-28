@@ -418,6 +418,7 @@ Developed on the foundations of the InsightFace Face Analysis Project \cite{insi
 Although not stated specifically by the \gls{dfl} developers, such rapid advancements in faceswap technology might be the reason why \gls{dfl} was discontinued. 
 
 \section{Stable Diffusion}
+\label{sec:stable-diffusion-bg}
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.9\textwidth]{./graphics/images/latent-diffusion.png}
@@ -425,7 +426,7 @@ Although not stated specifically by the \gls{dfl} developers, such rapid advance
   \label{fig:ldm-arch}
 \end{figure}
 \citet{rombachHighResolutionImageSynthesis2022} released their Latent Diffusion Model (figure \ref{fig:ldm-arch}) in Summer of 2022 and started huge movement for computer graphics. We won't go into further details about the inner workings of the LDM workflow but a brief overview is given in appendix \ref{app:diff-workflow}.\\
-The open sourced workflow has been quickly adopted in multiple products and fuel several companies such as \textit{Midjourney, Pika-Labs, Runway, DI-D} and many more. Even more interesting than the appeareance of commercial solutions is the fact how quickly a huge Open Source community grew from the \gls{sd} project. Currently there are around a douzen different GUI projects available for \gls{sd}, some even featuring extensions within the GUI. To name the biggest, \textit{Automatic1111} lists \textbf{269} community extensions which massively extend the functionality in different directions, for example towards video generation. The project was initiated in August of 2022 has 22.500 forks and a 113.000 star rating which is an impressive rate of development \cite{AUTOMATIC1111StablediffusionwebuiStable}. \\
+The open sourced workflow has been quickly adopted in multiple products and fuel several companies such as \textit{Midjourney, Pika-Labs, Runway, DI-D} and many more. Even more interesting than the appeareance of commercial solutions is the fact how quickly a huge Open Source community grew from the \gls{sd} project. Currently there are around a douzen different GUI projects available for \gls{sd}, some even featuring extensions within the GUI. To name the biggest, \textit{\gls{auto1}} lists \textbf{269} community extensions which massively extend the functionality in different directions, for example towards video generation. The project was initiated in August of 2022 has 22.500 forks and a 113.000 star rating which is an impressive rate of development \cite{AUTOMATIC1111StablediffusionwebuiStable}. \\
 Midjourney, probably the best known commercial solution works over Discord interface and currently has around \textbf{17.3} Million registered users on their channel \cite{midjourneyJoinMidjourneyDiscord}. \\
 Besides the development of image generator software there is also a thriving community for model development and finetuning so called \gls{lora} Models. These are then shared on platforms such as \textit{\gls{hf}} or prominently \textit{civitai.com}. While \gls{hf} is focussed on the developer side of models, civitai.com can also be seen as some sort of social network where user generated content in form of generated images is showcased. Civit hosts "thousands of high-quality Stable Diffusion models" as they currently state on their website \cite{CivitaiHomeOpenSource}. Especially \gls{lora}s are interesting as they are very small (several megabytes) compared to full fledged models (several gigabytes). LoRas help in finetuning the bigger models towards a specific goal. Because LoRas are so small they can be shared very easily within the community. It goes without saying that this sort of plug and play models are also well suited and used for pornographic purposes as well. Different to the earlier mention mrdeepfakes.com civitai.com features nudity filters and seeks to create a safer space for every kind of content. A public debate has already started if AI generated pornography will replace pornography and if that is an unwanted outcome. Surely the ethical concerns could fill a paper on their own and thus won't be discussed much further. However some will be mentioned as related work in chapter \ref{chap:rel-work}.\\
 Latent Diffusion Models act not only as the core technology but also as a platform and the adoption speed and extensiability of both, the technology and also the community indicate a disruption is taking place here.
@@ -626,7 +627,7 @@ We've cited this paper, because we also introduced an uncanny vally test case a 
 So far we have mostly mentioned papers which studied the visual part of DeepFakes. As explained earlier, this is most likely linked to the unavailiblity of easy to use, high quality audio voice clones. In the recent time this has changed. Several easy to use \gls{tts} services can be found on the internet. \Citeauthor{heiselbergAutomatedNewsReading2022} provide recent research about synthetic voices, or how they call it "neural voices". They provide a concise summary about their findings: "Results show that the participants divide into two types: the perspicacious listeners who realize or suspect that the news reading is artificially synthesized and, to some degree, are annoyed by it, and the oblivious listeners who believe the news is read by a human and are predominantly positive towards it. Participants from both groups pay particular attention to voice emotionality when evaluating the appropriateness of the neural news reader. Also, they tend to attribute human characteristics to the neural news reader. The participants single out the news messages as well as the media organization behind the news broadcast, rather than the neural voice itself as critical components constituting credibility. Transparency is of great importance when applying a neural voice in a news broadcast, since it is a prerequisite for credibility" \cite{heiselbergAutomatedNewsReading2022}. \\
 For our work this is especially relevant as it set up in the environment of a news broadcast as well. In contrast to our study, it focussed on radio and the voice component alone. This reduced the surface are where the uncanny valley can act. Different to our works the authors conducted qualitative interviews instead of a quanitative analysis. To somewhat include a qualitative dimension as well, we gave our participants the option to justify their answers in free text forms. 
 
-\subsubsection*{disclosure of AI reduces trust}
+\subsubsection*{The disclosure of AI reduces trust}
 As probably the most recent paper, we include \citetitle{toffTheyCouldJust2023} by \citeauthor{toffTheyCouldJust2023}. At the time of writing (December 2023) the cited paper has just been released as a pre-print and has not yet been peer-reviewed. \\
 The authors conducted a stury using actual AI-generated journalistic content. Their focus lied on the effect of labelling AI-generated content. The studied sample consisted of audiences in the US and differnciate between polarized partisan lines. \\
 They found that on average audiences perceive news labeled as AI-generated as less trustworthy, not more (see figure \ref{fig:toff-trust}). 
@@ -688,6 +689,7 @@ After we have established a theoretical Background as well as an overview over e
 \end{figure}
 On the left end, we have 100\% unaltered footage, whereas on the right end, we have a very uncanny looking, synthetic case. In between these extremes the amount of artificiality increases from left to right. The spectrum set our goals for what we wanted to create and lead to the selection of tools. A more detailed description of the thought process behind the study design will be provided in section \ref{subsec:study design}. 
 
+\newpage
 \section{implemented Technologies}
 \label{implementation}
 Most of the development and training has been conducted on a remote Linux Server of the \gls{hff} and film munich via SSH. Many projects featured a Gradio webui. That way, these tools could easily be accessed from remote hosts via port-forwarding. The \gls{hff} workstation featured an Intel(R) Xeon(R) Gold 6254, 128GB of Memory and a Nvidia RTX A6000 GPU with 48GB of VRAM. \\
@@ -779,7 +781,7 @@ Now that the model is trained, inference is straight forward. For further detail
   tts --model_path "path/to/checkpoint.pth" --config_path "path/to/config.json" --out_path "path/to/outputFile.wav" --text "Text to be synthesized."
 \end{lstlisting}
 
-\textbf{Optional quality improvements} \\
+\textbf{Possibilities for quality improvements} \\
 After the \gls{tts} Audio is generated it might be necessary to do some manual corrections to the audio track. Most imperfections are related odd sentence flow or chopped consonants towards the end of a sentence. This can be done in any editing software. We rarely had to correct anything for our model but certainly looked to cut the audio to the right positions of the video so that it matches as good as possible. \\
 In addition we could also upscale the quality by applying \gls{rvc} on top of the \gls{tts} generated audios. This can not correct odd sentence flow or chopped words but add some depth to the speech quality. We decided against this improvement to have more distinctiveness between the test cases, but in a production system this might be a viable solution in order to improve \gls{tts} quality. 
 
@@ -807,15 +809,17 @@ We end up with a subdirectory for each speaker of each input audio. We could now
 Once 10 minutes of snippets all under 10 seconds are in the RVC directory we can start the \gls{rvc} UI within \gls{dvt} using \verb|rvc|. From there we can start the training by entering the dataset directory and clicking two buttons. The GUI, together with the online documentation is quite easy to understand and thus won't be explained further. This also counts for inferencing/converting voices with \gls{rvc}.
 
 \subsection{Lip remapping}
- After we created the auditive part, we need to adjust the visual part as well. This was done, in all cases but the unreal engine case, with the help of Wav2Lip \cite{mukhopadhyayWav2LipAccuratelyLipsyncing2023}. Similar to the development of \gls{dvt} we implemented the \gls{w2l} project as a portable docker container as well. Different to \gls{dvt} the \gls{w2l} container features a Gradio interface only (see figure \ref{fig:w2l-gradio}). This eases the file handly process as the hosts filesytem ist not required. Everything is stored inside the container during runtime and can be downloaded via the UI in the webbrowser.
+ After we created the auditive part, we need to adjust the visual part as well. This was done, in all cases but the unreal engine case, with the help of \gls{w2l} \cite{mukhopadhyayWav2LipAccuratelyLipsyncing2023}. Similar to the development of \gls{dvt} we implemented the \gls{w2l} project as a portable docker container as well. Different to \gls{dvt} the \gls{w2l} container features a Gradio interface only (see figure \ref{fig:w2l-gradio}). This eases the file handly process as the hosts filesytem ist not required. Everything is stored inside the container during runtime and can be downloaded via the UI in the webbrowser.
  \begin{figure}[h]
   \centering
   \includegraphics[width=0.9\textwidth]{./graphics/images/wav2lip/w2l-gradio.png}
   \caption{\gls{w2l} Gradio Webinterface}
   \label{fig:w2l-gradio}
 \end{figure}
+
+\textbf{Concrete Workflow} \\
 The usage is fairly simple. Upload a video and corresponding audio into the interface and execute \gls{w2l}. To create best results in regards of timing, it is advised to precisely edit the audio and video beforehand so that they have exactly the same length. \\
-One downside of the public implementation of \gls{w2l} is, that its lip synching model has been trained of a very low resolution of 96x96 pixels, which is not sufficient for today's standards of high definition. At a resolution of 1080p a resolution of at least 256x256 would be required. To mitigate this problem we've added a facial reconstrution library in the form of \textit{GFPGAN}, inspired by the Wav2Lip-GFPGAN GitHub project \cite{sainyAjaysainyWav2LipGFPGAN2023}. \\
+One downside of the public implementation of \gls{w2l} is, that its lip synching model has been trained of a very low resolution of 96x96 pixels, which is not sufficient for today's standards of high definition. At a resolution of 1080p a resolution of at least 256x256 would be required. To mitigate this problem we've added a facial reconstrution library in the form of \textit{GFPGAN}, inspired by the Wav2Lip-GFPGAN GitHub project \cite{sainyAjaysainyWav2LipGFPGAN2023}.
 The complete workflow is depicted in figure \ref{fig:w2l workflow} below.
 \begin{figure}[h]
   \centering
@@ -823,23 +827,53 @@ The complete workflow is depicted in figure \ref{fig:w2l workflow} below.
   \caption{Workflow for wav2lip}
   \label{fig:w2l workflow}
 \end{figure}
-Since the GFPGAN upsampling significantly increases the processing time, it can be disabled for quicker testing. Once finished, the video can be downloaded as an image sequence from to a local computer. The reason for why we chose to work with the image sequence instead of an already merged video is that we wanted to reduce the video conversion touchpoints as we lose quality with every lossy video encoding. \\
-As the very last step, everything needs to be put back together in \gls{prpro}. The process of GFPGAN upsampling every frame individually introduces a small flickering effect in the facial area of the final rendering. This could be mitigated further with deflickering software but is one step we chose not carry out.
+Since the GFPGAN upsampling significantly increases the processing time, it can be disabled for quicker testing. Once finished, the video can be downloaded as an image sequence from to a local computer. The reason for why we chose to work with the image sequence instead of an already merged video is that we wanted to reduce the video conversion touchpoints as we lose quality with every lossy video encoding. Lastly, the image sequences and audios need to be put back together in \gls{prpro}. Sometimes minor retouches were performed in \gls{ae}.
+
+\textbf{Possibilities for quality improvements} \\
+The process of GFPGAN upsampling every frame individually introduces a small flickering effect in the facial area of the final rendering. This could be mitigated further with deflickering software but is one step we chose not carry out. \\ Alternatively to GFPGAN, it would have been possible to use the previously discussed face swapping technologies (section \ref{sec:face-swapping}) to upsample the \gls{w2l} results. We've tested the workflow using \textit{Inswapper} and the results were not satisfying: 1) Using Inswapper on top of the blurry \gls{w2l} output the result was blurry as well. It seems that Inswapper applies the blurriness to the generated image as well. This makes total sense in the case of motion blur, but is counterproductive in our case. 2) Using Inswapper on top of GFPGAN upscaled results did not work either. Still a little bit of flickering could be perceived, probably because Inswapper tries to mimic the lighting as good as possible. Also useful in regular cases, but not in ours. \\
+Probably a good solution would have been to use \gls{dfl}. There are some examples on the internet which confirm \gls{w2l} in combination with \gls{dfl} as a working approach. We decided against the use of \gls*{dfl} because of the added effort for training a \gls{dfl} Model (2 weeks) and the significant post processing needed for every of our videos. 
 
 
-
-% Beispiele warum die Qualität schlecht ist
-% VQGAN Als Lösung
-
-
-\subsection{stable Diffusion + Video}
+\subsection{Stable Diffusion Video}
 \label{sec:sd-video}
-Extact workflow for the video creation 
-Controlenet was state of the art and is now already outdated. 
+To further increase the degree of artificiality in our videos, we decided alienate the images with the use stable diffusion. In section \ref{sec:stable-diffusion-bg} we have established the image generator as versatile tool for many applications. The astonishing development can be credited to the active community by large amounts. For our project we've used the \gls{auto1} stable Diffusion front end with several extensions for better video processing. \\
+There are two challenges with \gls{t2i}: \textit{control} and \textit{consistency}. A prompt to resemble a news anchor inside a TV studio will never remotely resemble our real anchorman. As a first, the random seed needs to be turned off. To increase the consistency at least a bit, every frame needs the same random noise as a starting value. But this cannot help us with movement of an object within the scene. In our case it is especially important that at least the lips somewhat match to the spoken audion. Luckily the \gls{sd} community had come up with a solution: ControlNet. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./graphics/images/diffusion/ControlNet.png}
+  \caption{ControlNet examples \cite{foongIntroductionControlNetStable2023}}
+  \label{fig:ControlNet}
+\end{figure}
+
+In addition to text prompts, ControlNet enables the user to input additional features (see figure \ref{fig:ControlNet}) such as scribbles, various edge detection outputs, depth maps, normal maps, segmentation maps and many more. The most important controller for our purposes however was \textit{OpenPose}, which is how we created results like in figure \ref{fig:scheider-real-sd}. OpenPose extracts the gesture and facial expressions from the anchorman and feeds them into the diffusion process. For gestures and even finger movement OpenPose works quite well. Regarding the facial movement the OpenPose captures do not provide enough markers to track faces in high fidelity. Although a lot of facial expression details are lost in the process it is enough to somewhat animate the mouth and eye movement. \\
+Now, after we could mitigate the \textit{control} problem we are facing the next issue. For a moving image impression we need multiple frames per second, for digital video 25 \gls{fps} to be precise. Although ControlNet helps a lot in regards of the controled categories (gesture and facial expressions) the rest of the image will look different in each frame. Also fixing the seed value does not solve the consistency issues. Figure \ref{fig:controlnet-issues} shows some of these effects.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./graphics/images/diffusion/ControlNet-issues.png}
+  \caption{Consistency problems: Studio Ghibli LoRa, fixed seed, ControlNet OpenPose}
+  \label{fig:controlnet-issues}
+\end{figure}
+While the posture of the hands is often okay, the card he is holding frequently changes. These effects appear everywhere in the frame, like the color of his buttons or his tie. Watching these twitches in 25 \gls{fps} is very unpleasant and greatly reduces the overall quality of the video. \\
+One way of fixing consistency is by using other ControlNet layers like depth maps or \textit{Canny}. A downside of incresed ControlNet activity is reduced control using the text prompts. Consistency is also model dependent, so we tried out various models. After a lot of trial and error we ended up with the results seen in figure \ref{fig:scheider-real-sd}.
+
+\textbf{Concrete Workflow} \\
+Prior to the \gls{sd} input, the base videos were created using Wav2Lip and \gls{tts} OR \gls{rvc} as described earlier. We cropped the video to feature only the actor. This reduced processing time, increased quality and improved consistency because the area of attention was smaller and focussed. \\
+After having generated the main actor we composited him to the final clip using \gls{ae}. Because the background was  twitching as well, due to consistency issues we decided to key it away, as only the actor is important for the scene. We accomplished this by generating a depth map with \gls{auto1} and using the map as the isolation criterion. Afterwards we composited the actor on a studio image background. The complete \gls{sd} workflow is depicted in figure \ref{fig:sd-full-workflow}. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{./graphics/images/diffusion/sd-workflow.png}
+  \caption{Our Stable Diffusion video workflow}
+  \label{fig:sd-full-workflow}
+\end{figure}
+
+At the time of writing we can report that the ControlNet workflow might already be outdated. In July of 2023 \textit{Animate Diff} was released and offers an alternative workflow to ControlNet. During the making of our experiments Animate Diff was not tested and documented good enough so we could not test it in a reasonable timeframe but it seems in some cases to deliver much better results that ControlNet in both dimensions, control \textit{and} consistency. In November of 2023 Stability AI also released the first Stable Video Diffusion foundation model and shows to have a lot of future potential. 
 
 \subsection{Game-Engine: Unreal Engine}
 Einzelpraktikum stuff
 
+\newpage
 \section{Study}
 
 for each case: state hypothesis and dependent/independent variables, control conditions, \textbf{randomization check??}
