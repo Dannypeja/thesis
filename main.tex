@@ -305,7 +305,7 @@ This paper tried to explore the effect on potential recipients of (partially) sy
 \end{enumerate}
 
 \todo{fix duration of study and numbers}
-The questions were answered with the help of an online survey. It has been conducted within 31 days from the 6\textsuperscript{th} of November 2023 until the 6\textsuperscript{th} of December 2023. During this timeframe 159 participants answered the questionnaire. The details and results will be described within section \ref{study}. \\
+The questions were answered with the help of an online survey. It has been conducted within 31 days from the 6\textsuperscript{th} of November 2023 until the 6\textsuperscript{th} of December 2023. During this timeframe 159 participants answered the questionnaire. The details and results will be described within section \ref{chap:study}. \\
 Before conducting such a study, the content itself needed to be created to ensure a high degree of controlability of certain variables. To accomplish this, several workflows had to be established which included several experiments with various \gls{oss} tools and chaining them together. In addition to the AI software, tradition video editing tools like \gls{prpro} and \gls{ae} came into play. The specific creation of the material is described in section \ref{implementation}. The author conducted the work in association of the german public broadcaster \gls{br} and the \gls{hff} and had an employment relationship with \gls{br} as a working student.
 
 %\todo{P3.2. What is new about your work?}
@@ -378,7 +378,7 @@ We will address how we handled the effect of the uncanny valley in our study des
 .
 
 \section{ChatGPT}
-ChatGPT has been used at several points to conduct this research. Especially during the software development phase(section \ref{implementation}) and the study design (section \ref{study}) ChatGPT has been consulted to speed up the processes massively. \\ 
+ChatGPT has been used at several points to conduct this research. Especially during the software development phase(section \ref{implementation}) and the study design (section \ref{chap:study}) ChatGPT has been consulted to speed up the processes massively. \\ 
 For study's content generation it did not play any role and thus won't be discussed as deeply as the other technologies. However we must consider the mere existence of ChatGPT in the context of the time this work is being conducted. As discussed in section \ref{sec:genai} the public attention towards AI tools has been tremendosly accelerated by the broad availibility of ChatGPT. When compared to the, in comparison slow and steady, increase of the google trends about DeepFakes in figure \ref{fig:gtrend-deepfakes} we can clearly see a more disruptive tendency on the timeline of ChatGPT.
 The fact of how public education could influence the study shall be addressed in the study design by questioning the AI literacy among all participants. 
 
@@ -516,11 +516,13 @@ The important shift in technology was not only the use of LED panels, but what d
   \begin{subfigure}[b]{0.45\textwidth}
     \includegraphics[width=\textwidth]{./graphics/images/photogrammetry.png}
     \caption{Photogrammetry scan}
+    \label{fig:head-photogrammetry-scan}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.5\textwidth}
     \includegraphics[width=\textwidth]{./graphics/images/Metahuman.png}
     \caption{Metahuman based on photogrammetry scan}
+    \label{fig:metahuman-result}
   \end{subfigure}
   \caption{Mesh to Metahuman workflow}
   \label{fig:metahuman-comp}
@@ -528,7 +530,7 @@ The important shift in technology was not only the use of LED panels, but what d
 
 Already during the timeframe of creation of the videos the process for creating metahumans improved considerably. It is only a question of time until these metahumans get more advanced. Currently gaussian splatting seems to be a key technology to watch in these regards. \\
 It has to be noted that \gls{ue} is a complicated tool that needs a lot of time to be mastered. In addition to \gls{ue} many other, more specialized tools need to be used to get the best possible output. These include modelling tools for environments and characters as well as texturing tools and many more. \gls{ue} in the end is good at combining all the assets, but to get high quality results a team needs expertize in many different areas of traditional computer animation. Espcially the metahuman characters fall into the uncanny valley, which makes the results unsuitable for a good study. It was explored to improve the faces quality using a \gls{dfl} model. Unfortunately the uncanny part of the face is not the appeareance of the face, but its movements. This most likely has to do with how the face is animated. The facial performance capture is being accomplished using and iPhones FaceID camera which has limitations in how many facial landmarks it can track and therefore reduces face movement fidality. Because of that the face movements do not look very natural and because the movements translate to the \gls{dfl} face as well it is of no use. \\
-Even though the quality of the metahuman result was not compelling, they were included  within the study as will be elaborated in section \ref{study}. 
+Even though the quality of the metahuman result was not compelling, they were included  within the study as will be elaborated in section \ref{chap:study}. 
 
 \chapter{Related Work}
 \label{chap:rel-work}
@@ -742,7 +744,7 @@ In the following we want to give a detailed example how we worked on our TTS Dat
   \caption{Data preprocessing workflow for TTS training: using \gls{prpro} and Audacity for workaround}
   \label{fig:dvt-tts-wf}
 \end{figure}
-A good voice clone starts with a smart target selection. Therefore we had to determine a suitable environment for our test cases. As we have hinted earlier and will decribe further is section \ref{study}, we chose a controled news show as the environment. TTS voices in general perform best in consistent voices where no special (emotional) intonation is required. A newscast ist perfect in this regard because of the neutral narration on the content. 
+A good voice clone starts with a smart target selection. Therefore we had to determine a suitable environment for our test cases. As we have hinted earlier and will decribe further is section \ref{chap:study}, we chose a controled news show as the environment. TTS voices in general perform best in consistent voices where no special (emotional) intonation is required. A newscast ist perfect in this regard because of the neutral narration on the content. 
 According to this requirement we aimed for four hours of speech extracted from \gls{br} news shows "BR24". We ended up with 60 shows which acounts to a total runtime of 30 hours. From each we extraced approximately 5 minutes of the anchorman's voice.\\
 In the end our dataset contained 2002 individual clips with transcription. Getting there from 60 hours of news broadcast was quite an undertaking that could never be feasible without automation, which is where our partially automated preprocessing workflow comes in. \\
 We used several tools to aid the dataset creation process, based of various open source projects \cite{micaAudioSplitterUsing2023}, \cite{harperEndtoEndToolkitVoice2023}: \textit{Pyannote speaker diarization} helps to distinguish multiple speakers within one audio track. \textit{OpenAI Whisper} provides audio to text transcription. \textit{NVIDIA NeMo} is used for the normalisation of the transcribed texts. To give an example numbers like "42" would get normalized to the corresponding word "forty-two". This is necessary for the training process to avoid ambiguity as all input texts are being normalized before handing them over to the \gls{tts} engine. \\
@@ -871,14 +873,143 @@ After having generated the main actor we composited him to the final clip using 
 At the time of writing we can report that the ControlNet workflow might already be outdated. In July of 2023 \textit{Animate Diff} was released and offers an alternative workflow to ControlNet. During the making of our experiments Animate Diff was not tested and documented good enough so we could not test it in a reasonable timeframe but it seems in some cases to deliver much better results that ControlNet in both dimensions, control \textit{and} consistency. In November of 2023 Stability AI also released the first Stable Video Diffusion foundation model and shows to have a lot of future potential. 
 
 \subsection{Game-Engine: Unreal Engine}
-Einzelpraktikum stuff
+For the extreme end of our artificiality spectrum (figure \ref{fig:spectrum}) we decided to repurpose an existing project conducted in Unreal Engine. It was part of a master practical at LMU during the summer semester of 2023 under the supervision of Prof. Dr. Johanna Pirker. A detailed report of the practical is available as well, but we will include the most important finding in the following section. \\
+The goal of the practical was to glimpse into the possibilities of virtual production, learning basic 3D modelling and the operation of \gls{ue} and accompanying software. To give the goal a concrete example, we wanted to recreate a news show from \gls{br} television which made it an ideal candidate for this paper as well. \\
+Although it is quite easy to get started with \gls{ue}, realising complex projects is a difficult untertaking. The main reason lies in the fact that \gls{ue}'s main purpose is aggregating many different assets and giving them logic. Surely it is possible to model, rig and animate characters within \gls{ue} but there are various specialised tools for all of the named tasks: maya, zbrush, blender, iClone Character creator, to just name a few. Doing all of these things is certainly possible in \gls{ue} but has its limits. \\
+Mastering many tools takes a lot of time which is why we focussed only on the integrated tools of \gls{ue}. It is quite impressive what can be done with only \gls{ue} in approximately 200 hours of work, but it is also clearly visible that there is a lot of room for improvement. \\
+The generated results have neither to do with \gls{genai} nor do they look particularly impressive, probably mostly because the Character is quite uncanny. Still we decided to employ the technology for our paper as well as virtual production is expected to play a huge role in the coming year in regards of synthetic media. In our case we used the renderings as a negative control group for our study. We expected the uncanny avatar to produce the worst credibility due to the uncanny valley effect. A hypothesis we could confirm. For further details please refer to chapter \ref{chap:study}. \\ 
+\todo{add data to support hypothesis}
+Because of its relevance to synthetic media we decided the include a thorough documentation of the unreal workflow.
+
+\subsubsection*{Unreal Engine Basics}
+Before we could start building anything specific, we had to learn some basics of \gls{ue}. There are plenty of free tutorials available online so we first followed. As can be seen from figure \ref{fig:ue-basic-tutorial} the results can look quite impressive after a few hours of learning. This hast to do with \gls{ue}'s excellent library of high quality meshes (3D objects) and easy lighting system. However things look very differently as soon as one tries to create own meshes, textures or characters. 
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/Basics/Landscape-Castle.png}
+    \caption{Tutorial result: castle}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/Basics/Landscape-Overview.png}
+    \caption{Tutorial result: landscape}
+  \end{subfigure}
+
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/Basics/Landscape-running.png}
+    \caption{Tutorial result: character running}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/Basics/Texture.png}
+    \caption{Tutorial result: basic texture}
+  \end{subfigure}
+  \caption{Results from first tutorial}
+  \label{fig:ue-basic-tutorial}
+\end{figure}
+
+\subsubsection*{Studio Build}
+As we've just mentioned, modeling and texturing are extensive topics on their own. \gls{ue} excels at utilizing and rendering a wide range of objects, including a vast library of assets that can be used for free. Many of these assets are even scanned, providing incredible realism. However, when it comes to modeling custom objects like the studio itself, achieving realism becomes much more challenging. Professional 3D artists would be required to achieve the desired level of accuracy and detail at this point. Nonetheless, it was fascinating to learn the possibilities that Unreal Engine offers even when relying solely on the engine itself. \\
+We built the studio with very few elements (see figure \ref{fig:ue-studio-build}). A shiny white floor for reflective lighting, a semicircle backdrop, the main anchorman desk and some generic studio lights at the ceiling. Due to our lacking knowledge about modelling and texturing it does not look very realistic but the similarities to the real counterpart are clearly visible. We tried to at least create a realistic replica of the main desk using photogrammetry (figure \ref{fig:photogrammetry-desk}), but it did not work as expected due to the semi-transparent parts. As an alternative to photogrammetry it would have been interesting to explore how \gls{nerf} or gaussian splatting would have performed in this domain but due to time constrains couldn't be tested during the practical. \\ 
+It is to be mentioned that \gls{genai} is becoming very useful in these domains as \gls{sd} is already capable of creating 3D objects with ease. That way modelling and texturing will very likely become much more accessable to semi-professional and amateur users.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/studio/Studio-real.png}
+    \caption{Real Studio for comparison}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/studio/Studio-Comparison.png}
+    \caption{Studio recreation modelled in \gls{ue}}
+  \end{subfigure}
+
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/studio/studio-totale.png}
+    \caption{Studio lighting}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/studio/Photogrammetry-Desk.png}
+    \caption{Experiment: photogrammetry scan of main desk}
+    \label{fig:photogrammetry-desk}
+  \end{subfigure}
+
+  \caption{Unreal Engine TV Studio Build}
+  \label{fig:ue-studio-build}
+\end{figure}
+
+\subsubsection*{Camera and Media Playback Logic} 
+With the studio in place, a camera system needed to be implemented. \gls{ue} already provides support for \textit{cine-cameras}, which offer various settings reminiscent of their real-world counterparts, such as aperture, exposure, focal length, and focus. Initially, transitioning between cameras seemed straightforward using the integrated \textit{set view Target with blend} method. It was easy to set up multiple cameras within the scene and cut or animate between them using the mentioned method. This approach resembled the camera robots used in the real studio, utilizing easy-ease keyframes, which was advantageous. \\
+However, there was a significant limitation with the existing method. While it effectively moved and rotated the view to the desired position, other parameters such as focal length, focus distance, and aperture did not change until the transition was complete. As a result, after the transition, these settings abruptly shifted, creating an undesirable visual effect. This behavior was unacceptable when aiming for smooth transitions. \\
+To fix these issues it was necessary to develop a seperate camera system with custom control over the animation using \gls{ue}'s visual scripting language \textit{blueprint}. The scene now includes a Master-Camera controlled by a blueprint script \ref{fig:blueprint}. This blueprint inherits methods for updating all relevant camera parameters, including a transition time that can be passed into the function call.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{graphics/images/unreal-engine/blueprint.png}
+  \caption{Camera Blueprint}
+  \label{fig:blueprint}
+\end{figure}
+With the custom camera system in place, an endless number of cameras can be set up and animated between, which proves to be quite useful. Two example cameras are depicted in figure \ref{fig:cameras}.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/camera angles/medium closeup.png}
+    \caption{medium shot}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/camera angles/close up.png}
+    \caption{medium close-up}
+  \end{subfigure}
+  \caption{two virtual camera examples in the studio}
+  \label{fig:cameras}
+\end{figure}
+
+In many news formats, graphics presentations play a significant role. Analogously to the camera logic we had to implement a blueprint for the media playback in the background of the anchorman (see figure \ref{fig:ue-media}). These presentations can be implemented in various ways, such as changing the background image or displaying a floating image next to the host. To better understand how BR24 accomplishes this, we spent time with video engineers on the show. The complexity of their system was overwhelming: BR24 has hundreds of templates for how hosts can present content, all rendered in real-time using a \textit{viz.rt} graphics engine. \\
+To keep the practical within a manageable scope, we decided to implement only one mockup display behind the news host, as depicted in Figure \ref{fig:ue-media}. The technical implementation of this feature is well-documented in \gls{ue} tutorials. It involves using a \textit{media-player} feature that renders a material onto a plane mesh.
+We've briefly considered using separate software like \gls{obs} to render graphics, but opted against it. Introducing another piece of software would have added complexity and reduced customizability. It would have also run against the idea of doing as much as possible inside UE. \\
+Similar to the camera system, additional functionality had to be added to the projection plane to use it in the desired manner. This was achieved by leveraging the knowledge gained from developing the camera system. Custom blueprints were created to control the behavior of the projection plane and expose callable methods. This enabled control over parameters such as opacity, fade-in/fade-out effects, loading and changing display images during runtime, and playing and pausing video media. \\
+However, one issue remained with the projection plane: the images are not yet standardized, resulting in distortion. This will need to be addressed by applying appropriate adjustments to ensure the images appear undistorted. Additionally, camera positions need to be set to ensure the content in the background aligns appropriately with the projection.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/media/slide-real.png}
+    \caption{real media panel reference}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/unreal-engine/media/slide-inplace.png}
+    \caption{media panel visible}
+  \end{subfigure}
+  \caption{virtual media display}
+  \label{fig:ue-media}
+\end{figure}
+
+\subsubsection*{Character Build}
+\gls{ue} provides its own toolset for creating comprehensive virtual characters, so called \textit{Metahumans}, which facilitates character creation to some extent. Like \gls{ue}, the Metahuman editor facilitates quick results but has limitations to modeling and texturing—customization options. To mitigate this problem, specialized software such as \textit{iClone Character Creator} or 3D animation software like \textit{Maya} or \textit{Blender} could be utilized. During the practical these alternatives could not be covered, which is why we relied solely on \gls{ue}'s Metahuman editor. \\
+Metahumans are currently undergoing active development and evolving rapidly. Editing Metahumans is done through a cloud rendering web application in the browser, which is then synced to \gls{ue}. Creating a new character can be done from scratch or based on a real human, however, the method to achieve this changed over the course of several weeks, which shows the pace of development. In December of 2023 \textit{gaussian avatar} are available in first, experimental implementation. This will drastically improve future workflows. \\
+For our case, we initially had to employ a workflow called "mesh to metahuman", which required a 3D mesh of a head to be imported into \gls{ue}. From there, it could be converted into a Metahuman. We captured a head scan using the same photogrammetry workflow as with the studio table. The scan yielded exceptional results, as depicted in figure \ref{fig:head-photogrammetry-scan}. \\
+Unfortunately, the resulting Metahuman character did not bear much resemblance to the scan, as shown in Figure \ref{fig:metahuman-result}. With more expertise in character modeling, it may be possible to improve the likeness to a large extent. \\
+During our research, \gls{ue} version 5.2 was released, introducing a new workflow that utilizes the faceID lidar sensors of an iPhone to capture facial performance data. The results were much better than the "mesh to metahuman" workflow. Still, the Metahuman character creator lacks customization options in various aspects, hindering us to achieve higher likeness. \\
+
+\subsubsection*{Character Animation}
+
+Next we needed to bring the character to life through animation. There were several options for achieving that objective, including using prerecorded performance data or implementing a live capture workflow. For the news format, a responsive and quick-to-produce approach was desirable, making the live version preferable. However, implementing a full live capture system would require extensive tracking hardware, such as a full-body tracking suit. These suits can range in cost from 2.000€ to 5.000€ and can be complex to calibrate. Given the time constraints, a simpler and more cost-effective solution was chosen for the prototype. \\
+Firstly, facial tracking using the iPhone's FaceID sensors. This allows for tracking of facial expressions and head rotation. Unreal Engine provides easy support for this, requiring only an iPhone on the same network as the Unreal PC and sometimes necessitating custom firewall settings. One challenge, however, is directing the gaze of the eyes towards a virtual camera. If the eyes do not look into the camera, the character can appear uncanny.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{graphics/images/unreal-engine/MH/bent-head.png}
+  \caption{Uncanny results from our animated metahuman}
+  \label{fig:uncanny mh}
+\end{figure}
+Secondly, the rest of the body received an idle animation in the form of simple breathing. That way the body looked more natural while the face was driven by an actor recording the moderation using the iPhone FaceID sensor. The end result has a lot of room for improvement. Especially the face animations look quite uncanny (see figure \ref{fig:uncanny mh}). The eyes don't focus the camera and only few facial landmarks are animated. This has to do with technical limitations of the facial capture as there are too few facial landmarks being tracked. \\
+All in all the performance falls deep into the uncanny valley making it the perfect example for our negative control group. 
+
 
 \newpage
 \section{Study}
-
+\label{chap:study}
 for each case: state hypothesis and dependent/independent variables, control conditions, \textbf{randomization check??}
 
-\label{study}
+
 \subsection{Study Design}
 \label{subsec:study design}
 Spectrum of artificiality.
@@ -899,21 +1030,6 @@ Compare with Toff et al:
 - Effect is stronger with higher levels of knowledge about journalism
 
 
-\subsubsection{Normal Distribution}
-Most of the things are normal?
-Shapiro Wilk Test
-Histogram
-Case Trust
-Case Videos
-
-\subsubsection{Significance}
-Quality, artificiality
-
-\subsubsection{AI marking significance}
-
-\subsubsection{Quality and Trust}
-
-\subsubsection{Education}
 
 
 
@@ -925,6 +1041,8 @@ Quality, artificiality
 
 \chapter{Conclusion}
 \label{sec:conclusion}
+
+Do further 
 
 Future implementation und Haushandlungsprozess. Was wichtig ist:) 
 
