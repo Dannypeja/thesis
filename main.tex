@@ -988,7 +988,7 @@ However, one issue remained with the projection plane: the images are not yet st
 Metahumans are currently undergoing active development and evolving rapidly. Editing Metahumans is done through a cloud rendering web application in the browser, which is then synced to \gls{ue}. Creating a new character can be done from scratch or based on a real human, however, the method to achieve this changed over the course of several weeks, which shows the pace of development. In December of 2023 \textit{gaussian avatar} are available in first, experimental implementation. This will drastically improve future workflows. \\
 For our case, we initially had to employ a workflow called "mesh to metahuman", which required a 3D mesh of a head to be imported into \gls{ue}. From there, it could be converted into a Metahuman. We captured a head scan using the same photogrammetry workflow as with the studio table. The scan yielded exceptional results, as depicted in figure \ref{fig:head-photogrammetry-scan}. \\
 Unfortunately, the resulting Metahuman character did not bear much resemblance to the scan, as shown in Figure \ref{fig:metahuman-result}. With more expertise in character modeling, it may be possible to improve the likeness to a large extent. \\
-During our research, \gls{ue} version 5.2 was released, introducing a new workflow that utilizes the faceID lidar sensors of an iPhone to capture facial performance data. The results were much better than the "mesh to metahuman" workflow. Still, the Metahuman character creator lacks customization options in various aspects, hindering us to achieve higher likeness. \\
+During our research, \gls{ue} version 5.2 was released, introducing a new workflow that utilizes the faceID lidar sensors of an iPhone to capture facial performance data. The results were much better than the "mesh to metahuman" workflow. Still, the Metahuman character creator lacks customization options in various aspects, hindering us to achieve higher likeness.
 
 \subsubsection*{Character Animation}
 
@@ -1007,46 +1007,271 @@ All in all the performance falls deep into the uncanny valley making it the perf
 \newpage
 \section{Study}
 \label{chap:study}
-for each case: state hypothesis and dependent/independent variables, control conditions, \textbf{randomization check??}
+During our research and work in the film and television industry we have encountered various anecdotal assessments about trust towards synthetic media. In regards to the scarce research landscape in such a young topic we decided to conduct our own exploratory study in the area of synthetic media trust and credibility. \\
+As there are many different methods of creating synthetic media, we wanted to test them against each other and see how they perform. This resulted in our main research question (RQ1) of how the artificiality of synthetic media influences trustworthines. Other questions in neighbouring fields were postulated along the way (refer to \ref{tab:research-questions}).
 
+\begin{table}[h]
+  \centering
+  \begin{tabularx}{\textwidth}{l|X}
+    \textbf{Research Question/Hypothesis} & \textbf{Description}\\
+    \midrule
+    RQ1a & Will video artificiality have an impact of trustworthines?  \\
+    \midrule
+    RQ1b & Does age, education or profession impact the effects in RQ1a?  \\
+    \midrule
+    RQ1c & What effect does the screen size have on the effects in RQ1a?  \\
+    \midrule
+    RQ2a & What effect does an "AI Logo" label have?\\
+    \midrule
+    RQ2b & Does age, education or profession impact the effects in RQ2?  \\
+    \midrule
+    RQ2c & What effect does the screen size have on the effects in RQ2?  \\
+  \end{tabularx}
+  \caption{Research Questions and Hypothises}
+  \label{tab:research-questions}
+\end{table}
 
 \subsection{Study Design}
 \label{subsec:study design}
-Spectrum of artificiality.
-Randomization.
-AB Groups. 
-Sequence bias.
-Basic Questions: Media usage, media trust, ai usage and trust
 
-Between subject design? 
+Our goal was to find out more about the relationship of various types of synthetic media and their trustworthines. In chapter \ref{chap:background} we have treated the relevant technologies we have aquired over the time. With access to these tools we wanted to design a study that utilizes them in a practical scenario which is close to a daily practice use case. We therefore chose the TV newscast as a good testing environment. It provided sufficient control, yet the ability to experiment with \gls{tts}, \gls{v2v}, \gls{sd} or even \gls{ue}. \\
+The newscast set the content. We chose to build upon existing news and not invent any to keep them realistic. This should have eliminated bias towards unrealistic news, but unfortunately we did not take into account differing knowledge. We will address this issue later while discussing the limitations of our study. \\
+We decided to craft our study around the aforementioned spectrum of artificiality as depicted in figure \ref{fig:spectrum}. By introducing an increasing amount of synthetic media at each stage, we were hoping to measure effects on trust. The artificiality therefore was one of our most important independent variables. The artificiality has close ties to the uncanny valley effect. Using several questions, we calculated a perceived index for each video. To avoid ambiguity with the term AI, we will name this index \gls{ri} instead of "artificiality Index". High /gls{ri} is analogous to low artificiality and a low uncanny valley effect.\\
+We anticipated that the content itself would also have some effect on the judgements. To mitigate these issues we created a second video at each quality level but filled it with different content. That way we were able to controle and compare results in both content groups. \\
+Discussions about \gls{genai} lead quickly to the call of marking footage, that has been created with AI. We wanted to address this topic and decided to test for this as well. We did this by placing an AI logo in the upper corner of half of the videos. The meaning of the AI logo was explained in advance. To be ethically correct we informed the participants that the AI Logo marks AI generated content in some cases, but can also be wrongly marked in other cases. While our study was already running, we discovered the paper by \citeauthor{toffTheyCouldJust2023}, where the authors conducted similar testing in the domain of AI generated texts. Unfortunately we couldn't incorporate their findings to optimize our study design. But since the AI mark test was just an add-on to our main research question this wasn't too much of a missed opportunity. Please refer to table \ref{tab:video-table} for a clear overview about the artificiality level, content and AI Logo marking strategy.
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabularx}{\linewidth}{c|c|X|X}
+    
+    \textbf{ID} & \textbf{AI Logo} & \textbf{Content} & \textbf{Artificiality}\\
+    \midrule
+    1\_1 & in group B & German unification day celebrations  & None: real video from broadcast \\
+    \midrule
+    1\_2 & in group A & USA, McCarthy impeachment  & None: real video from broadcast \\
+    \midrule
+    2\_1 & in group B & Smartphone usage decreased at Oktoberfest  & audio generated with \gls{v2v} conversion, video real+\gls{w2l} \\
+    \midrule
+    2\_2 & in group A & Introduction of new traffic management system  & audio generated with \gls{v2v} conversion, video real+\gls{w2l} \\
+    \midrule
+    3\_1 & in group B & Youth music festival in bavaria  & audio generated with \gls{tts}, video real + \gls{w2l} + style transformation with \gls{sd} \\
+    \midrule
+    3\_2 & in group A & US democratic party under pressure  & audio generated with \gls{tts}, video real + \gls{w2l} + style transformation with \gls{sd} \\
+    \midrule
+    4\_1 & in group B & Robert Habeck visits Gamescom  & audio generated with \gls{v2v} conversion, video filmed in \gls{ue} \\
+    \midrule
+    4\_2 & in Group A & Biden visits middle east  & audio generated with \gls{v2v} conversion, video filmed in \gls{ue} \\
+  \end{tabularx}
+  \caption{Description of our test videos}
+  \label{tab:video-table}
+\end{table}
+
+Finally we needed to layout our test videos in a specific way to avoid side effect measurings by the content of the videos, the order of the videos (sequence bias) and the AI marking of the videos (see table \ref{tab:video-table}): \\
+In total there were eight videos, two for each of the four artificiality stages. In Group A, the second video within an artificiality stage was marked by the AI Logo. Group B had it reversed, meaning the first video of each stage was marked. \\
+During interrogation each participant was randomly assigned to Group A or B. This measure was meant to compensate for side effects created by content variation. The size of the groups was continously balanced so that Groups A and B stayed at similar sizes. \\
+Within each group, the participant was the presented to all the eight video one after the other. The order of the videos were randomized for each participant, in order to mitigate sequence bias. All questions in regards to a specific video were answered alongside the concerning video, while no other video was present. This, in addition to the random sequence was meant to reduce direct comparability effects.
+
+In addition to the video questionaire we've asked for basic demographic information. 
+Our study encompasses both, a between subject design (A/B Group division) and a within subject design (analysis within Group A or B). However sample size within the groups was probably too small for certain tests.
 
 \subsection{Procedure and Participants}
-Online survey, spread via various channels.
+The study was designed as an online questionaire, conducted via the survey platform "soSci survey", hosted by the University of Munich. The survey was reachable via a single URL. The URL was spread among various media companies, university groups and the author's personal contacts. \\
+After following the URL, a visitor was immediatly assigned to group A or group B of the questionaire. It survey itself was divided into 3 stages: 1) general and democraphical questions, 2) main video evaluation, 3) post-questionaire evaluation and study explanations. \\ 
+During the second stage, all videos were presented to the participant in a randomized sequence. Along with each video the participant had to answer five questions on a likert scale of \textit{one} to \textit{six}.
+\begin{enumerate}
+  \item The content of this video is true.
+  \item This video seems trustworthy.
+  \item The anchorman is real.
+  \item The anchroman's voice is real.
+  \item The video has a good quality.
+\end{enumerate}
+In addition to the likert scale the participants also had the opportunity to answer any of the questions with additional free text remarks. \\
+During the post-questionaire we questioned how focussed the participants were during the survey and how serious they listened to the videos. On a scale of \textit{one} ot \textit{three} we received a meaninglessnes mean of 1.138 (closer to 1 is better) and distraction of mean of 1.318 (closer to 1 is better). On a four steps scale of how much the participants enjoyed the study (from \textit{not at all} to \textit{very much}) we received a mean of 3.185 (closer to 4 is better). According to these values we infer that our gathered data accurately represents our participants meaning and isn't skewed by their unwillingnes to participate. \\
+After all questions were answered, we provided an explainatory video for the study with a call to further spread the survey among friends and colleagues. We further incentivised participants to take part in the study by offering 50€ to be given away in a lottery after the study has been finished.
+
+In total we could gather N=195 valid participants. Regarding the age distribution the median lies at 30-34 (see \ref{fig:age-distribution}).
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{graphics/images/statistics/age-plot.png}
+  \caption{sample age distribution}
+  \label{fig:age-distribution}
+\end{figure}
+The distribution of industrial sectors show a focus on IT (24.6\%) and creative media (39.5\%) (table \ref{tab:frequenciesForBranch}) while most participants were currently employed (50.3\%) or in education (28.2\%) (table \ref{tab:frequenciesForOccupation}). 
+\begin{table}[h]
+	\centering
+	\caption{Frequencies for industrial sector}
+	\label{tab:frequenciesForBranch}
+	{
+		\begin{tabular}{lrrrr}
+			\toprule
+			Sector & Frequency & Percent & Valid Percent & Cumulative Percent  \\
+			\cmidrule[0.4pt]{1-5}
+			agriculture & $2$ & $1.026$ & $1.026$ & $1.026$  \\
+			production & $6$ & $3.077$ & $3.077$ & $4.103$  \\
+			construction & $2$ & $1.026$ & $1.026$ & $5.128$  \\
+			trade & $1$ & $0.513$ & $0.513$ & $5.641$  \\
+			gastronomy \& tourism & $1$ & $0.513$ & $0.513$ & $6.154$  \\
+			transport \& logistics & $3$ & $1.538$ & $1.538$ & $7.692$  \\
+			IT & $48$ & $24.615$ & $24.615$ & $32.308$  \\
+			finance \& insurance & $6$ & $3.077$ & $3.077$ & $35.385$  \\
+			healthcare & $12$ & $6.154$ & $6.154$ & $41.538$  \\
+			education & $18$ & $9.231$ & $9.231$ & $50.769$  \\
+			government & $9$ & $4.615$ & $4.615$ & $55.385$  \\
+			creative & $77$ & $39.487$ & $39.487$ & $94.872$  \\
+			environmental & $1$ & $0.513$ & $0.513$ & $95.385$  \\
+			other & $9$ & $4.615$ & $4.615$ & $100.000$  \\
+			Total & $195$ & $100.000$ & $ $ & $ $  \\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+\begin{table}[h]
+	\centering
+	\caption{Frequencies for occupation}
+	\label{tab:frequenciesForOccupation}
+	{
+		\begin{tabular}{lrrrr}
+			\toprule
+			Occupation & Frequency & Percent & Valid Percent & Cumulative Percent  \\
+			\cmidrule[0.4pt]{1-5}
+			in school & $1$ & $0.513$ & $0.513$ & $0.513$  \\
+			apprentice & $10$ & $5.128$ & $5.128$ & $5.641$  \\
+			student & $44$ & $22.564$ & $22.564$ & $28.205$  \\
+			employed & $98$ & $50.256$ & $50.256$ & $78.462$  \\
+			civil servant & $11$ & $5.641$ & $5.641$ & $84.103$  \\
+			self employed & $26$ & $13.333$ & $13.333$ & $97.436$  \\
+			unemployed & $2$ & $1.026$ & $1.026$ & $98.462$  \\
+			pensioner & $3$ & $1.538$ & $1.538$ & $100.000$  \\
+			Total & $195$ & $100.000$ & $ $ & $ $  \\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+We have also collected data about last educational institution graduated, gender and country but these factors had no relevant effects and thus can be ommitted. \\
+In regard of the uses display device the smartphone, laptop monitors and larger external monitors were quite evenly distributed (compare table \ref{tab:frequenciesForDevice}).
+\begin{table}[h]
+	\centering
+	\caption{Frequencies for display device}
+	\label{tab:frequenciesForDevice}
+	{
+		\begin{tabular}{lrrrr}
+			\toprule
+			Device & Frequency & Percent & Valid Percent & Cumulative Percent  \\
+			\cmidrule[0.4pt]{1-5}
+			smartphone & $59$ & $30.256$ & $30.256$ & $30.256$  \\
+			laptop & $66$ & $33.846$ & $33.846$ & $64.103$  \\
+			external monitor & $70$ & $35.897$ & $35.897$ & $100.000$  \\
+			Total & $195$ & $100.000$ & $ $ & $ $  \\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+Lastly, we asked participants which of the the factors (video content, video quality or AI-Logo) had the strongest influence to their judgments in regards of the perceived trustworthiness (see figure \ref{fig:most-influence}).
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.5\textwidth]{graphics/images/statistics/most-influence.png}
+  \caption{sample's judgement about most influential trust factors.}
+  \label{fig:most-influence}
+\end{figure} 
+
+
+
+
+
+
+
+
+
+
+
+Do all the descriptives! 2 pages?
+
+influenced most.
 
 \subsection{Results}
+
+H1a Low artificiality leads to more trust.
+H1b AI Logo will reduce trust in low artificiality situations, but will increase trust in high artificiality situations.
+
+\textbf{VORGEHEN:}
+
+\todo{factor analysis}
+Result: Very high correlation of all tested results
+
+Explain Choice for Realism Index (not artificiality Index..)
+
+\todo{correlation of our quality with trust}
+and with all other values als evident from Factor analysis.
+
+Confirmed main research question.
+
+\todo{Logo Analysis}
 
 Compare with Toff et al: 
 - AI Label is less trustworthy
 - Effect is stronger with higher levels of knowledge about journalism
 
+Very slight indications. 
+
+Probably due to the reason that quality has the much larger effect.
+Content was too different. Videos were not comparable as we mainly measured the quality vs trust. 
+
+We cannot measure t-tests within other groups. 
+
+How to still measure Logo effect? 
 
 
+T-Test normality heavily skewed
+central limit theorem ab 30.
 
+Assumption: Good gets worse. Bad gets better. 
 
+No significant influence but very vague assumptions from talks. 
+Too many disturbance by quality and content!
+Stagewise regrouping also delivered no significance.
+This had normal distribution but no significance. 
 
+\todo{device has influence, but not significant}
+Manova showed significance but ANOVAs could not debug the exact cases.
+We would assume similar effect like with logo: 
+worse on good, 
 
+\todo{age effect: significant in MANOVA but cant debug Anovas}
+Too few in subgroups. 
+Grouping in three groups made calculation possible. is significant but no significance when looking at inidivual cases.
 
+\todo{branch effect}
+ANOVA shows notnow difference for RI or Trust and branch. Not enough data. 
+MANOVA is significant. 
+ANOVA not. 
+
+IT+creative Vs Rest. Not significant at all.
+
+\todo{conclusion about age, branch, profession just as estimation}
+seperate question for AI and Media proficiency.
 
 \chapter{Discussion}
 
 \chapter{Conclusion}
 \label{sec:conclusion}
 
-Do further 
+Largest effect in quality, then content, then AI Logo.
+You would have to do a different study for every single topic. 
+
+
+Do another experiment with more focus on content and participants AI education. 
 
 Future implementation und Haushandlungsprozess. Was wichtig ist:) 
 
 To close the circle with the beginning. This work might be too early. The disruptive process has just begun, the developments can happen rather quickly. It therefore might remain interesting to closely monitor how the credibility and trust toward media, both synthetic and real, unfolds in the next years. 
+
+\todo{further developments:}
+\begin{itemize}
+  \item Clear testing of Logo to confirm Text.
+  \item Clear testing of the influence of previous knowledge and framing
+  \item clear testing of devices
+\end{itemize}
 
 
 
