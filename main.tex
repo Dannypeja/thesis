@@ -1097,7 +1097,13 @@ In total we could gather N=195 valid participants. Regarding the age distributio
   \caption{sample age distribution}
   \label{fig:age-distribution}
 \end{figure}
-The distribution of industrial sectors show a focus on IT (24.6\%) and creative media (39.5\%) (table \ref{tab:frequenciesForBranch}) while most participants were currently employed (50.3\%) or in education (28.2\%) (table \ref{tab:frequenciesForOccupation}). 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth]{graphics/images/statistics/occupation.png}
+  \caption{sample occupation distribution}
+  \label{fig:occupation-plot}
+\end{figure}
+The distribution of industrial sectors show a focus on IT (24.6\%) and creative media (39.5\%) (table \ref{tab:frequenciesForBranch}) while most participants were currently employed (50.3\%) or in education (28.2\%) (figure \ref{fig:occupation-plot}). 
 \begin{table}[h]
 	\centering
 	\caption{Frequencies for industrial sector}
@@ -1126,28 +1132,7 @@ The distribution of industrial sectors show a focus on IT (24.6\%) and creative 
 		\end{tabular}
 	}
 \end{table}
-\begin{table}[h]
-	\centering
-	\caption{Frequencies for occupation}
-	\label{tab:frequenciesForOccupation}
-	{
-		\begin{tabular}{lrrrr}
-			\toprule
-			Occupation & Frequency & Percent & Valid Percent & Cumulative Percent  \\
-			\cmidrule[0.4pt]{1-5}
-			in school & $1$ & $0.513$ & $0.513$ & $0.513$  \\
-			apprentice & $10$ & $5.128$ & $5.128$ & $5.641$  \\
-			student & $44$ & $22.564$ & $22.564$ & $28.205$  \\
-			employed & $98$ & $50.256$ & $50.256$ & $78.462$  \\
-			civil servant & $11$ & $5.641$ & $5.641$ & $84.103$  \\
-			self employed & $26$ & $13.333$ & $13.333$ & $97.436$  \\
-			unemployed & $2$ & $1.026$ & $1.026$ & $98.462$  \\
-			pensioner & $3$ & $1.538$ & $1.538$ & $100.000$  \\
-			Total & $195$ & $100.000$ & $ $ & $ $  \\
-			\bottomrule
-		\end{tabular}
-	}
-\end{table}
+
 We have also collected data about last educational institution graduated, gender and country but these factors had no relevant effects and thus can be ommitted. \\
 In regard of the uses display device the smartphone, laptop monitors and larger external monitors were quite evenly distributed (compare table \ref{tab:frequenciesForDevice}). We will compare this self assessment with our measurements later on.
 \begin{table}[h]
@@ -1180,53 +1165,66 @@ Before we start with further analysis we wanted to address the topic of handling
 
 \subsubsection{Measuring Artificiality}
 
-As mentioned in during study design, we wanted to measure the perceived artificiality to confirm our artificiality spectrum was right. We did this by asking wether the anchorman or the anchorman's voice were true and calculated the mean of the two values. This value we call \gls{ri}. Figure \ref{fig:all-RIs} plots the \gls{ri}s for each video across both subgroups (A and B). 
+As mentioned in during study design, we wanted to measure the perceived artificiality to confirm our design of the artificiality spectrum was right. We did this by asking wether the anchorman or the anchorman's voice were true and calculated the mean of the two values. This realism index we will further call \gls{ri}. Figure \ref{fig:all-RIs} plots the \gls{ri}s for each video across both subgroups (A and B). 
 
 \begin{figure}[h]
   \centering
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/11_RI.png}
     \caption{\gls{ri} distribution 1\_1}
+    \label{fig:RI11}
   \end{subfigure}
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/12_RI.png}
     \caption{\gls{ri} distribution 1\_2}
+    \label{fig:RI12}
   \end{subfigure}
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/21_RI.png}
     \caption{\gls{ri} distribution 2\_1}
+    \label{fig:RI21}
   \end{subfigure}
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/22_RI.png}
     \caption{\gls{ri} distribution 2\_2}
+    \label{fig:RI22}
   \end{subfigure}
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/31_RI.png}
     \caption{\gls{ri} distribution 3\_1}
+    \label{fig:RI31}
   \end{subfigure}
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/32_RI.png}
     \caption{\gls{ri} distribution 3\_2}
+    \label{fig:RI32}
   \end{subfigure}
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/41_RI.png}
     \caption{\gls{ri} distribution 4\_1}
+    \label{fig:RI41}
   \end{subfigure}
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/42_RI.png}
     \caption{\gls{ri} distribution 4\_2}
+    \label{fig:RI42}
   \end{subfigure}
   \begin{subfigure}{0.45\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/RI1_all.png}
-    \caption{\gls{ri} distribution of *\_1}
+    \caption{\gls{ri} distribution of *\_1 grouped}
+    \label{fig:grouped-RI1}
   \end{subfigure}
   \begin{subfigure}{0.45\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/RI2_all.png}
-    \caption{\gls{ri} distribution of *\_1}
+    \caption{\gls{ri} distribution of *\_2 grouped}
+    \label{fig:grouped-RI2}
   \end{subfigure}
-  \caption{Unreal Engine TV Studio Build}
+  \caption{Distribution of RIs per video and grouped}
   \label{fig:all-RIs}
 \end{figure}
+
+It lies in the nature of the question that resulting data is heavily skewed in many cases (figures \ref{fig:RI11}, \ref{fig:RI12}, \ref{fig:RI31}, \ref{fig:RI32}, \ref{fig:RI11}, \ref{fig:RI41}, \ref{fig:RI42}). This clearly prohibits the assumption of normality. However the central limit theorem for larger sample sizes (n > 30) considers normality to be less critical. With our sample size being 195 we will continue with using parametric tests. In addition we combined all RIs from group for videos *_1 and *_2. As seen in figures \ref{fig:grouped-RI1} and \ref{fig:grouped-RI2} they seem to be normally distributed. Shapiro
+
 
 \todo{H1a Low artificiality leads to more trust.}
 \todo{H1b AI Logo will reduce trust in low artificiality situations, but will increase trust in high artificiality situations.}
