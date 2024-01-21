@@ -1,0 +1,52 @@
+
+
+\begin{table}[h]
+	\centering
+	\caption{Pearson's R Correlations trust - RIs 2}
+	\label{tab:trust-RI2-correlations}
+	{
+		\begin{tabular}{lrrrrr}
+			\toprule
+			Variable &  & 12\_trust & 22\_trust & 42\_trust & 32\_trust  \\
+			\cmidrule[0.4pt]{1-6}
+			5. 12\_RI & Pearson's r & \textbf{0.598} & $0.109$ & $0.103$ & $0.009$  \\
+			$$ & p-value & \textbf{$<$ .001} & $0.065$ & $0.076$ & $0.448$ \\
+			6. 22\_RI & Pearson's r & $0.051$ & \textbf{0.606} & $0.197$ & $0.174$ \\
+			$$ & p-value & $0.238$ && \textbf{$<$ .001} & $0.003$ & $0.007$ \\
+			7. 42\_RI & Pearson's r & $0.014$ & $0.009$ & \textbf{0.300} & $0.003$   \\
+			$$ & p-value & $0.990$ & $0.259$ & \textbf{$<$ .001} & $<$ .001 \\
+			8. 32\_RI & Pearson's r & $0.024$ & $0.043$ & $0.128$ & \textbf{0.251} \\
+			$$ & p-value & $0.369$ & $0.273$ & $0.037$ & \textbf{$<$ .001} \\
+			\bottomrule
+			% \addlinespace[1ex]
+			% \multicolumn{10}{p{0.5\linewidth}}{* p $<$ .05, ** p < .01, *** p < .001} \\
+			% \multicolumn{10}{p{0.5\linewidth}}{* $$} \\
+			% \multicolumn{10}{p{0.5\linewidth}}{*** $$} \\
+			% \multicolumn{10}{p{0.5\linewidth}}{** $$} \\
+		\end{tabular}
+	}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Pearson's Correlations}
+	\label{tab:pearson'SCorrelations}
+	{
+		\begin{tabular}{lrrrrrrrrr}
+			\toprule
+			Variable &  & 12\_video\_seems-trustworthy & 22\_video\_seems-trustworthy & 42\_video\_seems-trustworthy & 32\_video\_seems-trustworthy & 12\_RI & 22\_RI & 42\_RI & 32\_RI  \\
+			\cmidrule[0.4pt]{1-10}
+			$$ & p-value & $<$ .001 & $0.065$ & $0.076$ & $0.448$ & -- & $ $ & $ $ & $ $  \\
+			$$ & p-value & $0.238$ & $<$ .001 & $0.003$ & $0.007$ & $0.005$ & -- & $ $ & $ $  \\
+			$$ & p-value & $0.014$ & $0.009$ & $<$ .001 & $0.003$ & $0.005$ & $<$ .001 & -- & $ $  \\
+			$$ & p-value & $0.369$ & $0.273$ & $0.037$ & $<$ .001 & $0.578$ & $0.084$ & $0.055$ & --  \\
+			\bottomrule
+			% \addlinespace[1ex]
+			% \multicolumn{10}{p{0.5\linewidth}}{* p $<$ .05, ** p < .01, *** p < .001, one-tailed} \\
+			% \multicolumn{10}{p{0.5\linewidth}}{\textit{Note.} All tests one-tailed, for positive correlation.} \\
+			% \multicolumn{10}{p{0.5\linewidth}}{*** $$} \\
+			% \multicolumn{10}{p{0.5\linewidth}}{* $$} \\
+			% \multicolumn{10}{p{0.5\linewidth}}{** $$} \\
+		\end{tabular}
+	}
+\end{table}
