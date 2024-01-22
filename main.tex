@@ -1176,10 +1176,6 @@ The mean values (table \ref{tab:RIs-mean}) show that our artificiality spectrum 
 		\end{tabular}
 	}
 \end{table}
-
- Figure \ref{fig:all-RIs} plots the \gls{ri}s for each video across both subgroups (A and B). \\
- It lies in the nature of the questions that resulting \gls{ri} data is heavily skewed in many cases (figures \ref{fig:RI11}, \ref{fig:RI12}, \ref{fig:RI31}, \ref{fig:RI32}, \ref{fig:RI41}, \ref{fig:RI42}). Naturally we assume that most people will regard something to look real if it is real. This would usually prohibit the assumption of normality. To mitigate that, we've combined all RIs for videos *\_1 and *\_2 at cross-checked some tests with this combined distribution. As seen in figures \ref{fig:grouped-RI1} and \ref{fig:grouped-RI2}, they can be considered to being normally distributed. Shapiro-Wilk tests deliver p-values of 0.31 for \ref{fig:grouped-RI1} and 0.024 for \ref{fig:grouped-RI2}, while all other non-grouped \gls{ri}s had p-values of < 0.001. In addition, the central limit theorem for larger sample sizes (n > 30) considers normality to be less critical. With our sample size being 195 we will continue with using parametric tests on all RIs.
-
 \begin{figure}[h]
   \centering
   \begin{subfigure}{0.3\textwidth}
@@ -1222,12 +1218,12 @@ The mean values (table \ref{tab:RIs-mean}) show that our artificiality spectrum 
     \caption{\gls{ri} distribution 4\_2}
     \label{fig:RI42}
   \end{subfigure}
-  \begin{subfigure}{0.45\textwidth}
+  \begin{subfigure}{0.4\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/RI1_all.png}
     \caption{\gls{ri} distribution of *\_1 grouped}
     \label{fig:grouped-RI1}
   \end{subfigure}
-  \begin{subfigure}{0.45\textwidth}
+  \begin{subfigure}{0.4\textwidth}
     \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/RI2_all.png}
     \caption{\gls{ri} distribution of *\_2 grouped}
     \label{fig:grouped-RI2}
@@ -1235,6 +1231,9 @@ The mean values (table \ref{tab:RIs-mean}) show that our artificiality spectrum 
   \caption{Distribution of RIs per video and grouped}
   \label{fig:all-RIs}
 \end{figure}
+
+ Figure \ref{fig:all-RIs} plots the \gls{ri}s for each video across both subgroups (A and B). \\
+ It lies in the nature of the questions that resulting \gls{ri} data is heavily skewed in many cases (figures \ref{fig:RI11}, \ref{fig:RI12}, \ref{fig:RI31}, \ref{fig:RI32}, \ref{fig:RI41}, \ref{fig:RI42}). Naturally we assume that most people will regard something to look real if it is real. This would usually prohibit the assumption of normality. To mitigate that, we've combined all RIs for videos *\_1 and *\_2 at cross-checked some tests with this combined distribution. As seen in figures \ref{fig:grouped-RI1} and \ref{fig:grouped-RI2}, they can be considered to being normally distributed. Shapiro-Wilk tests deliver p-values of 0.31 for \ref{fig:grouped-RI1} and 0.024 for \ref{fig:grouped-RI2}, while all other non-grouped \gls{ri}s had p-values of < 0.001. In addition, the central limit theorem for larger sample sizes (n > 30) considers normality to be less critical. With our sample size being 195 we will continue with using parametric tests on all RIs.
 
 \subsubsection{RQ1: Artificiality and trust relationship}
 Tables \ref{tab:trust-RI1-correlations} and \ref{tab:trust-RI2-correlations} show a significant correlation in each of the expected cases, while the correlation strengths cover everything from weak (0.251) to strong (0.617). Therefore we can confirm Hypothesis H1a. \\
@@ -1310,69 +1309,67 @@ We wanted to get an understanding what effect disclosure of a possibly AI genera
   \caption{sample's judgement about most influential trust factors.}
   \label{fig:most-influence}
 \end{figure}
-As mentioned in section \ref{sec:rel-studypart}, \Citeauthor{toffTheyCouldJust2023} discovered 
+As mentioned in section \ref{sec:rel-studypart}, \Citeauthor{toffTheyCouldJust2023} discovered statistically significant reduction of perceived trustworthiness, perceived accuracy and perceived fairness. Their study observed AI generated texts, which are much more controllable than audio-visual content. Still, we were interested to compare our results with theirs. \\
+Before examining our data we crafted two working theories about what we would expect to measure. The theories were based on previous testings, anecdotes and assessments by various parties. We expected to see a drop in perceived trust on good quality videos (1\_* and 2\_* videos) but an increase on bad looking examples (4\_* and 3\_* videos). Our expectations followed a certain logic:
 
+1) Convincing looking videos, once marked as AI-generated, would decrease due to present prejudices about AI. Fears about an unrecognized DeepFake would fuel such thoughts. \\
+2) On the other hand, bad looking videos would have a low trust value as a starting point, which we confirmed with RQ1. Once such a video is revealed as AI marked, a viewer would accept its inferior quality because the reason for the inferiority is now clear. An effect like in 1) would not appear, because the content has had bad quality in the first place. A rather contrary, relieving feeling would be expected, as the presented AI is "just not good" and therefore less scary than in the first scenario.
 
-As for the statistical evaluation we 
+Clearly these two scenarios are speculations or, at best, an educated guess. It was questionable from the design of the study, if any significance could be measured in the presence of many other disruptive factors.
 
+As for the statistical evaluation we conducted Student's t-tests and Mann-Whitney in case the normality of our data should have been questioned. The dependent variables were always the \gls{ri} values, grouped by the condition, wether a particular video was marked. The variables "all RIs 1/2" are the same, normally distributed values as in figures \ref{fig:grouped-RI1} and \ref{fig:grouped-RI2}.
+\begin{table}[h]
+	\centering
+	\caption{AI markings: T-Test/U-Test}
+	\label{tab:ttest_logo-trust}
+	{
+		\begin{tabular}{lrr|lrr}
+			\toprule
+			\textbf{Case} & \textbf{p (t-test)} & \textbf{p (u-test)} & \textbf{Case} & \textbf{p (t-test)} & \textbf{p (u-test)}  \\
+			\cmidrule[0.4pt]{1-6}
+			1\_1\_trust & $0.091$ & $0.137$ & 1\_2\_trust & $0.487$ & $0.397$ \\
+			2\_1\_trust & $0.390$ & $0.417$ & 2\_2\_trust & $0.481$ & $0.465$ \\
+			3\_1\_trust & $0.771$ & $0.588$ & 3\_2\_trust & $0.983$ & $0.737$ \\
+			4\_1\_trust & $0.698$ & $0.512$ & 4\_2\_trust & $0.152$ & $0.077$ \\
+			all RIs 1 & $0.800$ & $0.788$ & all RIs 2 & $0.753$ & $0.735$\\
+			\bottomrule
+			% \addlinespace[1ex]
+			% \multicolumn{4}{p{0.5\linewidth}}{\textit{Note.} Student's t-test.} \\
+			% \multicolumn{4}{p{0.5\linewidth}}{$^{0}$ Brown-Forsythe test is significant (p $<$ .05), suggesting a violation of the equal variance assumption} \\
+		\end{tabular}
+	}
+\end{table}
+Unfortunately, we couldn't measure any significance in any of the categories (compare with table \ref{tab:ttest_logo-trust}). With our study design, which was focussed in measuring the overall effects of increasing artificiality, this was to be expected. The varying video quality has too strong effects overshadowing any effects a AI marking could have. We therefore can neithor confirm nor deny the results from \Citeauthor{toffTheyCouldJust2023}.\\
+By examining comments we also figured, that we had created quite some differences between videos of one quality stage, by having chosen differing topics or fields on the content side. The choices of content should have been made more neutral, or at least more similar within one quality stage. \\
+ In a follow-up study, were this has been improved it might be easier to measure effects of the AI Logo. Just like \Citeauthor{toffTheyCouldJust2023} the groups between marked and unmarked must be comparable in both quality and content.
 
+ We can conclude that the participants' self assessment, depicted in figure \ref{fig:most-influence}, seems to be accurate. We cannot measure any significant effects regarding the AI mark as the other variables introduce too much disturbances. \\
+ In regards of the direction of the effects it is also impossible to state anything robust. Judging by our experiences we are still not ready to omit our aforementioned working theories but for further research in this direction a different study design would be required.
 
-\todo{H1b AI Logo will reduce trust in low artificiality situations, but will increase trust in high artificiality situations.}
+ \subsubsection{Exploratory Factor Analysis}
 
-\textbf{VORGEHEN:}
+ To further inspect the quality of our questionaire we've conducted an exploratory factor analyis (table \ref{tab:factorLoadings}) for our main questions. The results show that all measurements somewhat appoint to the same latent variable. This surely conforms to the correlations we have found in the previous sections. Even if the question all point towards the same measurement they were interesting to us because all of the variables are things we could potentially manipulate in a follow-up study. 
 
-\todo{factor analysis}
-Result: Very high correlation of all tested results
-
-\todo{correlation of our quality with trust}
-and with all other values als evident from Factor analysis.
-
-Confirmed main research question.
-
-\todo{Logo Analysis}
-
-Compare with Toff et al: 
-- AI Label is less trustworthy
-- Effect is stronger with higher levels of knowledge about journalism
-
-Very slight indications. 
-
-Probably due to the reason that quality has the much larger effect.
-Content was too different. Videos were not comparable as we mainly measured the quality vs trust. 
-
-We cannot measure t-tests within other groups. 
-
-How to still measure Logo effect? 
-
-
-T-Test normality heavily skewed
-central limit theorem ab 30.
-
-Assumption: Good gets worse. Bad gets better. 
-
-No significant influence but very vague assumptions from talks. 
-Too many disturbance by quality and content!
-Stagewise regrouping also delivered no significance.
-This had normal distribution but no significance. 
-
-\todo{device has influence, but not significant}
-Manova showed significance but ANOVAs could not debug the exact cases.
-We would assume similar effect like with logo: 
-worse on good, 
-
-\todo{age effect: significant in MANOVA but cant debug Anovas}
-Too few in subgroups. 
-Grouping in three groups made calculation possible. is significant but no significance when looking at inidivual cases.
-
-\todo{branch effect}
-ANOVA shows notnow difference for RI or Trust and branch. Not enough data. 
-MANOVA is significant. 
-ANOVA not. 
-
-IT+creative Vs Rest. Not significant at all.
-
-\todo{conclusion about age, branch, profession just as estimation}
-seperate question for AI and Media proficiency.
+\begin{table}[h]
+	\centering
+	\caption{Factor Loadings}
+	\label{tab:factorLoadings}
+	{
+		\begin{tabular}{lrr}
+			\toprule
+			 & latent variable: feel for trustworthines & Uniqueness  \\
+			\cmidrule[0.4pt]{1-3}
+			all seems-trustworthy & $0.900$ & $0.190$  \\
+			all video-quality is-good & $0.735$ & $0.460$  \\
+			all moderator is-real & $0.606$ & $0.633$  \\
+			all content is-true & $0.589$ & $0.653$  \\
+			all voice is-real & $0.560$ & $0.686$  \\
+			\bottomrule
+			% \addlinespace[1ex]
+			% \multicolumn{3}{p{0.5\linewidth}}{\textit{Note.} Applied rotation method is promax.} \\
+		\end{tabular}
+	}
+\end{table}
 
 \chapter{Discussion}
 
