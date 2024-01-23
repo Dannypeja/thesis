@@ -110,12 +110,13 @@
 
 \section*{Abstract}
 
-\todo{Short summary of the thesis. Here, the following questions should be answered:}
-\todo{What is the specific problem addressed?}
-\todo{What have you done?}
-\todo{What did you find out?}
-\todo{What are the implications on a larger scale?}
-\todo{Should be around 0.5 pages. Not longer than 1 page.}
+This thesis addresses the emerging and complex problem of understanding trustworthiness in synthetic media, a domain rapidly evolving with advancements in artificial intelligence (AI) and deep learning technologies. In a media landscape increasingly populated with AI-generated content, discerning the factors that influence public trust in such media is paramount. The specific problem tackled in this research is the impact of artificiality, content variation, and the disclosure of AI involvement on the perceived trustworthiness of synthetic media.
+
+The study embarked on a comprehensive exploratory analysis, employing various forms of synthetic media, including text-to-speech (TTS), voice-to-voice (V2V) conversion, and Unreal Engine-generated visuals, to examine how different levels of artificiality and the presence of an AI-logo influence viewer trust. A diverse sample of participants was exposed to these media forms in a structured experimental setup, with their perceptions of trustworthiness, realism, and authenticity systematically gauged through a carefully designed questionnaire.
+
+The findings reveal a significant correlation between the degree of artificiality in synthetic media and its perceived trustworthiness, with higher artificiality correlating with lower trust. The study also highlights that viewer perceptions are more influenced by the content and presentation of the media than by disclaimers or labels indicating AI involvement. Notably, demographic factors such as age, education, or profession did not significantly affect perceptions of trustworthiness, suggesting a more universal pattern of perception across different groups.
+
+These insights have far-reaching implications, challenging existing narratives around AI transparency in media and underscoring the intricate balance between content quality, artificiality, and viewer trust. The study concludes that the rapid advancements in synthetic media necessitate ongoing research to keep pace with the evolving dynamics of trust and credibility in AI-generated content. It advocates for future research to employ more focused, isolated studies and between-subjects designs to delve deeper into specific aspects influencing trust in synthetic media.
 
 \cleardoublepage
 
@@ -306,7 +307,7 @@ This paper tried to explore the effect on potential recipients of (partially) sy
 
 \todo{fix duration of study and numbers}
 The questions were answered with the help of an online survey. It has been conducted within 31 days from the 6\textsuperscript{th} of November 2023 until the 6\textsuperscript{th} of December 2023. During this timeframe 159 participants answered the questionnaire. The details and results will be described within section \ref{chap:study}. \\
-Before conducting such a study, the content itself needed to be created to ensure a high degree of controlability of certain variables. To accomplish this, several workflows had to be established which included several experiments with various \gls{oss} tools and chaining them together. In addition to the AI software, tradition video editing tools like \gls{prpro} and \gls{ae} came into play. The specific creation of the material is described in section \ref{implementation}. The author conducted the work in association of the german public broadcaster \gls{br} and the \gls{hff} and had an employment relationship with \gls{br} as a working student.
+Before conducting such a study, the content itself needed to be created to ensure a high degree of controlability of certain variables. To accomplish this, several workflows had to be established which included several experiments with various \gls{oss} tools and chaining them together. In addition to the AI software, tradition video editing tools like \gls{prpro} and \gls{ae} came into play. The specific creation of the material is described in chapter \ref{chap:implementation}. The author conducted the work in association of the german public broadcaster \gls{br} and the \gls{hff} and had an employment relationship with \gls{br} as a working student.
 
 %\todo{P3.2. What is new about your work?}
 The Methodology seeked to conduct a study about trustworthiness on various AI generated or assisted videos.
@@ -374,11 +375,11 @@ Besides the technical terms we have to quickly cover the uncanny valley as well.
 \end{figure}
 We've needed some knowledge of the uncanny valley, because we had to take its effect into account for each test case within our study. As we investigate the trust towards AI aided news we have to consider that loss in trust could also be related with uncanny valley effects. \\
 Section \ref{sec:rel-studypart} will cover the works of \citeauthor{weismanFaceUncannyEffects2021} who investigated the trust loss due to the uncanny valley in a study. \\
-We will address how we handled the effect of the uncanny valley in our study design in section \ref{subsec:study design}
+We will address how we handled the effect of the uncanny valley in our study design in section \ref{sec:study design}
 .
 
 \section{ChatGPT}
-ChatGPT has been used at several points to conduct this research. Especially during the software development phase(section \ref{implementation}) and the study design (section \ref{chap:study}) ChatGPT has been consulted to speed up the processes massively. \\ 
+ChatGPT has been used at several points to conduct this research. Especially during the software development phase(chapter \ref{chap:implementation}) and the study design (section \ref{chap:study}) ChatGPT has been consulted to speed up the processes massively. \\ 
 For study's content generation it did not play any role and thus won't be discussed as deeply as the other technologies. However we must consider the mere existence of ChatGPT in the context of the time this work is being conducted. As discussed in section \ref{sec:genai} the public attention towards AI tools has been tremendosly accelerated by the broad availibility of ChatGPT. When compared to the, in comparison slow and steady, increase of the google trends about DeepFakes in figure \ref{fig:gtrend-deepfakes} we can clearly see a more disruptive tendency on the timeline of ChatGPT.
 The fact of how public education could influence the study shall be addressed in the study design by questioning the AI literacy among all participants. 
 
@@ -434,7 +435,7 @@ In context of this paper a stable diffusion workflow has been used to generate t
 
 \section{Lip Remapping}
 \label{sec:lips}
-After discarding the previously discussed whole FaceSwaps using \gls{dfl} as a meaningful tool for the study, lip remapping was chosen as one of the main visual technologies for this work. The base for many videos were real recordings from a news show. After creating a synthetic voice (refer to sections \ref{sec:tts} and \ref{sec:v2v}) the proper mouth movement needed to be recreated to make the videos somewhat convinceble. To accomplish a satisfying result, multiple tools needed to be chained together. First and foremost there is \textbf{\gls{w2l}}. Based on the research of \citet{prajwalLipSyncExpert2020} they provide a code implementation on GitHub \cite{mukhopadhyayWav2LipAccuratelyLipsyncing2023}. The code was adapted to fit the workflows for the creation of the study videos and explained in further detail in the implementation section \ref{implementation}. The \gls{w2l} project is also one of the older synthetic media tools, released in 2020.
+After discarding the previously discussed whole FaceSwaps using \gls{dfl} as a meaningful tool for the study, lip remapping was chosen as one of the main visual technologies for this work. The base for many videos were real recordings from a news show. After creating a synthetic voice (refer to sections \ref{sec:tts} and \ref{sec:v2v}) the proper mouth movement needed to be recreated to make the videos somewhat convinceble. To accomplish a satisfying result, multiple tools needed to be chained together. First and foremost there is \textbf{\gls{w2l}}. Based on the research of \citet{prajwalLipSyncExpert2020} they provide a code implementation on GitHub \cite{mukhopadhyayWav2LipAccuratelyLipsyncing2023}. The code was adapted to fit the workflows for the creation of the study videos and explained in further detail in the implementation chapter \ref{chap:implementation}. The \gls{w2l} project is also one of the older synthetic media tools, released in 2020.
 
 \begin{figure}[h]
   \centering
@@ -623,7 +624,7 @@ In this context it is important to add that these cases might not even need mani
 \end{figure}
 CrazyTalk8 uses an algorithmic approach to move the targets head and lips based on audio, however it is not disclosed how the process exactly works. It is imaginable that the discrepancy between the participant's natural and real voice and the rather imperfectly looking and animated 3D character induces a significant amonunt of uncanny valley discomfort. This is amplified as the doppelgangers protrait the participants themselves, an appeareance which is very familiar. The authors willingly produced a highly uncanny perception in order to measure the trust loss due to the uncanny appeareance. In the study, some participants were exposed to their own voice and avatar (doppelganger), as well as another avatar and voice, who was unfamiliar to the participant. That way they could dial the uncanny valley feeling up and down. It was higher when the participant was subjected to its own doppelganger and lower when it was a different person.\\
 The authors concluded that the uncanny valley effect mediated participant affect based AI trust. Uncanny valley perceptions were negatively related to affect-based trust. "Presenting individuals with a talking head featuring their own face decreased affect-based trust toward AIs relative to talking heads featuring a stranger's face or relative to simple audio playback" \cite{weismanFaceUncannyEffects2021}. \\
-We've cited this paper, because we also introduced an uncanny vally test case a negative control group into our study (see section \ref{subsec:study design}). Different to our approach we want to remark that the study by \Citeauthor{weismanFaceUncannyEffects2021} is not suited to measure trust-issues caused by artificial intelligence technology accurately as there is no real control group that uses real footage or better AI technology (without or with less uncanny valley). We can infer, that the reduced trust is caused predominantly by the uncanny valley effect and not by the fact that it was created by AI-aided algorithms. We tried to address this study design difficulty by including real, non-fake material to be tested against in order to receive a base-line measurement of trust for real footage, free of any \gls{genai}.
+We've cited this paper, because we also introduced an uncanny vally test case a negative control group into our study (see section \ref{sec:study design}). Different to our approach we want to remark that the study by \Citeauthor{weismanFaceUncannyEffects2021} is not suited to measure trust-issues caused by artificial intelligence technology accurately as there is no real control group that uses real footage or better AI technology (without or with less uncanny valley). We can infer, that the reduced trust is caused predominantly by the uncanny valley effect and not by the fact that it was created by AI-aided algorithms. We tried to address this study design difficulty by including real, non-fake material to be tested against in order to receive a base-line measurement of trust for real footage, free of any \gls{genai}.
 
 \subsubsection*{Trust in synthetic Voices}
 So far we have mostly mentioned papers which studied the visual part of DeepFakes. As explained earlier, this is most likely linked to the unavailiblity of easy to use, high quality audio voice clones. In the recent time this has changed. Several easy to use \gls{tts} services can be found on the internet. \Citeauthor{heiselbergAutomatedNewsReading2022} provide recent research about synthetic voices, or how they call it "neural voices". They provide a concise summary about their findings: "Results show that the participants divide into two types: the perspicacious listeners who realize or suspect that the news reading is artificially synthesized and, to some degree, are annoyed by it, and the oblivious listeners who believe the news is read by a human and are predominantly positive towards it. Participants from both groups pay particular attention to voice emotionality when evaluating the appropriateness of the neural news reader. Also, they tend to attribute human characteristics to the neural news reader. The participants single out the news messages as well as the media organization behind the news broadcast, rather than the neural voice itself as critical components constituting credibility. Transparency is of great importance when applying a neural voice in a news broadcast, since it is a prerequisite for credibility" \cite{heiselbergAutomatedNewsReading2022}. \\
@@ -681,7 +682,9 @@ We conclude that research involving \gls{genai} created media is still scarce. T
 Generative AI is advancing at such a rate that it's impossible keep all developments in sight. Research has just caught up with the outcome from FaceSwap DeepFakes which today look antiquated in the light of ChatGPT and \gls{sd}. 
 It is obvious that the researching community has to continue to follow the call from \citet{hancockSocialImpactDeepfakes2021} and study. A call that the authors of this paper were happy to comply.
 
-\chapter{Methodology}
+\chapter{implemented Technologies}
+\label{chap:implementation}
+
 After we have established a theoretical Background as well as an overview over existing works we will now move on to the means we took to conduct our studies. We will start with the description of the technical implementation and then move on to the actual study. Still, in order to better understand the reasons why we chose certain technologies we want to first describe one central thought in our work, the spectrum of artificiality depicted in figure \ref{fig:spectrum}.
 \begin{figure}[h]
   \centering
@@ -689,11 +692,8 @@ After we have established a theoretical Background as well as an overview over e
   \caption{Spectrum of artificiality}
   \label{fig:spectrum}
 \end{figure}
-On the left end, we have 100\% unaltered footage, whereas on the right end, we have a very uncanny looking, synthetic case. In between these extremes the amount of artificiality increases from left to right. The spectrum set our goals for what we wanted to create and lead to the selection of tools. A more detailed description of the thought process behind the study design will be provided in section \ref{subsec:study design}. 
+On the left end, we have 100\% unaltered footage, whereas on the right end, we have a very uncanny looking, synthetic case. In between these extremes the amount of artificiality increases from left to right. The spectrum set our goals for what we wanted to create and lead to the selection of tools. A more detailed description of the thought process behind the study design will be provided in section \ref{sec:study design}.
 
-\newpage
-\section{implemented Technologies}
-\label{implementation}
 Most of the development and training has been conducted on a remote Linux Server of the \gls{hff} and film munich via SSH. Many projects featured a Gradio webui. That way, these tools could easily be accessed from remote hosts via port-forwarding. The \gls{hff} workstation featured an Intel(R) Xeon(R) Gold 6254, 128GB of Memory and a Nvidia RTX A6000 GPU with 48GB of VRAM. \\
 The code was checked in at a repository via the \gls{br} at gitlab.ard.de. CI/CD was provided with a privately hosted gitlab runner. \\
 During the paper, two projects were coded. The first, \gls{dvt}, provided all necessary implementations for the synthetic voices, including dataset pre-processing and training. The second is an implementation of \gls{w2l} with face upsampling using GFPGAN. Both of the projects were built in a containerized way using Docker to ease the installation of dependencies whilst working on the remote machine without root access. This also ensured high portability across systems in case we had to switch to another machine. Docker images were built with a CI Pipeline and then pushed to a private registry at gitlab.ard.de. \\
@@ -702,7 +702,7 @@ For one of the test cases (right in figure \ref{fig:spectrum}), unreal engine wa
 
 In the following we will give a closer insight to the generation process of several assets, such as \gls{tts}, \gls{rvc}, \gls{sd} and unreal engine.
 
-\subsection{Voice Cloning Toolkit}
+\section{Voice Cloning Toolkit}
 \label{sec:dvt}
 While we had some previous experience in the video domain (Face swapping and Unreal Engine), we had almost none in the audio domain. Therefore we had to figure out feasible ways to create synthetic voices. There are some commercial solutions available which deliver excellent results but we wanted to see how far we can get with open source solutions. In the domain of faceswaps there are already integrated toolkits for data gathering, quality control, pre-processing and training. However this was not the case for voice cloning, which is why we decided to combine several tools into one tookit. These were CoquiTTS, an open source \gls{tts} engine (see section \ref{sec:tts}) and \gls{rvc}, which is used for \gls{v2v} generation. 
 
@@ -718,7 +718,7 @@ While we had some previous experience in the video domain (Face swapping and Unr
 
 In the following we will treat the production and training process of the regarding technologies (\gls{tts} and \gls{rvc}) in general, then explain the corresponding training data requirements and in the end summarize everything by walking through the whole workflow, from data gathering until training the model. Inference is almost trivial and is well documented for both \gls{tts} and \gls{rvc}.
 
-\subsubsection{Text To Speech}
+\subsection{Text To Speech}
 % General
 CoquiTTS is a comprehensive \gls*{tts} tool which can be used as open source which can be deployed on own systems and at the same time drives a commercial variant "Coqui Studio". As explained in background section \ref{sec:tts} there are various ways to accomplish text to speech. We decided to go with the VITS model. Coqui uses so called "receipes" to set up a training run. As they are language specific, we relied heavily on the documentation of \Citeauthor{mullerThorstenVoice2023} who contributed a lot of work to advance the german language within the Coqui project.
 With the receipes by \Citeauthor{mullerThorstenVoice2023} it is quite easy to get started. It goes without saying that each training has the option of extensive hyperparameter tuning but this was way beyond the scope of this paper and we therefore went with the basic settings provided by \Citeauthor{mullerThorstenVoice2023}, except that we increased the batch size to speed up training on our A6000. \\
@@ -787,7 +787,7 @@ Now that the model is trained, inference is straight forward. For further detail
 After the \gls{tts} Audio is generated it might be necessary to do some manual corrections to the audio track. Most imperfections are related odd sentence flow or chopped consonants towards the end of a sentence. This can be done in any editing software. We rarely had to correct anything for our model but certainly looked to cut the audio to the right positions of the video so that it matches as good as possible. \\
 In addition we could also upscale the quality by applying \gls{rvc} on top of the \gls{tts} generated audios. This can not correct odd sentence flow or chopped words but add some depth to the speech quality. We decided against this improvement to have more distinctiveness between the test cases, but in a production system this might be a viable solution in order to improve \gls{tts} quality. 
 
-\subsubsection{Voice to Voice Conversion}
+\subsection{Voice to Voice Conversion}
 %General
 To convert our speech recordings to the voice of the anchorman we have used \gls{rvc}. Compared to \gls{tts}, \gls{rvc} is pretty straight forward. Regarding \gls*{dvt}, almost no adaptations to the original \gls*{rvc} \cite*{RVCProjectRetrievalbasedVoiceConversionWebUI2023} code have been made. \gls*{dvt} mostly serves as a CUDA runtime environment to provide all drivers, dependencies and AI models required to run \gls{rvc}. We added is the aforementioned \verb|filebrowser| to make file transfers to a remote GPU Server easier. Of cource, we can employ our preprocessing tools to aid the dataset generation process.\\
 As depicted in figure \ref{fig:rvc-gradio}, \gls{rvc} features a Gradio user interface with several tabs in the top. Most importantly training and Model inference. For training, most hyperparameters are already set, only the Dataset location needs to be set. Inference is also done in the GUI. \\
@@ -810,7 +810,7 @@ As we know that we can extract approximately 5 minutes from every 30 minutes new
 We end up with a subdirectory for each speaker of each input audio. We could now use \verb|filebrowser| to look through the speakers and listen in to the audios and then move the right audios into the \verb|/DATASET/RVC| directory. Or we can use \verb|move_most| which will go through all speaker folders and move those with most data into \verb|/DATASET/RAW/SELECTION_HERE|. Now we can move all data from here into \verb|/DATASET/RVC|. \\
 Once 10 minutes of snippets all under 10 seconds are in the RVC directory we can start the \gls{rvc} UI within \gls{dvt} using \verb|rvc|. From there we can start the training by entering the dataset directory and clicking two buttons. The GUI, together with the online documentation is quite easy to understand and thus won't be explained further. This also counts for inferencing/converting voices with \gls{rvc}.
 
-\subsection{Lip remapping}
+\section{Lip remapping}
  After we created the auditive part, we need to adjust the visual part as well. This was done, in all cases but the unreal engine case, with the help of \gls{w2l} \cite{mukhopadhyayWav2LipAccuratelyLipsyncing2023}. Similar to the development of \gls{dvt} we implemented the \gls{w2l} project as a portable docker container as well. Different to \gls{dvt} the \gls{w2l} container features a Gradio interface only (see figure \ref{fig:w2l-gradio}). This eases the file handly process as the hosts filesytem ist not required. Everything is stored inside the container during runtime and can be downloaded via the UI in the webbrowser.
  \begin{figure}[h]
   \centering
@@ -836,7 +836,7 @@ The process of GFPGAN upsampling every frame individually introduces a small fli
 Probably a good solution would have been to use \gls{dfl}. There are some examples on the internet which confirm \gls{w2l} in combination with \gls{dfl} as a working approach. We decided against the use of \gls*{dfl} because of the added effort for training a \gls{dfl} Model (2 weeks) and the significant post processing needed for every of our videos. 
 
 
-\subsection{Stable Diffusion Video}
+\section{Stable Diffusion Video}
 \label{sec:sd-video}
 To further increase the degree of artificiality in our videos, we decided alienate the images with the use stable diffusion. In section \ref{sec:stable-diffusion-bg} we have established the image generator as versatile tool for many applications. The astonishing development can be credited to the active community by large amounts. For our project we've used the \gls{auto1} stable Diffusion front end with several extensions for better video processing. \\
 There are two challenges with \gls{t2i}: \textit{control} and \textit{consistency}. A prompt to resemble a news anchor inside a TV studio will never remotely resemble our real anchorman. As a first, the random seed needs to be turned off. To increase the consistency at least a bit, every frame needs the same random noise as a starting value. But this cannot help us with movement of an object within the scene. In our case it is especially important that at least the lips somewhat match to the spoken audion. Luckily the \gls{sd} community had come up with a solution: ControlNet. 
@@ -872,7 +872,7 @@ After having generated the main actor we composited him to the final clip using 
 
 At the time of writing we can report that the ControlNet workflow might already be outdated. In July of 2023 \textit{Animate Diff} was released and offers an alternative workflow to ControlNet. During the making of our experiments Animate Diff was not tested and documented good enough so we could not test it in a reasonable timeframe but it seems in some cases to deliver much better results that ControlNet in both dimensions, control \textit{and} consistency. In November of 2023 Stability AI also released the first Stable Video Diffusion foundation model and shows to have a lot of future potential. 
 
-\subsection{Game-Engine: Unreal Engine}
+\section{Game-Engine: Unreal Engine}
 For the extreme end of our artificiality spectrum (figure \ref{fig:spectrum}) we decided to repurpose an existing project conducted in Unreal Engine. It was part of a master practical at LMU during the summer semester of 2023 under the supervision of Prof. Dr. Johanna Pirker. A detailed report of the practical is available as well, but we will include the most important finding in the following section. \\
 The goal of the practical was to glimpse into the possibilities of virtual production, learning basic 3D modelling and the operation of \gls{ue} and accompanying software. To give the goal a concrete example, we wanted to recreate a news show from \gls{br} television which made it an ideal candidate for this paper as well. \\
 Although it is quite easy to get started with \gls{ue}, realising complex projects is a difficult untertaking. The main reason lies in the fact that \gls{ue}'s main purpose is aggregating many different assets and giving them logic. Surely it is possible to model, rig and animate characters within \gls{ue} but there are various specialised tools for all of the named tasks: maya, zbrush, blender, iClone Character creator, to just name a few. Doing all of these things is certainly possible in \gls{ue} but has its limits. \\
@@ -881,7 +881,7 @@ The generated results have neither to do with \gls{genai} nor do they look parti
 \todo{add data to support hypothesis}
 Because of its relevance to synthetic media we decided the include a thorough documentation of the unreal workflow.
 
-\subsubsection*{Unreal Engine Basics}
+\subsection*{Unreal Engine Basics}
 Before we could start building anything specific, we had to learn some basics of \gls{ue}. There are plenty of free tutorials available online so we first followed. As can be seen from figure \ref{fig:ue-basic-tutorial} the results can look quite impressive after a few hours of learning. This hast to do with \gls{ue}'s excellent library of high quality meshes (3D objects) and easy lighting system. However things look very differently as soon as one tries to create own meshes, textures or characters. 
 
 \begin{figure}[h]
@@ -907,7 +907,7 @@ Before we could start building anything specific, we had to learn some basics of
   \label{fig:ue-basic-tutorial}
 \end{figure}
 
-\subsubsection*{Studio Build}
+\subsection*{Studio Build}
 As we've just mentioned, modeling and texturing are extensive topics on their own. \gls{ue} excels at utilizing and rendering a wide range of objects, including a vast library of assets that can be used for free. Many of these assets are even scanned, providing incredible realism. However, when it comes to modeling custom objects like the studio itself, achieving realism becomes much more challenging. Professional 3D artists would be required to achieve the desired level of accuracy and detail at this point. Nonetheless, it was fascinating to learn the possibilities that Unreal Engine offers even when relying solely on the engine itself. \\
 We built the studio with very few elements (see figure \ref{fig:ue-studio-build}). A shiny white floor for reflective lighting, a semicircle backdrop, the main anchorman desk and some generic studio lights at the ceiling. Due to our lacking knowledge about modelling and texturing it does not look very realistic but the similarities to the real counterpart are clearly visible. We tried to at least create a realistic replica of the main desk using photogrammetry (figure \ref{fig:photogrammetry-desk}), but it did not work as expected due to the semi-transparent parts. As an alternative to photogrammetry it would have been interesting to explore how \gls{nerf} or gaussian splatting would have performed in this domain but due to time constrains couldn't be tested during the practical. \\ 
 It is to be mentioned that \gls{genai} is becoming very useful in these domains as \gls{sd} is already capable of creating 3D objects with ease. That way modelling and texturing will very likely become much more accessable to semi-professional and amateur users.
@@ -937,7 +937,7 @@ It is to be mentioned that \gls{genai} is becoming very useful in these domains 
   \label{fig:ue-studio-build}
 \end{figure}
 
-\subsubsection*{Camera and Media Playback Logic} 
+\subsection*{Camera and Media Playback Logic} 
 With the studio in place, a camera system needed to be implemented. \gls{ue} already provides support for \textit{cine-cameras}, which offer various settings reminiscent of their real-world counterparts, such as aperture, exposure, focal length, and focus. Initially, transitioning between cameras seemed straightforward using the integrated \textit{set view Target with blend} method. It was easy to set up multiple cameras within the scene and cut or animate between them using the mentioned method. This approach resembled the camera robots used in the real studio, utilizing easy-ease keyframes, which was advantageous. \\
 However, there was a significant limitation with the existing method. While it effectively moved and rotated the view to the desired position, other parameters such as focal length, focus distance, and aperture did not change until the transition was complete. As a result, after the transition, these settings abruptly shifted, creating an undesirable visual effect. This behavior was unacceptable when aiming for smooth transitions. \\
 To fix these issues it was necessary to develop a seperate camera system with custom control over the animation using \gls{ue}'s visual scripting language \textit{blueprint}. The scene now includes a Master-Camera controlled by a blueprint script \ref{fig:blueprint}. This blueprint inherits methods for updating all relevant camera parameters, including a transition time that can be passed into the function call.
@@ -983,14 +983,14 @@ However, one issue remained with the projection plane: the images are not yet st
   \label{fig:ue-media}
 \end{figure}
 
-\subsubsection*{Character Build}
+\subsection*{Character Build}
 \gls{ue} provides its own toolset for creating comprehensive virtual characters, so called \textit{Metahumans}, which facilitates character creation to some extent. Like \gls{ue}, the Metahuman editor facilitates quick results but has limitations to modeling and texturing—customization options. To mitigate this problem, specialized software such as \textit{iClone Character Creator} or 3D animation software like \textit{Maya} or \textit{Blender} could be utilized. During the practical these alternatives could not be covered, which is why we relied solely on \gls{ue}'s Metahuman editor. \\
 Metahumans are currently undergoing active development and evolving rapidly. Editing Metahumans is done through a cloud rendering web application in the browser, which is then synced to \gls{ue}. Creating a new character can be done from scratch or based on a real human, however, the method to achieve this changed over the course of several weeks, which shows the pace of development. In December of 2023 \textit{gaussian avatar} are available in first, experimental implementation. This will drastically improve future workflows. \\
 For our case, we initially had to employ a workflow called "mesh to metahuman", which required a 3D mesh of a head to be imported into \gls{ue}. From there, it could be converted into a Metahuman. We captured a head scan using the same photogrammetry workflow as with the studio table. The scan yielded exceptional results, as depicted in figure \ref{fig:head-photogrammetry-scan}. \\
 Unfortunately, the resulting Metahuman character did not bear much resemblance to the scan, as shown in Figure \ref{fig:metahuman-result}. With more expertise in character modeling, it may be possible to improve the likeness to a large extent. \\
 During our research, \gls{ue} version 5.2 was released, introducing a new workflow that utilizes the faceID lidar sensors of an iPhone to capture facial performance data. The results were much better than the "mesh to metahuman" workflow. Still, the Metahuman character creator lacks customization options in various aspects, hindering us to achieve higher likeness.
 
-\subsubsection*{Character Animation}
+\subsection*{Character Animation}
 
 Next we needed to bring the character to life through animation. There were several options for achieving that objective, including using prerecorded performance data or implementing a live capture workflow. For the news format, a responsive and quick-to-produce approach was desirable, making the live version preferable. However, implementing a full live capture system would require extensive tracking hardware, such as a full-body tracking suit. These suits can range in cost from 2.000€ to 5.000€ and can be complex to calibrate. Given the time constraints, a simpler and more cost-effective solution was chosen for the prototype. \\
 Firstly, facial tracking using the iPhone's FaceID sensors. This allows for tracking of facial expressions and head rotation. Unreal Engine provides easy support for this, requiring only an iPhone on the same network as the Unreal PC and sometimes necessitating custom firewall settings. One challenge, however, is directing the gaze of the eyes towards a virtual camera. If the eyes do not look into the camera, the character can appear uncanny.
@@ -1004,11 +1004,10 @@ Secondly, the rest of the body received an idle animation in the form of simple 
 All in all the performance falls deep into the uncanny valley making it the perfect example for our negative control group. 
 
 
-\newpage
-\section{Study}
+\chapter{Study}
 \label{chap:study}
 During our research and work in the film and television industry we have encountered various anecdotal assessments about trust towards synthetic media. In regards to the scarce research landscape in such a young topic we decided to conduct our own exploratory study in the area of synthetic media trust and credibility. \\
-As there are many different methods of creating synthetic media, we wanted to test them against each other and see how they perform. This resulted in our main research question (RQ1) of how the artificiality of synthetic media influences trustworthines. Other questions in neighbouring fields were postulated along the way (refer to \ref{tab:research-questions}).
+As there are many different ways of creating synthetic media, we wanted to test multiple methods against each other and see how they perform. This resulted in our main research question (RQ1) of how the artificiality of synthetic media influences trustworthines. Other questions in neighbouring fields were postulated along the way (refer to \ref{tab:research-questions}).
 
 \begin{table}[h]
   \centering
@@ -1031,20 +1030,17 @@ As there are many different methods of creating synthetic media, we wanted to te
   \label{tab:research-questions}
 \end{table}
 
-\subsection{Study Design}
-\label{subsec:study design}
+\section{Study Design}
+\label{sec:study design}
 
 Our goal was to find out more about the relationship of various types of synthetic media and their trustworthines. In chapter \ref{chap:background} we have treated the relevant technologies we have aquired over the time. With access to these tools we wanted to design a study that utilizes them in a practical scenario which is close to a daily practice use case. We therefore chose the TV newscast as a good testing environment. It provided sufficient control, yet the ability to experiment with \gls{tts}, \gls{v2v}, \gls{sd} or even \gls{ue}. \\
-The newscast set the content. We chose to build upon existing news and not invent any to keep them realistic. This should have eliminated bias towards unrealistic news, but unfortunately we did not take into account differing knowledge. We will address this issue later while discussing the limitations of our study. \\
-We decided to craft our study around the aforementioned spectrum of artificiality as depicted in figure \ref{fig:spectrum}. By introducing an increasing amount of synthetic media at each stage, we were hoping to measure effects on trust. The artificiality therefore was one of our most important independent variables. The artificiality has close ties to the uncanny valley effect. Using several questions, we calculated a perceived index for each video. To avoid ambiguity with the term AI, we will name this index \gls{ri} instead of "artificiality Index". High /gls{ri} is analogous to low artificiality and a low uncanny valley effect.\\
+The newscast set the content. We chose to build upon existing news and not invent news in order to keep the content side realistic. This should have eliminated bias towards unrealistic news, but unfortunately we did not take into account differing knowledge. We will address this issue later while discussing the limitations (\ref{subsec:limitations}) of our study. \\
+We decided to craft our study around the aforementioned spectrum of artificiality as depicted in figure \ref{fig:spectrum}. By introducing an increasing amount of synthetic media at each stage, we were hoping to measure effects on trust. The artificiality therefore was one of our most important independent variables. The artificiality has close ties to the uncanny valley effect. Using several questions, we calculated a perceived index for each video. To avoid ambiguity with the term AI, we will name this index \gls{ri} instead of "artificiality Index". High \gls{ri} is analogous to low artificiality and a low uncanny valley effect. To forster a clear naming we will refer to all these concepts only by the term \gls{ri} and avoid the other terms from now on.\\
 We anticipated that the content itself would also have some effect on the judgements. To mitigate these issues we created a second video at each quality level but filled it with different content. That way we were able to controle and compare results in both content groups. \\
-Discussions about \gls{genai} lead quickly to the call of marking footage, that has been created with AI. We wanted to address this topic and decided to test for this as well. We did this by placing an AI logo in the upper corner of half of the videos. The meaning of the AI logo was explained in advance. To be ethically correct we informed the participants that the AI Logo marks AI generated content in some cases, but can also be wrongly marked in other cases. While our study was already running, we discovered the paper by \citeauthor{toffTheyCouldJust2023}, where the authors conducted similar testing in the domain of AI generated texts. Unfortunately we couldn't incorporate their findings to optimize our study design. But since the AI mark test was just an add-on to our main research question this wasn't too much of a missed opportunity. Please refer to table \ref{tab:video-table} for a clear overview about the artificiality level, content and AI Logo marking strategy.
-
-
+Discussions about \gls{genai} lead quickly to the call of marking footage, that has been created with AI. We wanted to address this topic and decided to test for this as well. We did this by placing an AI logo in the upper corner of half of the videos. The meaning of the AI logo was explained in advance. To be ethically correct we informed the participants that the AI logo marks AI generated content in some cases, but can also be wrongly marked in other cases. While our study was already running, we discovered the paper by \citeauthor{toffTheyCouldJust2023}, where the authors conducted similar testing in the domain of AI generated texts. Unfortunately we couldn't incorporate their findings to optimize our study design. But since the AI marking experiment was just an add-on to our main research question this wasn't too much of a missed opportunity. Please refer to table \ref{tab:video-table} for a clear overview about the artificiality level, content and AI Logo marking strategy.
 \begin{table}[h]
   \centering
   \begin{tabularx}{\linewidth}{c|c|X|X}
-    
     \textbf{ID} & \textbf{AI Logo} & \textbf{Content} & \textbf{Artificiality}\\
     \midrule
     1\_1 & in group B & German unification day celebrations  & None: real video from broadcast \\
@@ -1066,16 +1062,16 @@ Discussions about \gls{genai} lead quickly to the call of marking footage, that 
   \caption{Description of our test videos}
   \label{tab:video-table}
 \end{table}
-
 Finally we needed to layout our test videos in a specific way to avoid side effect measurings by the content of the videos, the order of the videos (sequence bias) and the AI marking of the videos (see table \ref{tab:video-table}): \\
-In total there were eight videos, two for each of the four artificiality stages. In Group A, the second video within an artificiality stage was marked by the AI Logo. Group B had it reversed, meaning the first video of each stage was marked. \\
-During interrogation each participant was randomly assigned to Group A or B. This measure was meant to compensate for side effects created by content variation. The size of the groups was continously balanced so that Groups A and B stayed at similar sizes. \\
+In total there were eight videos, two for each of the four artificiality stages. In Group A, the second video within an artificiality stage was marked by the AI logo. Group B had it reversed, meaning the first video of each stage was marked. \\
+During interrogation each participant was randomly assigned to group A or B. This measure was meant to compensate for side effects created by content variation. The size of the groups was continously balanced so that Groups A and B stayed at similar sizes. \\
 Within each group, the participant was the presented to all the eight video one after the other. The order of the videos were randomized for each participant, in order to mitigate sequence bias. All questions in regards to a specific video were answered alongside the concerning video, while no other video was present. This, in addition to the random sequence was meant to reduce direct comparability effects.
 
 In addition to the video questionaire we've asked for basic demographic information. 
 Our study encompasses both, a between subject design (A/B Group division) and a within subject design (analysis within Group A or B). However sample size within the groups was probably too small for certain tests.
 
-\subsection{Procedure and Participants}
+\section{Procedure and Participants}
+\label{sec:procedure-and-participants}
 The study was designed as an online questionaire, conducted via the survey platform "soSci survey", hosted by the University of Munich. The survey was reachable via a single URL. The URL was spread among various media companies, university groups and the author's personal contacts. \\
 After following the URL, a visitor was immediatly assigned to group A or group B of the questionaire. It survey itself was divided into 3 stages: 1) general and democraphical questions, 2) main video evaluation, 3) post-questionaire evaluation and study explanations. \\ 
 During the second stage, all videos were presented to the participant in a randomized sequence. Along with each video the participant had to answer five questions on a likert scale of \textit{one} to \textit{six}.
@@ -1086,7 +1082,7 @@ During the second stage, all videos were presented to the participant in a rando
   \item The anchroman's voice is real.
   \item The video has a good quality.
 \end{enumerate}
-In addition to the likert scale the participants also had the opportunity to answer any of the questions with additional free text remarks. \\
+In addition to the Likert scale the participants also had the opportunity to answer any of the questions with additional free text remarks. \\
 During the post-questionaire we questioned how focussed the participants were during the survey and how serious they listened to the videos. On a scale of \textit{one} ot \textit{three} we received a meaninglessnes mean of 1.138 (closer to 1 is better) and distraction of mean of 1.318 (closer to 1 is better). On a four steps scale of how much the participants enjoyed the study (from \textit{not at all} to \textit{very much}) we received a mean of 3.185 (closer to 4 is better). According to these values we infer that our gathered data accurately represents our participants meaning and isn't skewed by their unwillingnes to participate. \\
 After all questions were answered, we provided an explainatory video for the study with a call to further spread the survey among friends and colleagues. We further incentivised participants to take part in the study by offering 50€ to be given away in a lottery after the study has been finished.
 
@@ -1132,7 +1128,6 @@ The distribution of industrial sectors show a focus on IT (24.6\%) and creative 
 		\end{tabular}
 	}
 \end{table}
-
 We have also collected data about last educational institution graduated, gender and country but these factors had no relevant effects and thus can be ommitted. \\
 In regard of the uses display device the smartphone, laptop monitors and larger external monitors were quite evenly distributed (compare table \ref{tab:frequenciesForDevice}). We will compare this self assessment with our measurements later on.
 \begin{table}[h]
@@ -1153,14 +1148,15 @@ In regard of the uses display device the smartphone, laptop monitors and larger 
 \end{table}
 Lastly, we asked participants which of the the factors (video content, video quality or AI-Logo) had the strongest influence to their judgments in regards of the perceived trustworthiness (see figure \ref{fig:most-influence}).
 
-\subsection{Results}
+\section{Results}
+\label{sec:results}
 
-Before we start with further analysis we wanted to address the topic of handling Likert scales. We are aware of the ongoing discussion about wether Likert scales can produce and be interpreted as metric data or if it can only supply ordinal data. The central argument against is, that equidistance between the options cannot be ensured. Devaluing these scales to ordinal data would prohibit arithmetic operations with the values as well as many statistical tests. Many Likert scales use a scale of four items and there are recommendations to increase the number of Likert scale points to make it closer to continuous scales and normality \cite{wuCanLikertScales2017a}. We complied by using six points, instead of four. In our next research we will most likely use ten or eleven points as suggested by \Citeauthor{hodgePhraseCompletionScales2007}. We further assume our Likert measurements to be metric, however we checked some parametric tests with their non-parametric counterparts to ensure they wouldn't deliver drastically different results in regards to significance.
+Before we start with further analysis we wanted to address the topic of handling our Likert scales. We are aware of the ongoing discussion about wether Likert scales can produce and be interpreted as metric data or if it can only supply ordinal data. The central argument against is, that equidistance between the options cannot be ensured. Devaluing these scales to ordinal data would prohibit arithmetic operations with the values as well as many statistical tests. Many Likert scales use a scale of four items and there are recommendations to increase the number of Likert scale points to make it closer to continuous scales and normality \cite{wuCanLikertScales2017a}. We complied by using six points, instead of four. In our next research we will most likely use ten or eleven points as suggested by \Citeauthor{hodgePhraseCompletionScales2007}. We further assume our Likert measurements to be metric, however we checked some parametric tests with their non-parametric counterparts to ensure they wouldn't deliver drastically different results in regards to significance. In all of the conducted statistical tests this was never the case.
 
-\subsubsection{Measuring Artificiality}
+\subsection{Measuring Artificiality}
 
-As mentioned in during study design, we wanted to measure the perceived artificiality to confirm our design of the artificiality spectrum was right. We did this by asking wether the anchorman or the anchorman's voice were true and calculated the mean of the two values. This realism index we will further call \gls{ri}. \\
-The mean values (table \ref{tab:RIs-mean}) show that our artificiality spectrum worked almost as intended. We assumed (figure \ref{fig:spectrum}) that the unreal engine example would rank last because it looked the most uncanny. But instead, the perceived \gls{ri} shows that in fact the unreal engine videos rank third, while the stable diffusion videos from group 3\_* rank last. The reason for our misjudgment is clear. We thought the uncanny character of the unreal engine example would have the most influence, where actually the very synthetic voice of the 3\_* videos, in addition with the \gls{sd} altered video obviously is more artificial than videos 4\_*. 
+As mentioned in during study design, we wanted to measure the perceived artificiality to confirm our design of the artificiality spectrum was right. We did this by asking wether the anchorman or the anchorman's voice were true and calculated the mean of the two values. As mentioned earlier, we will further refer to this as the Realism Index \gls{ri}. \\
+The mean values (table \ref{tab:RIs-mean}) show that our artificiality spectrum worked almost as intended. We assumed (figure \ref{fig:spectrum}) that the unreal engine example would rank last because it looked the most uncanny. But instead, the perceived \gls{ri} shows that in fact the unreal engine videos ranked third, while the stable diffusion videos from group 3\_* ranked last. The reason for our misjudgment is clear. We thought the uncanny character of the unreal engine example would have the most influence, where actually the very synthetic sounding voice of the 3\_* videos reduced the \gls{ri} strongly. To make matters worse, 3\_* videos were altered using \gls{sd} which made the even more artificial. In summary these videos felt less good, compared to the 4\_* videos. 
 
 \begin{table}[h]
 	\centering
@@ -1233,11 +1229,12 @@ The mean values (table \ref{tab:RIs-mean}) show that our artificiality spectrum 
 \end{figure}
 
  Figure \ref{fig:all-RIs} plots the \gls{ri}s for each video across both subgroups (A and B). \\
- It lies in the nature of the questions that resulting \gls{ri} data is heavily skewed in many cases (figures \ref{fig:RI11}, \ref{fig:RI12}, \ref{fig:RI31}, \ref{fig:RI32}, \ref{fig:RI41}, \ref{fig:RI42}). Naturally we assume that most people will regard something to look real if it is real. This would usually prohibit the assumption of normality. To mitigate that, we've combined all RIs for videos *\_1 and *\_2 at cross-checked some tests with this combined distribution. As seen in figures \ref{fig:grouped-RI1} and \ref{fig:grouped-RI2}, they can be considered to being normally distributed. Shapiro-Wilk tests deliver p-values of 0.31 for \ref{fig:grouped-RI1} and 0.024 for \ref{fig:grouped-RI2}, while all other non-grouped \gls{ri}s had p-values of < 0.001. In addition, the central limit theorem for larger sample sizes (n > 30) considers normality to be less critical. With our sample size being 195 we will continue with using parametric tests on all RIs.
+ It lies in the nature of the questions that resulting \gls{ri} data is heavily skewed in many cases (figures \ref{fig:RI11}, \ref{fig:RI12}, \ref{fig:RI31}, \ref{fig:RI32}, \ref{fig:RI41}, \ref{fig:RI42}). Naturally we assume that most people will regard something to look real if it is real. This would usually prohibit the assumption of normality. To mitigate that, we've combined all RIs for videos *\_1 and *\_2 at cross-checked some tests with this combined distribution. As seen in figures \ref{fig:grouped-RI1} and \ref{fig:grouped-RI2}, they can be considered to being normally distributed. Shapiro-Wilk tests deliver p-values of 0.31 for \ref{fig:grouped-RI1} and 0.024 for \ref{fig:grouped-RI2}, while all other non-grouped \gls{ri}s had p-values of < 0.001. In addition, the central limit theorem for larger sample sizes (n > 30) considers normality to be less critical. With our sample size being 195 we will continue with using parametric tests on all RI-values.
 
-\subsubsection{RQ1: Artificiality and trust relationship}
-Tables \ref{tab:trust-RI1-correlations} and \ref{tab:trust-RI2-correlations} show a significant correlation in each of the expected cases, while the correlation strengths cover everything from weak (0.251) to strong (0.617). Therefore we can confirm Hypothesis H1a. \\
-One learning for media companies from this could be, that the highest possible quality should be strived for, before such content goes online, to ensure the highest trust rating. However we must keep in mind, that the tests only cover between subject testing. As every participant has seen all of the contents, even if random order, they are clearly influenced by having the other videos for reference. \\
+\subsection{RQ1: Artificiality and trust relationship}
+\label{subsec:RQ1}
+Tables \ref{tab:trust-RI1-correlations} and \ref{tab:trust-RI2-correlations} show a significant positive correlation in each of the expected cases, while the correlation strengths cover everything from weak (0.251) to strong (0.617). Therefore we can confirm Hypothesis H1a. \\
+One learning for media companies from this could be, that the highest possible quality should be strived for, before such content goes online, to ensure the highest trust ratings. However we must keep in mind, that the tests only cover within subject testing. As every participant has seen all of the contents, even if random order, they are clearly influenced by having the other videos for reference. \\
 It might be interesting to conduct further studies with isolated groups, where only one level of quality is tested. It might be possible that artificially looking content could score similar trust results like realistic content when there is no comparison in the participant's frame of reference.
 
 \begin{table}[h]
@@ -1301,7 +1298,8 @@ In ANOVA tests only one of the case was significant (2\_2\_RI: p-value 0.024). P
 We don't think that this one result represents any convincing evidence, as all other cases are insignificant but together with the verbal discussion we still believe there are, hints that this topic could be researched further, especially with mobile devices getting more and more important.
 
 
-\subsubsection{RQ2: Effects of an AI-Logo branding to trust}
+\subsection{RQ2: Effects of an AI-Logo branding to trust}
+\label{subsec:RQ2}
 We wanted to get an understanding what effect disclosure of a possibly AI generated video might have. A first self assessment by the participants implies that there is a very minor effect of the markings (see figure \ref{fig:most-influence}).
 \begin{figure}[h]
   \centering
@@ -1346,8 +1344,8 @@ By examining comments we also figured, that we had created quite some difference
  We can conclude that the participants' self assessment, depicted in figure \ref{fig:most-influence}, seems to be accurate. We cannot measure any significant effects regarding the AI mark as the other variables introduce too much disturbances. \\
  In regards of the direction of the effects it is also impossible to state anything robust. Judging by our experiences we are still not ready to omit our aforementioned working theories but for further research in this direction a different study design would be required.
 
- \subsubsection{Exploratory Factor Analysis}
-
+ \subsection{Exploratory Factor Analysis}
+\label{subsec:factor-analysis}
  To further inspect the quality of our questionaire we've conducted an exploratory factor analyis (table \ref{tab:factorLoadings}) for our main questions. The results show that all measurements somewhat appoint to the same latent variable. This surely conforms to the correlations we have found in the previous sections. Even if the question all point towards the same measurement they were interesting to us because all of the variables are things we could potentially manipulate in a follow-up study. 
 
 \begin{table}[h]
@@ -1371,34 +1369,71 @@ By examining comments we also figured, that we had created quite some difference
 	}
 \end{table}
 
-\chapter{Discussion}
+\subsection{Discussion}
+
+This study's exploration into the impact of synthetic media's artificiality on trustworthiness has yielded significant insights, while also opening avenues for future research.
+
+\subsubsection{Impact of Artificiality on Trustworthiness}
+The findings indicate a clear correlation between the artificiality of synthetic media and its perceived trustworthiness. This supports the hypothesis that higher artificiality negatively impacts trust. The study's exploration into the impact of artificiality on the trustworthiness of synthetic media has revealed a nuanced and significant relationship. Through statistical analysis, particularly using Pearson's R correlations, a clear and consistent correlation was identified: as the degree of artificiality in synthetic media increases, its perceived trustworthiness decreases. This trend was most evident in the calculated Realism Index (RI) values, where videos with higher \gls{ri}s, indicating lower artificiality, were consistently deemed more trustworthy by participants. \\
+This pattern held across various forms of synthetic media, encompassing different alterations such as \gls{v2v} conversion, \gls{tts}, and Unreal Engine. Each form of synthetic media exhibited a distinct impact on trust, underscoring the complexity of how artificiality is perceived in different media contexts. The study's findings also highlighted the significant role of both visual and auditory elements in shaping perceptions of artificiality. The synthetic voice, in particular, in \gls{tts} and \gls{v2v} conversions, emerged as a crucial factor affecting trustworthiness ratings. \\
+Furthermore, these insights contribute to the broader discourse on the uncanny valley effect in synthetic media, where moderate levels of artificiality can lead to a steep decline in perceived trustworthiness. \\
+However, it's important to note that while the correlation between artificiality and trustworthiness was clear, the study's design may have limitations in capturing finer variations in trustworthiness at different artificiality levels. This observation calls for more detailed investigations in future research endeavors to understand the subtleties of this relationship better.
+
+\subsubsection{Demographic Factors and Screen Size}
+The study's inability to find significant effects based on demographics points to a more universal perception of synthetic media, although this could be due to sample size limitations. Interestingly, the potential influence of screen size on perception, despite being statistically inconclusive, suggests a need for further investigation (refer to section \ref{subsec:RQ1}). \\
+Notably, the research did not find significant effects based on demographics such as age, education, or profession. This outcome suggests that the perception of synthetic media's trustworthiness might be more universally consistent across different demographic groups than initially hypothesized. However, it is more likely to consider the possibility that the sample size may have influenced these results. The study's sample, while diverse, might not have been sufficiently large or varied to detect subtle demographic differences in perception. This aspect of the research, while not conclusive, opens up interesting avenues for future investigations. \\
+Another intriguing aspect of the study was the exploration of the influence of screen size on the perception of synthetic media. While the results regarding screen size were statistically inconclusive, they hint at an underlying dynamic worth investigating. The hypothesis was that smaller screens might mask imperfections in synthetic media, potentially leading to higher trustworthiness ratings. This aspect of the research, though not definitively proven, suggests that the medium through which synthetic media is consumed – whether it be a smartphone, a laptop, or a larger display – could subtly influence how viewers perceive its authenticity and trustworthiness. \\
+The implication of these findings, particularly regarding screen size, is noteworthy. In an era where media consumption varies widely across devices with different screen sizes, understanding how this variable affects perception could have significant implications for the design and dissemination of synthetic media. Future studies, therefore, should consider incorporating a more focused examination of screen size as a variable, potentially revealing more about how the context of media consumption impacts viewer perception and trust.
+
+\subsubsection{Influence of disclosing the AI generated nature of content}
+The absence of significant impact from AI-logo branding on trust contradicts some existing narratives around AI transparency, like the works of \Citeauthor{toffTheyCouldJust2023}. This may indicate that viewer perceptions are more influenced by the content and presentation of the media than by disclaimers or labels (refer to section \ref{subsec:RQ2}). \\
+This finding suggests that the factors influencing viewer perceptions of synthetic media might be more complex than we assumed. It appears that the content itself and its presentation hold more sway over viewers' trust than the mere presence of disclaimers or labels indicating AI involvement. This could imply that viewers are either not significantly influenced by such labels or that the quality and nature of the content overshadow any concerns raised by the knowledge of AI involvement. \\
+The absence of a significant difference in trustworthiness between AI-labeled and unlabeled content could also point to a potential desensitization among viewers to AI-generated content, as it becomes more prevalent in the media landscape. Alternatively, it could indicate a baseline level of trust or skepticism that is not easily swayed by labeling. \\
+These insights open up new avenues for research, particularly in understanding how transparency about AI's role in content creation affects public perception. Future studies might delve deeper into the psychological and contextual factors that influence how viewers interpret and react to the disclosure of AI involvement in media production. The findings also raise important questions for practitioners in the field of synthetic media about the strategies they employ to build or maintain trust among their audiences. \\
+Given these complexities, further exploration in this area could provide valuable insights into the evolving relationship between AI, media, and public trust.
+
+
+
+\subsubsection{Exploratory Factor Analysis}
+The factor analysis underscores the internal consistency of the questionnaire and the reliability of the constructs used, affirming the study's methodological approach (section \ref{subsec:factor-analysis}). This analytical approach was instrumental in affirming the robustness of the study's methodological framework. By examining the factor loadings, it was possible to ascertain how well the individual questionnaire items correlated with the underlying latent variables they were intended to measure. \\
+The factor analysis revealed that all the main questions in the survey, designed to gauge various aspects of trustworthiness, consistently pointed towards a single latent variable.
+
+\subsection{Limitations}
+\label{subsec:limitations}
+Despite the study's contributions, several limitations must be acknowledged.
+
+\subsubsection{Non-Representative Sample}
+The study's sample recruitment approach, while suitable for its exploratory objectives, introduced a significant limitation concerning representativeness, as detailed in section \ref{sec:procedure-and-participants}. This limitation primarily lies in the demographic and professional composition of the sample, which may not adequately represent the wider population's views on synthetic media. 
+Also the divided subgroups were simply too small, making any statistical measures impossible. \\
+The demographic skew, predominantly towards individuals from IT and creative media sectors, as shown in table \ref{tab:frequenciesForBranch}, raises concerns about the generalizability of the findings. Individuals in these sectors might have unique perspectives or familiarity with synthetic media, influencing their perception of trustworthiness differently compared to a more diverse audience.
+
+\subsubsection{Limitation by Design}
+The study's design, primarily hinged on within-subject comparisons, introduces a crucial limitation in discerning the isolated effects of individual factors on the perception of trustworthiness in synthetic media. This design choice, while beneficial for exploring a broad range of factors simultaneously, restricts the ability to ascertain the distinct impact of each variable. As a result, the intermingled effects of various elements like artificiality levels, AI-logo branding, and content type might have influenced the participants' responses, as detailed in sections \ref{sec:study design} and \ref{sec:results}. \\
+To address this limitation, future research in this area could benefit from incorporating a between-subjects design. Such a design would involve different groups of participants being exposed to different levels or types of synthetic media, allowing for a clearer assessment of how each variable individually influences perceptions. This approach would enable researchers to isolate the effects of each factor, providing a more nuanced understanding of the dynamics at play. \\
+The influence of content and quality on the study's results cannot be overstated. The study found that the trustworthiness perceptions of synthetic media were heavily dependent on both the nature of the content and its production quality. This dependency poses a challenge in isolating the effects of other variables, such as the presence of an AI-logo, on viewers' trust and perception. \\
+Adopting a between-subjects design would also align with the need for more targeted and isolated studies, as mentioned in section \ref{subsec:limitations}. By focusing on specific aspects of synthetic media in isolation, future research could uncover more detailed insights into how each component contributes to the overall perception of trustworthiness. This shift in research design would be a significant step towards a more comprehensive and precise understanding of the factors that shape public perception of synthetic media, leading to more targeted and effective strategies for media creation and evaluation. \\
+
+Many research ideas and hypotheses generated from this study cannot be accurately measured within its current design. Isolated or more focused studies are required to delve deeper into specific aspects like demographic influences or the nuanced impacts of AI Logo marking and content.
+
+Building on the insights gained, there is a clear need for more targeted and isolated studies. In summary, future research should consider both more controlled experimental conditions for content and quality and a more targeted approach to specific variables of interest. This dual focus will enable a clearer understanding of the complex dynamics that influence the perception of synthetic media, providing valuable guidance for both creators and researchers in this evolving field.
 
 \chapter{Conclusion}
-\label{sec:conclusion}
+\label{chap:conclusion}
 
-Largest effect in quality, then content, then AI Logo.
-You would have to do a different study for every single topic. 
+This study embarked on a nuanced exploration of the influence of artificiality in synthetic media on perceived trustworthiness, addressing pressing concerns in the rapidly evolving domain of AI-generated content. Through analysis and empirical testing, the study has uncovered critical insights, revealing a layered understanding of viewer perception in the context of synthetic media.
 
+The primary findings of the study indicate that the quality of synthetic media exerts the most significant impact on trustworthiness, followed by content, and then the presence or absence of an AI-logo. This hierarchy of effects underlines the complex interplay between different elements in shaping public perception. The study's in-depth analysis has also highlighted the limitations inherent in the current study's design, particularly in terms of sample representativeness and the ability to isolate specific factors for scrutiny.
 
-Do another experiment with more focus on content and participants AI education. 
+Reflecting on these findings, it becomes evident that a singular study, such as the one undertaken, can only illuminate certain aspects of the broader phenomenon. To comprehensively understand each factor's individual impact, different studies focusing specifically on quality, content, AI-logo presence, and other relevant elements are necessary.
 
-Future implementation und Haushandlungsprozess. Was wichtig ist:) 
+Moreover, future investigations might benefit from a more focused approach on content types and varying degrees of participants' AI education. Such targeted studies could unravel finer nuances in viewer perception and trust, contributing to a more refined understanding of synthetic media.
 
-To close the circle with the beginning. This work might be too early. The disruptive process has just begun, the developments can happen rather quickly. It therefore might remain interesting to closely monitor how the credibility and trust toward media, both synthetic and real, unfolds in the next years. 
+In closing, this work marks the beginning of an extensive journey into understanding trust and credibility in the realm of synthetic and real media. The rapid advancements in AI and synthetic media technologies imply that these issues will continue to evolve, necessitating ongoing research and vigilance. As this disruptive process unfolds, it remains crucial to closely monitor how credibility and trust in media, both synthetic and real, develop in the coming years.
 
-\todo{further developments:}
-\begin{itemize}
-  \item Clear testing of Logo to confirm Text.
-  \item Clear testing of the influence of previous knowledge and framing
-  \item clear testing of devices
-  \item test between subjects design: artificial vs not artificial groups. 
-\end{itemize}
+\chapter{Ethical remarks}
+\todo{ethical stuff... }
 
-
-
-
-
-\todo{Outlook}
+% End of main writing
 
 \printbibliography
 All links were last followed on \today{}.
