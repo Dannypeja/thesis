@@ -1099,53 +1099,24 @@ In total we could gather N=195 valid participants. Regarding the age distributio
   \caption{sample occupation distribution}
   \label{fig:occupation-plot}
 \end{figure}
-The distribution of industrial sectors show a focus on IT (24.6\%) and creative media (39.5\%) (table \ref{tab:frequenciesForBranch}) while most participants were currently employed (50.3\%) or in education (28.2\%) (figure \ref{fig:occupation-plot}). 
-\begin{table}[h]
-	\centering
-	\caption{Frequencies for industrial sector}
-	\label{tab:frequenciesForBranch}
-	{
-		\begin{tabular}{lrrrr}
-			\toprule
-			Sector & Frequency & Percent & Valid Percent & Cumulative Percent  \\
-			\cmidrule[0.4pt]{1-5}
-			agriculture & $2$ & $1.026$ & $1.026$ & $1.026$  \\
-			production & $6$ & $3.077$ & $3.077$ & $4.103$  \\
-			construction & $2$ & $1.026$ & $1.026$ & $5.128$  \\
-			trade & $1$ & $0.513$ & $0.513$ & $5.641$  \\
-			gastronomy \& tourism & $1$ & $0.513$ & $0.513$ & $6.154$  \\
-			transport \& logistics & $3$ & $1.538$ & $1.538$ & $7.692$  \\
-			IT & $48$ & $24.615$ & $24.615$ & $32.308$  \\
-			finance \& insurance & $6$ & $3.077$ & $3.077$ & $35.385$  \\
-			healthcare & $12$ & $6.154$ & $6.154$ & $41.538$  \\
-			education & $18$ & $9.231$ & $9.231$ & $50.769$  \\
-			government & $9$ & $4.615$ & $4.615$ & $55.385$  \\
-			creative & $77$ & $39.487$ & $39.487$ & $94.872$  \\
-			environmental & $1$ & $0.513$ & $0.513$ & $95.385$  \\
-			other & $9$ & $4.615$ & $4.615$ & $100.000$  \\
-			Total & $195$ & $100.000$ & $ $ & $ $  \\
-			\bottomrule
-		\end{tabular}
-	}
-\end{table}
+The distribution of industrial sectors show a focus on IT (24.6\%) and creative media (39.5\%) (table \ref{fig:piechart-sectors}) while most participants were currently employed (50.3\%) or in education (28.2\%) (figure \ref{fig:occupation-plot}). 
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{0.58\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/statistics/piechart-sectors.png}
+    \caption{Sample's Affiliation to Industry sectors}
+    \label{fig:piechart-sectors}
+  \end{subfigure}
+  \begin{subfigure}{0.38\textwidth}
+    \includegraphics[width=\linewidth]{graphics/images/statistics/piechart-devices.png}
+    \caption{Distribution of used Devices}
+    \label{fig:piechart-devices}
+  \end{subfigure}
+  \caption{Industry Sectors and used Devices}
+\end{figure}
 We have also collected data about last educational institution graduated, gender and country but these factors had no relevant effects and thus can be ommitted. \\
-In regard of the uses display device the smartphone, laptop monitors and larger external monitors were quite evenly distributed (compare table \ref{tab:frequenciesForDevice}). We will compare this self assessment with our measurements later on.
-\begin{table}[h]
-	\centering
-	\caption{Frequencies for display device}
-	\label{tab:frequenciesForDevice}
-	{
-		\begin{tabular}{lrrrr}
-			\toprule
-			Device & Frequency & Percent & Valid Percent & Cumulative Percent  \\
-			\cmidrule[0.4pt]{1-5}
-			smartphone & $59$ & $30.256$ & $30.256$ & $30.256$  \\
-			laptop & $66$ & $33.846$ & $33.846$ & $64.103$  \\
-			external monitor & $70$ & $35.897$ & $35.897$ & $100.000$  \\
-			\bottomrule
-		\end{tabular}
-	}
-\end{table}
+In regard of the uses display device the smartphone, laptop monitors and larger external monitors were quite evenly distributed (compare table \ref{fig:piechart-sectors}). We will compare this self assessment with our measurements later on. \\
 Lastly, we asked participants which of the the factors (video content, video quality or AI-Logo) had the strongest influence to their judgments in regards of the perceived trustworthiness (see figure \ref{fig:most-influence}).
 
 \section{Results}
@@ -1163,73 +1134,23 @@ The mean values (table \ref{tab:RIs-mean}) show that our artificiality spectrum 
 	\caption{RIs mean value ranking}
 	\label{tab:RIs-mean}
 	{
-		\begin{tabular}{lrrrrrrrr}
+		\begin{tabular}{lrrrrrrrrrr}
 			\toprule
-			 & 1\_1\_RI & 1\_2\_RI & 2\_1\_RI & 2\_2\_RI & 4\_1\_RI & 4\_2\_RI & 3\_1\_RI & 3\_2\_RI  \\
-			\cmidrule[0.4pt]{1-9}
-			Mean & $5.390$ & $5.379$ & $2.767$ & $3.282$ & $1.923$ & $2.090$ & $1.636$ & $1.538$  \\
+			 & 1\_1 & 1\_2 & 2\_1 & 2\_2 & 4\_1 & 4\_2 & 3\_1 & 3\_2 & *\_1 & *\_2 \\
+			\cmidrule[0.4pt]{1-11}
+			Mean & $5.39$ & $5.38$ & $2.7$ & $3.28$ & $1.92$ & $2.09$ & $1.64$ & $1.54$  & $2.93$ & $3.07$\\
 			\bottomrule
 		\end{tabular}
 	}
 \end{table}
 \begin{figure}[h]
-  \centering
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/11_RI.png}
-    \caption{\gls{ri} distribution 1\_1}
-    \label{fig:RI11}
-  \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/12_RI.png}
-    \caption{\gls{ri} distribution 1\_2}
-    \label{fig:RI12}
-  \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/21_RI.png}
-    \caption{\gls{ri} distribution 2\_1}
-    \label{fig:RI21}
-  \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/22_RI.png}
-    \caption{\gls{ri} distribution 2\_2}
-    \label{fig:RI22}
-  \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/31_RI.png}
-    \caption{\gls{ri} distribution 3\_1}
-    \label{fig:RI31}
-  \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/32_RI.png}
-    \caption{\gls{ri} distribution 3\_2}
-    \label{fig:RI32}
-  \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/41_RI.png}
-    \caption{\gls{ri} distribution 4\_1}
-    \label{fig:RI41}
-  \end{subfigure}
-  \begin{subfigure}{0.3\textwidth}
-    \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/42_RI.png}
-    \caption{\gls{ri} distribution 4\_2}
-    \label{fig:RI42}
-  \end{subfigure}
-  \begin{subfigure}{0.4\textwidth}
-    \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/RI1_all.png}
-    \caption{\gls{ri} distribution of *\_1 grouped}
-    \label{fig:grouped-RI1}
-  \end{subfigure}
-  \begin{subfigure}{0.4\textwidth}
-    \includegraphics[width=\linewidth]{graphics/images/statistics/RIs/RI2_all.png}
-    \caption{\gls{ri} distribution of *\_2 grouped}
-    \label{fig:grouped-RI2}
-  \end{subfigure}
+  \includegraphics[width=1\textwidth]{graphics/images/statistics/RIs/RI_compilation.png}
   \caption{Distribution of RIs per video and grouped}
   \label{fig:all-RIs}
 \end{figure}
 
  Figure \ref{fig:all-RIs} plots the \gls{ri}s for each video across both subgroups (A and B). \\
- It lies in the nature of the questions that resulting \gls{ri} data is heavily skewed in many cases (figures \ref{fig:RI11}, \ref{fig:RI12}, \ref{fig:RI31}, \ref{fig:RI32}, \ref{fig:RI41}, \ref{fig:RI42}). Naturally we assume that most people will regard something to look real if it is real. This would usually prohibit the assumption of normality. To mitigate that, we've combined all RIs for videos *\_1 and *\_2 at cross-checked some tests with this combined distribution. As seen in figures \ref{fig:grouped-RI1} and \ref{fig:grouped-RI2}, they can be considered to being normally distributed. Shapiro-Wilk tests deliver p-values of 0.31 for \ref{fig:grouped-RI1} and 0.024 for \ref{fig:grouped-RI2}, while all other non-grouped \gls{ri}s had p-values of < 0.001. In addition, the central limit theorem for larger sample sizes (n > 30) considers normality to be less critical. With our sample size being 195 we will continue with using parametric tests on all RI-values.
+ It lies in the nature of the questions that resulting \gls{ri} data is heavily skewed in many cases (figures in \ref{fig:all-RIs}). Naturally we assume that most people will regard something to look real if it is real. This would usually prohibit the assumption of normality. To mitigate that, we've combined all RIs for videos *\_1 and *\_2 at cross-checked some tests with this combined distribution. As seen in figure \ref{fig:all-RIs}, they can be considered to being normally distributed. Shapiro-Wilk tests deliver p-values of 0.31 for RI *\_1 and 0.024 for RI *\_2, while all other non-grouped \gls{ri}s had p-values of < 0.001. In addition, the central limit theorem for larger sample sizes (n > 30) considers normality to be less critical. With our sample size being 195 we will continue with using parametric tests on all RI-values.
 
 \subsection{RQ1: Artificiality and trust relationship}
 \label{subsec:RQ1}
@@ -1250,7 +1171,7 @@ It might be interesting to conduct further studies with isolated groups, where o
 			$$ & p-value & \textbf{$<$ .001} & $0.931$ & $0.756$ & $0.264$ \\
 			2\_1\_RI & Pearson's r & $0.107$ & \textbf{0.444} & $0.153$ & $0.224$ \\
 			$$ & p-value & $0.135$ & \textbf{$<$ .001} & $0.032$ & $0.002$\\
-			4\_1\_RI & Pearson's r & $-0.00086$ & $0.081$ & \textbf{0.312} & $0.263$   \\
+			4\_1\_RI & Pearson's r & $\approx 0$ & $0.081$ & \textbf{0.312} & $0.263$   \\
 			$$ & p-value & $0.990$ & $0.259$ & \textbf{$<$ .001} & $<$ .001 \\
 			3\_1\_RI & Pearson's r & $0.168$ & $0.053$ & $0.132$ & \textbf{0.256} \\
 			$$ & p-value & $0.019$ & $0.466$ & $0.066$ & \textbf{$<$ .001} \\
@@ -1355,13 +1276,13 @@ By examining comments we also figured, that we had created quite some difference
 	{
 		\begin{tabular}{lrr}
 			\toprule
-			 & latent variable: feel for trustworthines & Uniqueness  \\
+			 & Latent Variable: Factor 1  \\
 			\cmidrule[0.4pt]{1-3}
-			all seems-trustworthy & $0.900$ & $0.190$  \\
-			all video-quality is-good & $0.735$ & $0.460$  \\
-			all moderator is-real & $0.606$ & $0.633$  \\
-			all content is-true & $0.589$ & $0.653$  \\
-			all voice is-real & $0.560$ & $0.686$  \\
+			all seems-trustworthy & $0.900$  \\
+			all video-quality is-good & $0.735$  \\
+			all moderator is-real & $0.606$  \\
+			all content is-true & $0.589$  \\
+			all voice is-real & $0.560$  \\
 			\bottomrule
 			% \addlinespace[1ex]
 			% \multicolumn{3}{p{0.5\linewidth}}{\textit{Note.} Applied rotation method is promax.} \\
