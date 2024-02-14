@@ -45,7 +45,7 @@
   examiner={Prof.\ Dr.\ Sylvia Rothe, Christoph Weber},
   supervisor={Prof.\ Dr.\ Sylvia Rothe},
   startdate={October 4, 2023},
-  enddate={February 20, 2024},
+  enddate={February 14, 2024},
   % Falls keine Lizenz gewünscht wird bitte auf "none" setzen
   % Die Lizenz erlaubt es zu nichtkommerziellen Zwecken die Arbeit zu
   % vervielfältigen und Kopien zu machen. Dabei muss aber immer der Autor
@@ -354,8 +354,7 @@ Besides the technical terms, we also need to quickly cover the concept of the un
   \label{fig:uncanny-valley}
 \end{figure}
 
-Knowledge about the uncanny valley is important because the concept can be widely adopted in other domains besides robotics. We took its effect into account for each test case within our study. As we investigate trust in \gls{ai}-aided news, we must consider that a loss in trust could also be related to uncanny valley effects. \\
-We address how we handled the effect of the uncanny valley in our study design in Section \ref{sec:study design}.
+Knowledge about the uncanny valley is important because the concept can be widely adopted in other domains besides robotics. We took its effect into account for each test case within our study. As we investigate trust in \gls{ai}-aided news, we must consider that a loss in trust could also be related to uncanny valley effects. We address how we handled the effect of the uncanny valley in our study design in Section \ref{sec:study design}.
 
 \section{LLM-based Chatbots}
 A \gls{llm}-based chatbot (ChatGPT) was used at several points to conduct this research. Especially during the software development phase (Chapter \ref{chap:implementation}) and the study design (Section \ref{chap:study}), ChatGPT was consulted to speed up the processes greatly. \\ 
@@ -421,9 +420,7 @@ Midjourney, probably the best-known commercial solution, works over a Discord ch
 
 Besides the development of image generator software, there is also a thriving community for model development and fine tuning the so-called \gls{lora} models. These are then shared on platforms such as \gls{hf} or, more prominently, Civitai.com. While \gls{hf} is focused on the developer side of models, Civitai.com can also be seen as a sort of social network where user-generated content in the form of generated images is showcased. Civitai hosts "thousands of high-quality Stable Diffusion models", as the site currently states \cite{CivitaiHomeOpenSource}. \gls{lora}s are especially interesting as they are very small (several megabytes) compared to full-fledged models (several gigabytes). LoRas help in fine-tuning the larger models towards a specific goal. Because LoRas are so small, they can be shared very easily within the community. It goes without saying that this sort of plug-and-play models are also well suited and used for pornographic purposes as well. Different from the earlier-mentioned of mrdeepfakes.com, civitai.com features nudity filters and seeks to create a safer space for every kind of content. A public debate has already started about whether AI-generated pornography will replace pornography one day. Surely, the ethical concerns could fill a paper on their own and thus require separate research. However, some discussions are mentioned as related work in Chapter \ref{chap:rel-work} – \nameref{chap:rel-work}.
 
-Latent diffusion models act not only as the core technology but also as a platform, and the adoption speed and extensibility of both the technology and the community indicate that a disruption is taking place here. \\
-In the context of this paper, an \gls{sd} workflow is used to generate test videos in the style of computer animation (Figure \ref{fig:scheider-real-sd}). The used workflow is featured later in Section \ref{sec:sd-video}. \\
-Furthermore, \gls{svd} has been released in late 2023; it showcases the rapid rate of advancement in the field of \gls{ldm}s. In just one year, \gls{t2i} generators became text-to-video generators as well.
+Latent diffusion models act not only as the core technology but also as a platform, and the adoption speed and extensibility of both the technology and the community indicate that a disruption is taking place here. In the context of this paper, an \gls{sd} workflow is used to generate test videos in the style of computer animation (Figure \ref{fig:scheider-real-sd}). The used workflow is featured later in Section \ref{sec:sd-video}. Furthermore, \gls{svd} has been released in late 2023; it showcases the rapid rate of advancement in the field of \gls{ldm}s. In just one year, \gls{t2i} generators became text-to-video generators as well.
 
 
 \section{Lip Remapping}
@@ -667,8 +664,7 @@ Because of this, other solutions in the domain of \textbf{media provenance} coul
 All in all, technical solutions can only contribute a minor part to solving the problem of fake news with synthetic media. The following authors have conducted research in these areas and provide alternatives to merely technical solutions. 
 
 \subsubsection*{The Positive Effect of Media Literacy}
-\citeauthor{hwangEffectsDisinformationUsing2021} investigated the protective effect of media literacy education in the context of deepfakes. We have to point out that the authors use the term "deepfake" frequently in their paper, but it seems that their understanding of deepfakes is somewhat analogous to fake news. After all, they never mention deepfakes in the context of artificial intelligence, which contributes to our understanding of their interpretation. \\
-Neither does their study use any sort of AI-generated content but rather exposes the participants to fake news in textual form. Prior to the test, participants received two types of education: general education about disinformation and deepfake-specific education. A control group, which received no education, was also included. Adding to previous, work this study highlights the importance of the public's education in this field.
+\citeauthor{hwangEffectsDisinformationUsing2021} investigated the protective effect of media literacy education in the context of deepfakes. We have to point out that the authors use the term "deepfake" frequently in their paper, but it seems that their understanding of deepfakes is somewhat analogous to fake news. After all, they never mention deepfakes in the context of artificial intelligence, which contributes to our understanding of their interpretation. Neither does their study use any sort of AI-generated content but rather exposes the participants to fake news in textual form. Prior to the test, participants received two types of education: general education about disinformation and deepfake-specific education. A control group, which received no education, was also included. Adding to previous, work this study highlights the importance of the public's education in this field.
 
 While our study did not explicitly collect any data about media literacy to use it as a dependent variable, we tried to infer such preconditions via age and occupation. Comparing \citeauthor{hwangEffectsDisinformationUsing2021}s results with our findings, we could not find any indications of an influential effect. This was most likely due to other stronger factors, underscoring the need for an isolated study on this topic.
 
@@ -719,7 +715,7 @@ While we had some previous experience in the video domain (face swapping and \gl
 \gls{dvt} is a command-line interface (Figure \ref{fig:dvt-interface}) that serves as a wrapper for CoquiTTS and \gls{rvc}, and adds methods for importing raw training data and preprocessing it. \\
 \gls{dvt} is launched as a Docker container with several forwarded ports. The current directory at launch time is set as the working directory for a certain project. Several folders are created for storing the data, downloading the required models, and persisting them on the local filesystem. After the setup is done, one can start working by placing files in the corresponding \verb|./AUDIO/INPUT/| folder. For the case where \gls{dvt} is running on a remote machine, as it was in most of our cases, we have added a web-based filebrowser to the Docker container, which needs to be started by calling \verb|filebrowser| in \gls{dvt}. Once it is up, one can browse to its port, explore the file system, and upload the required data. This is only reasonable for smaller datasets. In the case of our \gls{tts} training data (30 gigabytes), downloading a tar archive via \verb|wget| and unpacking it was more reliable. 
 
-In the following, we treat the preprocessing and training steps of the mentioned technologies (\gls{tts} and \gls{rvc}) in general, then explain the corresponding training data requirements, and in the end, we summarize everything by walking through the whole workflow, from data gathering to training the model. Inference is almost trivial and is well documented for both CoquiTTS and \gls{rvc}.
+Next, we treat the preprocessing and training steps of the mentioned technologies (\gls{tts} and \gls{rvc}) in general, then explain the corresponding training data requirements, and in the end, we summarize everything by walking through the whole workflow, from data gathering to training the model. Inference is almost trivial and is well documented for both CoquiTTS and \gls{rvc}.
 
 \subsection{Text-to-Speech}
 % General
@@ -728,7 +724,7 @@ With the recipes by \Citeauthor{mullerThorstenVoice2023}, it is quite easy to ge
 
 % Preprocessing need
 \textbf{Data Requirements} \\
-Regarding the dataset structure, it seemed simple: The central resources for training a VITS TTS model are voice samples and corresponding transcription. We discovered from the Coqui community that around two to four hours of speech should deliver the best quality. In order to avoid \gls{oom} errors, the audio needs to be split up into segments with a maximum length of 10 seconds. Lastly, each and every clip needs accompanying text (example in Figure \ref{fig:metadata.csv}).
+Regarding the dataset structure, it seemed simple: The central resources for training a VITS TTS model are voice samples and corresponding transcription. We discovered from the Coqui community that around two to four hours of speech should deliver the best quality. In order to avoid \gls{oom} errors, the audio needs to be split up into segments with a maximum length of 10 seconds. Lastly, each and every clip needs accompanying text (example in Figure \ref{fig:metadata.csv}). However, getting to the formatted dataset turned out to be quite time consuming with some room for improvement using automation.
 
 \begin{figure}[h]
   \centering
@@ -736,8 +732,6 @@ Regarding the dataset structure, it seemed simple: The central resources for tra
   \caption{Example of the TTS Training metadata.csv File.}
   \label{fig:metadata.csv}
 \end{figure}
-
-However, getting to the formatted dataset turned out to be quite time consuming with some room for improvement using automation.
 
 % Concrete Workflow
 \textbf{Concrete Workflow} \\
@@ -1122,9 +1116,7 @@ The distribution of industrial sectors shows a focus on IT (24.6\%) and creative
   \caption{Industry Sectors and Used Devices.}
 \end{figure}
 
-We also collected data about the last educational institution attended, gender, and country, but these factors had no relevant effects and thus could be omitted. A better independent variable for such effects would have been to gauge AI/ and media-literacy, a factor we strongly recommend for future studies.\\
-Regarding display devices, smartphones, laptop monitors, and larger external monitors were quite evenly distributed (compare Figure \ref{fig:piechart-devices}). We compare this self-assessment with our measurements later on. \\
-Lastly, we asked participants which of the factors (video content, video quality, or AI logo) had the strongest influence on their judgments regarding perceived trustworthiness (see Figure \ref{fig:most-influence}).
+We also collected data about the last educational institution attended, gender, and country, but these factors had no relevant effects and thus could be omitted. A better independent variable for such effects would have been to gauge AI/ and media-literacy, a factor we strongly recommend for future studies. Regarding display devices, smartphones, laptop monitors, and larger external monitors were quite evenly distributed (compare Figure \ref{fig:piechart-devices}). We compare this self-assessment with our measurements later on. Lastly, we asked participants which of the factors (video content, video quality, or AI logo) had the strongest influence on their judgments regarding perceived trustworthiness (see Figure \ref{fig:most-influence}).
 
 \section{Results}
 \label{sec:results}
